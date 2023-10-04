@@ -1,0 +1,86 @@
+{%- assign blog = blogs[section.settings.blog] -%}
+<div class="soap-shop custom-space without-bg-soap">
+    <div class="vessel">
+        <h2 class="text-align-center ">{{ section.settings.title }}</h2>
+        <ul class="queue">
+            {% for article in blog.articles limit: section.settings.post_limit %}
+            <li class="column-12 column-sm-6 column-md-4 margin-bottom">
+                <div class="product-wrap0 d-flex flex-columns">
+                    {% if article.image %}
+                    <div class="img-wrap">
+                        <img src="{{ article.image | img_url: 'master' }}" alt="img">
+                    </div>
+                    {% endif %}
+                    <div class="product-details text-align-center d-flex flex-columns justify-content-between f-grow-1">
+                        <strong class="product-name text-green d-block ethos-h">
+                            {{ article.title }}
+                        </strong>
+                        <p>
+                            {% if article.excerpt.size > 0 %}
+                            {{ article.excerpt }}
+                            {% else %}
+                            {{ article.content | strip_html | truncate: 150 }}
+                            {% endif %}
+                        </p>
+                        <a href="{{ article.url }}" class="btn btn-product w-100 text-light">{{ section.settings.btntxt
+                            }}</a>
+                    </div>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+        <a href="{{ blog.url }}" class="btn btn-seceondry text-light neufreit">
+            {{ 'blogs.article.view_all' | t }}
+        </a>
+    </div>
+</div>
+{% schema %}
+{
+"name": "007-blog",
+"class": "index-section",
+"settings": [
+{
+"type": "text",
+"id": "title",
+"label": "Heading",
+"default": "Blog posts"
+},
+{
+"id": "blog",
+"type": "blog",
+"label": "Blog"
+},
+{
+"type": "range",
+"id": "post_limit",
+"label": "Posts",
+"min": 3,
+"max": 12,
+"step": 3,
+"default": 3
+},
+{
+"type": "textarea",
+"id": "btntxt",
+"label": "btn txt",
+"default": "Read the blog post"
+},
+{
+"type": "checkbox",
+"id": "show_view_all",
+"label": "Show 'View all' button",
+"default": true
+}
+],
+"presets": [
+{
+"name": "007-blog",
+"category": "custom",
+"settings": {
+"blog": "News",
+"post_limit": 3
+}
+}
+]
+}
+{% endschema %}

@@ -1,0 +1,73 @@
+{% if section.settings.enable_section == true %}
+<div class="main-banner black-layer position-relative" style="background-image: url({{ section.settings.image | img_url: '2000x' }});">
+    <div class="vessel">
+        <div class="content-banner text-align-center">
+            {% if section.settings.title != blank %}
+              <h2 class="text-light">{{ section.settings.title | escape }}</h2>
+            {% endif %}
+            {% if section.settings.sub_title != blank %}
+              <strong class="neufreit text-light text-uppercase">{{ section.settings.sub_title | escape }}</strong>
+            {% endif %}
+            {% if section.settings.sub_title_2 != blank %}
+              <p class="text-light text-uppercase neufreit">{{ section.settings.sub_title_2 | escape }}</p>
+            {% endif %}
+            {% if section.settings.text != blank %}
+              <p class="text-light">{{ section.settings.text }}</p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endif %}
+
+{% schema %}
+  {
+    "name": "Subscription Banner",
+    "class": "subscription-bnr",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "enable_section",
+        "label": "Enable?",
+        "default": true
+      },
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "Image with text overlay"
+      },
+      {
+        "type": "text",
+        "id": "sub_title",
+        "label": "Sub Heading"
+      },
+      {
+        "type": "text",
+        "id": "sub_title_2",
+        "label": "Sub Heading 2"
+      },
+      {
+        "type": "textarea",
+        "id": "text",
+        "label": "Text"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Subscription Banner",
+        "category": "Image"
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

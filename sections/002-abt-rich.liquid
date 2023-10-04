@@ -1,0 +1,52 @@
+<div class="story-start custom-space overflow-hidden">
+    <div class="vessel">
+        <div class="queue">
+            <div class="column-12">
+                <div class="em-cc-01 margin-bottom text-center">
+                    <h2>{{ section.settings.title }}</h2>
+                    <strong class="text-uppercase neufreit">{{ section.settings.desc }}</strong>
+                </div>
+            </div>
+        </div>
+        <div class="queue">
+            <div class="column-12">
+                <div class="em-cc-01 content-container text-center">
+                    <p>{{ section.settings.rich }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% schema %}
+{
+"name": "002-abt-rich",
+"class": "ind-o2",
+"settings": [
+{
+"type": "textarea",
+"id": "title",
+"label": "title",
+"default": "Wash Your Spirit Clean"
+},
+{
+"type": "textarea",
+"id": "desc",
+"label": "description",
+"default": "BETTER FOR OUR SKIN."
+},
+{
+"type": "richtext",
+"id": "rich",
+"label": "text long"
+}
+],
+"blocks": [
+],
+"presets": [
+{
+"name": "002-abt-rich",
+"category": "custom"
+}
+]
+}
+{% endschema %}

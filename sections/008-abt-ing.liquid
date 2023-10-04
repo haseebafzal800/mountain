@@ -1,0 +1,90 @@
+<div class="em-mind-wrapper em-ingredients overflow-hidden custom-space">
+    <div class="vessel">
+        <div class="queue">
+            <div class="column-12">
+                <div class="content-container margin-bottom text-center">
+                    <h2>{{ section.settings.titlem }}</h2>
+                </div>
+            </div>
+        </div>
+        <div class="queue">
+            <div class="column-12 column-lg-6 column-xl-4 column-xxl-3">
+                <div class="cc-container">
+                    <ul class="left-ingre ingre margin-bottom">
+                        {% for block in section.blocks %}
+                        {% if forloop.index < 5 %} <li class="em-content margin-bottom">
+                            <strong>{{ block.settings.title }}</strong>
+                            <p>{{ block.settings.desc }}</p>
+                            </li>
+                            {% endif %}
+                            {% endfor %}
+                    </ul>
+                </div>
+            </div>
+            <div class="column-12 column-lg-6 column-xl-4  column-xxl-6 em-cc-00">
+                <div class="image-wrap margin-bottom">
+                    {% if section.settings.img %}
+                    <img src="{{ section.settings.img | img_url: 'master' }}" alt="">
+                    {% endif %}
+                </div>
+            </div>
+            <div class="column-12 column-lg-6 column-xl-4 column-xxl-3">
+                <ul class="right-ingre ingre">
+                    {% for block in section.blocks %}
+                    {% if forloop.index > 4 %}
+                    <li class="em-content margin-bottom">
+                        <strong>{{ block.settings.title }}</strong>
+                        <p>{{ block.settings.desc }}</p>
+                    </li>
+                    {% endif %}
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+{% schema %}
+{
+"name": "008-abt-ing",
+"max_blocks": 8,
+"settings": [
+{
+"type": "textarea",
+"id": "titlem",
+"label": "title",
+"default": "Down-TO-Earth Ingredients"
+},
+{
+"type": "image_picker",
+"id": "img",
+"label": "img"
+}
+],
+"blocks": [
+{
+"type": "ing",
+"name":"ing",
+"settings": [
+{
+"type": "textarea",
+"id": "title",
+"label": "title",
+"default": "Plant-Based"
+},
+{
+"type": "textarea",
+"id": "desc",
+"label": "desc",
+"default": "vegan and ethically sourced plant based"
+}
+]
+}
+],
+"presets": [
+{
+"name": "008-abt-ing",
+"category": "custom"
+}
+]
+}
+{% endschema %}

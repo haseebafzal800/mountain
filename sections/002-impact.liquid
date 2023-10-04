@@ -1,0 +1,62 @@
+<div class="made-impact overflow-hidden custom-space">
+            <div class="vessel">
+                <div class="queue">
+                    <div class="column-12">
+                        <div class="content-container text-center margin-bottom">
+                          {% if section.settings.heading != blank %}
+                            <h2 class="margin-bottom">{{ section.settings.heading }}</h2>
+                          {% endif %}
+                          {% if section.settings.text != blank %}
+                            <p>{{ section.settings.text  }}</p>
+                          {% endif %}
+                        </div>
+                    </div>
+                </div>
+                <div class="queue">
+                    <div class="column-12">
+                        <div class="map-wrapper ">
+                          <div develic-map-container=""></div>
+                        </div>
+                {% comment %}
+                      {% if section.settings.image != blank %}
+                        <div class="image-wrap">
+                            <img src="{{ section.settings.image | img_url: "x1024" }}" alt="image">
+                        </div>
+                     {% endif %}
+                {% endcomment %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+{% schema %}
+  {
+    "name": "002-impact",
+    "settings": [
+      {
+        "type": "text",
+        "id": "heading",
+        "label": "Heading",
+        "default": "Where We’ve Made An Impact"
+      },
+      {
+        "type": "textarea",
+        "id": "text",
+        "label": "Content Paragraph",
+        "default": "As proud members of 1% For The Planet we donate 1% of gross sales annually to environmental causes"
+      },
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Impact Image"
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

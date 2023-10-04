@@ -1,0 +1,1090 @@
+
+<div class="cart-sub-wrap" data-section-id="{{ section.id }}" data-section-type="cart-template">
+    <div class="vessel">
+        <div class="queue subscription-block">
+            <div class="column-12">
+                <div class="cart-sub position-relative w-100">
+                    <div class="button-textbar d-flex justify-content-between align-columns-center flex-wrap">
+                        <h2>Manage Subscription</h2>
+                        <div class="btns-wrap">
+                            <button class="btn btn-gold">SKIP</button>
+                            <button class="btn btn-product">ORDER NOW</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="three-col">
+            <div class="queue">
+                <div class="column-12 column-md-4">
+                    <div class="card">
+                        <h4>Last Shipment Date / Order #:</h4>
+                        {% comment %}
+                        <p>Delivered 3/23/2022<br> Order # 123456</p>
+                        {% endcomment %}
+                        {% for order in customer.orders %}
+                          {% assign getIndex = forloop.index %}
+                          {% if getIndex == 1 %}
+                            <p>Delivered {{ order.created_at | date: format: 'day_month_year' }}<br> Order {{ order.name }}</p>
+                          {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="column-12 column-md-4">
+                    <div class="card">
+                        <h4>Shipping Frequency:</h4>
+                        <p>Scheduled <span id="scheduled_order"></p>
+                        {% if customer.metafields.subscriptions.customer_string %}
+                          <a href="/tools/recurring/portal/{{ customer.metafields.subscriptions.customer_string }}/subscriptions/" class="btn btn-product cart-btn text-light">CHANGE</a>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="column-12 column-md-4">
+                    <div class="card">
+                        <h4>Next Order Date:</h4>
+                        <p>Next Order Date: <span id="next_order"></span></p>
+                        {% if customer.metafields.subscriptions.customer_string %}
+                          <a href="/tools/recurring/portal/{{ customer.metafields.subscriptions.customer_string }}/subscriptions/" class="btn btn-product cart-btn text-light">CHANGE</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+      {% if cart.item_count > 0 %}
+        <form class="checkout-form" action="/cart" method="post" novalidate>
+            <div class="queue">
+                <div class="column-12 column-lg-8">
+                    <div class="subscription">
+                        <div class="heading">
+                            <h3>Subscription</h3>
+                            {% if cart.item_count == 1 %}
+                              <span>{{ cart.item_count }} ITEM</span>
+                            {% else %}
+                              <span>{{ cart.item_count }} ITEMS</span>
+                            {% endif %}
+                        </div>
+                      {% for item in cart.items %}
+                        {% assign getCollection = '' %}
+                        {% for collection in item.product.collections %}
+                          {% assign getCollection = collection.title %}
+                        {% endfor %}
+                        {%- assign property_size = item.properties | size -%}
+                          {% if property_size > 0 %}
+                              {% assign soap_qty = false %}
+                              {% assign ship_type = false %}
+                              {% assign pro_1 = false %}
+                              {% assign pro_2 = false %}
+                              {% assign pro_3 = false %}
+                              {% assign pro_4 = false %}
+                              {% assign pro_1_qty = '' %}
+                              {% assign pro_2_qty = '' %}
+                              {% assign pro_3_qty = '' %}
+                              {% assign pro_4_qty = '' %}
+                              {% assign total_qty = 0 %}
+                              {% for p in item.properties %}
+                                {%- if p.first.first == '_' -%}{%- continue -%}{%- endif -%}
+                                {% unless p.last == blank or p.first == "subscription_id" or p.first == "shipping_interval_frequency" or p.first == "shipping_interval_unit_type" or p.first == "charge_interval_frequency" or p.first == "charge_interval_unit_type" or p.first == "soap_types" %}
+                                  {% assign p_txt = '' %}
+                                  {% if p.last contains '/uploads/' %}
+                                    <a href="{{ p.last }}">{{ p.last | split: '/' | last }}</a>
+                                  {% else %}
+                                    {% assign p_txt = p.last %}
+                                  {% endif %}
+                                  {% if p.first == 'Soap Quantity' %}
+                                    {% assign soap_qty_v = p_txt %}
+                                    {% assign soap_qty = true %}
+                                  {% endif %}
+                                  {% if p.first == 'Shipping' %}
+                                    {% assign ship_type_v = p_txt %}
+                                    {% assign ship_type = true %}
+                                  {% endif %}
+                                  {% if p.first == 'Soap_1 Name' %}
+                                    {% assign pro_1_name = p_txt %}
+                                    {% assign pro_1 = true %}
+                                  {% endif %}
+                                  {% if p.first == 'Soap_1 Quantity' %}
+                                    {% assign pro_1_qty = p.last %}
+                                    {% assign total_qty = total_qty | plus: p.last %}
+                                  {% endif %}
+                                  {% if p.first == 'Soap_2 Name' %}
+                                    {% assign pro_2_name = p_txt %}
+                                    {% assign pro_2 = true %}
+                                  {% endif %}
+                                  {% if p.first == 'Soap_2 Quantity' %}
+                                    {% assign pro_2_qty = p_txt %}
+                                    {% assign total_qty = total_qty | plus: p.last %}
+                                  {% endif %}
+                                  {% if p.first == 'Soap_3 Name' %}
+                                    {% assign pro_3_name = p_txt %}
+                                    {% assign pro_3 = true %}
+                                  {% endif %}
+                                  {% if p.first == 'Soap_3 Quantity' %}
+                                    {% assign pro_3_qty = p_txt %}
+                                    {% assign total_qty = total_qty | plus: p.last %}
+                                  {% endif %}
+                                  {% if p.first == 'Soap_4 Name' %}
+                                    {% assign pro_4_name = p_txt %}
+                                    {% assign pro_4 = true %}
+                                  {% endif %}
+                                  {% if p.first == 'Soap_4 Quantity' %}
+                                    {% assign pro_4_qty = p_txt %}
+                                    {% assign total_qty = total_qty | plus: p.last %}
+                                  {% endif %}
+                                {% endunless %}
+                              {% endfor %}
+                        {% endif %}
+                        
+                        <div class="product-item">
+                            <div class="img-holder">
+                                <img src="{{ item | img_url: '95x95', scale: 2 }}" alt="{{ item.title | escape }}">
+                            </div>
+                            <div class="txt-holder">
+                                <div class="head">
+                                    <h5><a href="{{ item.url }}">{{ item.product.title }}</a></h5>
+                                    <span class="price">{{ item.line_price | money }}</span>
+                                </div>
+                                <p>CATEGORY: <strong>{{ getCollection }}</strong></p>
+                                {% if property_size > 0 %}
+                                  <p>BOX SIZE: <strong>{{ soap_qty_v }}</strong></p>
+                                  <p>Subscription Type: <strong>{{ ship_type_v }}</strong></p>
+                                  <div class="bottom">
+                                    <a class="remove-link cart__remove" href="/cart/change?line={{ forloop.index }}&amp;quantity=0">REMOVE</a>
+                                  </div>
+                                {% else %}
+                                  <div class="bottom">
+                                    <div class="quantity">
+                                        <a href="#" class="quantity__minus"><span>-</span></a>
+                                        <input name="updates[]" type="text" class="quantity__input" id="updates_{{ item.key }}" value="{{ item.quantity }}">
+                                        <a href="#" class="quantity__plus"><span>+</span></a>
+                                    </div>
+                                    {% comment %}
+                                    <a href="#" class="btn btn-product cart-btn text-light">REPLACE</a>
+                                    {% endcomment %}
+                                    <input type="submit" name="update" class="btn btn-product cart-btn text-light" value="{{ 'cart.general.update' | t }}">
+                                    <a class="remove-link cart__remove" href="/cart/change?line={{ forloop.index }}&amp;quantity=0">REMOVE</a>
+                                  </div>
+                                {% endif %}
+                            </div>
+                            {% if property_size > 0 %}
+                              {% assign my_integer = total_qty %}
+                              {% assign my_float = my_integer | times: 1.0 %}
+                              {% assign single_price = item.line_price | divided_by: my_float  %}
+                              {% if pro_1 == true %}
+                                  <div class="sub_product_detail">
+                                    <div class="img-holder">
+                                        <img src="{{ pro_1_name | handleize | append: ".jpg" | file_img_url: '95x95', scale: 2 }}" alt="{{ pro_1_name | escape }}">
+                                    </div>
+                                    <div class="txt-holder">
+                                        <div class="head">
+                                            <h5>{{ pro_1_name }}</h5>
+                                            <span class="price single_price">{{ single_price | times: pro_1_qty | money }}</span>
+                                        </div>
+                                        <p>Quantity: <strong>{{ pro_1_qty }}</strong></p>
+                                    </div>
+                                  </div>
+                                {% endif %}
+                                {% if pro_2 == true %}
+                                  <div class="sub_product_detail">
+                                    <div class="img-holder">
+                                        <img src="{{ pro_2_name | handleize | append: ".jpg" | file_img_url: '95x95', scale: 2 }}" alt="{{ pro_2_name | escape }}">
+                                    </div>
+                                    <div class="txt-holder">
+                                        <div class="head">
+                                            <h5>{{ pro_2_name }}</h5>
+                                            <span class="price single_price">{{ single_price | times: pro_2_qty | money }}</span>
+                                        </div>
+                                        <p>Quantity: <strong>{{ pro_2_qty }}</strong></p>
+                                    </div>
+                                  </div>
+                                {% endif %}
+                                {% if pro_3 == true %}
+                                  <div class="sub_product_detail">
+                                    <div class="img-holder">
+                                        
+                                        <img src="{{ pro_3_name | handleize | append: ".jpg" | file_img_url: '95x95' }}" alt="{{ pro_3_name | escape }}">
+                                    </div>
+                                    <div class="txt-holder">
+                                        <div class="head">
+                                            <h5>{{ pro_3_name }}</h5>
+                                            <span class="price single_price">{{ single_price | times: pro_3_qty | money }}</span>
+                                        </div>
+                                        <p>Quantity: <strong>{{ pro_3_qty }}</strong></p>
+                                    </div>
+                                  </div>
+                                {% endif %}
+                                {% if pro_4 == true %}
+                                  <div class="sub_product_detail">
+                                    <div class="img-holder">
+                                        <img src="{{ pro_4_name | handleize | append: ".jpg" | file_img_url: '95x95' }}" alt="{{ pro_4_name | escape }}">
+                                    </div>
+                                    <div class="txt-holder">
+                                        <div class="head">
+                                            <h5>{{ pro_4_name }}</h5>
+                                            <span class="price single_price">{{ single_price | times: pro_4_qty | money }}</span>
+                                        </div>
+                                        <p>Quantity: <strong>{{ pro_4_qty }}</strong></p>
+                                    </div>
+                                  </div>
+                                {% endif %}
+                            {% endif %}
+                        </div>
+                      {% endfor %}
+        {% comment %}
+                        <div class="product-item">
+                            <div class="img-holder">
+                                <img src="//cdn.shopify.com/s/files/1/2458/1997/files/about-product_9db19b38-e791-4169-b635-69bb710e5b1a.png?v=1663151696" alt="">
+                            </div>
+                            <div class="txt-holder">
+                                <div class="head">
+                                    <h5>Alpine Start</h5>
+                                    <span class="price">$8.00</span>
+                                </div>
+                                <p>CATEGORY: <strong>BODY SOAP</strong></p>
+                                <div class="bottom">
+                                    <div class="quantity">
+                                        <a href="#" class="quantity__minus"><span>-</span></a>
+                                        <input name="quantity2" type="text" class="quantity__input" value="2">
+                                        <a href="#" class="quantity__plus"><span>+</span></a>
+                                    </div>
+                                    <a href="#" class="btn btn-product cart-btn text-light">REPLACE</a>
+                                    <a class="remove-link" href="#">REMOVE</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-item">
+                            <div class="img-holder">
+                                <img src="//cdn.shopify.com/s/files/1/2458/1997/files/about-product_9db19b38-e791-4169-b635-69bb710e5b1a.png?v=1663151696" alt="">
+                            </div>
+                            <div class="txt-holder">
+                                <div class="head">
+                                    <h5>Alpine Start</h5>
+                                    <span class="price">$8.00</span>
+                                </div>
+                                <p>CATEGORY: <strong>BODY SOAP</strong></p>
+                                <div class="bottom">
+                                    <div class="quantity">
+                                        <a href="#" class="quantity__minus"><span>-</span></a>
+                                        <input name="quantity3" type="text" class="quantity__input" value="3">
+                                        <a href="#" class="quantity__plus"><span>+</span></a>
+                                    </div>
+                                    <a href="#" class="btn btn-product cart-btn text-light">REPLACE</a>
+                                    <a class="remove-link" href="#">REMOVE</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-item">
+                            <div class="img-holder">
+                                <img src="//cdn.shopify.com/s/files/1/2458/1997/files/about-product_9db19b38-e791-4169-b635-69bb710e5b1a.png?v=1663151696" alt="">
+                            </div>
+                            <div class="txt-holder">
+                                <div class="head">
+                                    <h5>Alpine Start</h5>
+                                    <span class="price">$8.00</span>
+                                </div>
+                                <p>CATEGORY: <strong>BODY SOAP</strong></p>
+                                <div class="bottom">
+                                    <div class="quantity">
+                                        <a href="#" class="quantity__minus"><span>-</span></a>
+                                        <input name="quantity4" type="text" class="quantity__input" value="4">
+                                        <a href="#" class="quantity__plus"><span>+</span></a>
+                                    </div>
+                                    <a href="#" class="btn btn-product cart-btn text-light">REPLACE</a>
+                                    <a class="remove-link" href="#">REMOVE</a>
+                                </div>
+                            </div>
+                        </div>
+        {% endcomment %}
+                        <div class="free-shipping">
+                          {% assign freeShip = section.settings.freeship | round: 2 %}
+                          {% assign cartTotal = cart.total_price | divided_by: 100.0 %}
+                          {% assign freeShipAmount = freeShip | minus: cartTotal %}
+                          
+                          {% if freeShip > cartTotal  %}
+                            <p><i class="fa fa-car" aria-hidden="true"></i>ONLY ${{ freeShipAmount | round: 2 }} TO GO FOR FREE SHIPPING!</p>
+                          {% else %}
+                            <p><i class="fa fa-car" aria-hidden="true"></i>HURRY! YOU ARE QUALIFIED FOR FREE SHIPPING!</p>
+                          {% endif %}
+                        </div>
+                        <a class="btn btn-gold w-100" href="#">ADD ADDITIONAL ITEMS</a>
+                    </div>
+                </div>
+                <div class="column-12 column-lg-4 cart-aside">
+                    <div class="cart-sub position-relative order-summary">
+                        <div class="heading">
+                            <h3>Order Summary</h3>
+                        </div>
+                        <ul class="details">
+                            <li>
+                                <strong>SUBTOTAL</strong>
+                                <strong>{{ cart.total_price | money }}</strong>
+                            </li>
+                            {% if cart.total_discounts > 0 %}
+                            <li>
+                                <strong>MEMBER DISCOUNT</strong>
+                                <strong>{{ cart.total_discounts | money }}</strong>
+                            </li>
+                            {% endif %}
+                            <li>
+                                <strong>SHIPPING</strong>
+                                {% comment %}
+                                <strong>{{ 'cart.general.shipping_at_checkout' | t }}</strong>
+                                {% endcomment %}
+                            </li>
+                            {% comment %}
+                            <li>
+                                <strong>ESTIMATED TAX</strong>
+                                <strong>$89.00</strong>
+                            </li>
+                            {% endcomment %}
+                            <li>
+                                <hr>
+                            </li>
+                            <li class="total">
+                                <strong>TOTAL</strong>
+                                <strong>{{ cart.total_price | money }}</strong>
+                            </li>
+                        </ul>
+                        <p>EST. DELIVERY BY <strong>MARCH 26, 2022</strong></p>
+                        <div class="checkout-fields">
+                            <div class="coupen-field">
+                                <input type="text" placeholder="Coupon Code">
+                            </div>
+                            <input class="btn btn-product w-100" type="submit" value="PROCEED TO CHECKOUT">
+                        </div>
+                    </div>
+                    <div class="three-col">
+                        <div class="card">
+                            <h4>Shipping Address</h4>
+                            {% for address in customer.addresses %}
+                              {% if address == customer.default_address %}
+                                {{ address | format_address }}
+                              {% endif %}
+                            {% endfor %}
+                            <a href="/account/addresses" class="btn btn-product cart-btn text-light">CHANGE</a>
+                        </div>
+                      {% comment %}
+                        <div class="card">
+                            <h4>Payment Method:</h4>
+                            <p>****6890 Expires 12/2025</p>
+                            <span id="payment_method"></span>
+                            <a href="/tools/recurring/portal/{{ customer.metafields.subscriptions.customer_string }}/payment_methods" class="btn btn-product cart-btn text-light">CHANGE</a>
+                            
+                        </div>
+                      {% endcomment %}
+                    </div>
+                </div>
+            </div>
+        </form>
+      {% else %}
+        <div class="empty-page-content text-center">
+          <h1>{{ 'cart.general.title' | t }}</h1>
+          <p class="cart--empty-message">{{ 'cart.general.empty' | t }}</p>
+          <div class="cookie-message">
+            <p>{{ 'cart.general.cookies_required' | t }}</p>
+          </div>
+          <a href="/" class="btn btn--has-icon-after cart__continue-btn">{{ 'general.404.link' | t }}{% include 'icon-arrow-right' %}</a>
+        </div>
+      {% endif %}
+    </div>
+    <div class="cart-products soap-shop">
+        <div class="vessel">
+            <h2 class="text-center"><strong>Anything Else We Can Help With?</strong></h2>
+            <ul class="queue">
+                <li class="column-12 column-sm-6 column-md-3 margin-bottom">
+                    <div class="product-wrap0 d-flex flex-columns">
+                        <div class="img-wrap">
+                            <img src="https://cdn.shopify.com/s/files/1/2458/1997/files/q1.png?v=1660154200" alt="img">
+                        </div>
+                        <div class="cart-product-details text-align-center d-flex flex-columns justify-content-between f-grow-1">
+                            <strong class="product-name text-green d-block ethos-h">
+                    Bar Soaps
+                </strong>
+                            <button type="submit" class="btn btn-product w-100 text-light">SHOP THE COLLECTION</button>
+                        </div>
+                    </div>
+                </li>
+                <li class="column-12 column-sm-6 column-md-3 margin-bottom">
+                    <div class="product-wrap0 d-flex flex-columns">
+                        <div class="img-wrap">
+                            <img src="https://cdn.shopify.com/s/files/1/2458/1997/files/q1.png?v=1660154200" alt="img">
+                        </div>
+                        <div class="cart-product-details text-align-center d-flex flex-columns justify-content-between f-grow-1">
+                            <strong class="product-name text-green d-block ethos-h">
+                    Bar Soaps
+                </strong>
+                            <button type="submit" class="btn btn-product w-100 text-light">SHOP THE COLLECTION</button>
+                        </div>
+                    </div>
+                </li>
+                <li class="column-12 column-sm-6 column-md-3 margin-bottom">
+                    <div class="product-wrap0 d-flex flex-columns">
+                        <div class="img-wrap">
+                            <img src="https://cdn.shopify.com/s/files/1/2458/1997/files/q1.png?v=1660154200" alt="img">
+                        </div>
+                        <div class="cart-product-details text-align-center d-flex flex-columns justify-content-between f-grow-1">
+                            <strong class="product-name text-green d-block ethos-h">
+                    Bar Soaps
+                </strong>
+                            <button type="submit" class="btn btn-product w-100 text-light">SHOP THE COLLECTION</button>
+                        </div>
+                    </div>
+                </li>
+                <li class="column-12 column-sm-6 column-md-3 margin-bottom">
+                    <div class="product-wrap0 d-flex flex-columns">
+                        <div class="img-wrap">
+                            <img src="https://cdn.shopify.com/s/files/1/2458/1997/files/q1.png?v=1660154200" alt="img">
+                        </div>
+                        <div class="cart-product-details text-align-center d-flex flex-columns justify-content-between f-grow-1">
+                            <strong class="product-name text-green d-block ethos-h">
+                    Bar Soaps
+                </strong>
+                            <button type="submit" class="btn btn-product w-100 text-light">SHOP THE COLLECTION</button>
+                        </div>
+                    </div>
+                </li>
+                <li class="column-12 column-sm-6 column-md-3 margin-bottom">
+                    <div class="product-wrap0 d-flex flex-columns">
+                        <div class="img-wrap">
+                            <img src="https://cdn.shopify.com/s/files/1/2458/1997/files/q1.png?v=1660154200" alt="img">
+                        </div>
+                        <div class="cart-product-details text-align-center d-flex flex-columns justify-content-between f-grow-1">
+                            <strong class="product-name text-green d-block ethos-h">
+                    Bar Soaps
+                </strong>
+                            <button type="submit" class="btn btn-product w-100 text-light">SHOP THE COLLECTION</button>
+                        </div>
+                    </div>
+                </li>
+                <li class="column-12 column-sm-6 column-md-3 margin-bottom">
+                    <div class="product-wrap0 d-flex flex-columns">
+                        <div class="img-wrap">
+                            <img src="https://cdn.shopify.com/s/files/1/2458/1997/files/q1.png?v=1660154200" alt="img">
+                        </div>
+                        <div class="cart-product-details text-align-center d-flex flex-columns justify-content-between f-grow-1">
+                            <strong class="product-name text-green d-block ethos-h">
+                    Bar Soaps
+                </strong>
+                            <button type="submit" class="btn btn-product w-100 text-light">SHOP THE COLLECTION</button>
+                        </div>
+                    </div>
+                </li>
+                <li class="column-12 column-sm-6 column-md-3 margin-bottom">
+                    <div class="product-wrap0 d-flex flex-columns">
+                        <div class="img-wrap">
+                            <img src="https://cdn.shopify.com/s/files/1/2458/1997/files/q1.png?v=1660154200" alt="img">
+                        </div>
+                        <div class="cart-product-details text-align-center d-flex flex-columns justify-content-between f-grow-1">
+                            <strong class="product-name text-green d-block ethos-h">
+                    Bar Soaps
+                </strong>
+                            <button type="submit" class="btn btn-product w-100 text-light">SHOP THE COLLECTION</button>
+                        </div>
+                    </div>
+                </li>
+                <li class="column-12 column-sm-6 column-md-3 margin-bottom">
+                    <div class="product-wrap0 d-flex flex-columns">
+                        <div class="img-wrap">
+                            <img src="https://cdn.shopify.com/s/files/1/2458/1997/files/q1.png?v=1660154200" alt="img">
+                        </div>
+                        <div class="cart-product-details text-align-center d-flex flex-columns justify-content-between f-grow-1">
+                            <strong class="product-name text-green d-block ethos-h">
+                    Bar Soaps
+                </strong>
+                            <button type="submit" class="btn btn-product w-100 text-light">SHOP THE COLLECTION</button>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="subscription-text-section text-center">
+        <div class="vessel">
+            <h2><strong>No Longer Need This Subscription?</strong></h2>
+            <a class="link" href="#">CANCEL MY SUBSCRIPTION</a>
+        </div>
+    </div>
+</div>
+
+{% comment %}
+<div class="page-width" data-section-id="{{ section.id }}" data-section-type="cart-template">
+
+  {% if cart.item_count > 0 %}
+    <div class="section-header text-center">
+      <h1>{{ 'cart.general.title' | t }}</h1>
+    </div>
+
+    <form action="/cart" method="post" novalidate class="cart">
+      <table>
+        <thead class="cart__row cart__header">
+          <th colspan="2">{{ 'cart.label.product' | t }}</th>
+          <th>{{ 'cart.label.price' | t }}</th>
+          <th class="text-center">{{ 'cart.label.quantity' | t }}</th>
+          <th class="text-right">{{ 'cart.label.total' | t }}</th>
+        </thead>
+        <tbody>
+          {% for item in cart.items %}
+            <tr class="cart__row border-bottom line{{ forloop.index }} cart-flex{% if forloop.first %} border-top{% endif %}">
+              <td class="cart__image-wrapper cart-flex-item">
+                <a href="{{ item.url | within: collections.all }}">
+                  <img class="cart__image" src="{{ item | img_url: '95x95', scale: 2 }}" alt="{{ item.title | escape }}">
+                </a>
+              </td>
+              <td class="cart__meta small--text-left cart-flex-item">
+                <div class="list-view-item__title">
+                  <a href="{{ item.url }}">
+                    {{ item.product.title }}
+                    {% if item.quantity > 1 %}
+                      <span class="medium-up--hide"><span class="visually-hidden">{{ 'cart.label.quantity' | t }}</span>(x{{ item.quantity }})</span>
+                    {% endif %}
+                  </a>
+                </div>
+                {% unless item.variant.title contains 'Default' %}
+                  
+                  <div class="cart__meta-text">
+                    {% for option in item.product.options %}
+                      
+                    {% endfor %}
+                  </div>
+                {% endunless %}
+
+                {%- assign property_size = item.properties | size -%}
+                {% if property_size > 0 %}
+                  <div class="cart__meta-text abc">
+                    {% for p in item.properties %}
+				{%- if p.first.first == '_' -%}{%- continue -%}{%- endif -%}
+                      {% unless p.last == blank or p.first == "subscription_id" or p.first == "shipping_interval_frequency" or p.first == "shipping_interval_unit_type" or p.first == "charge_interval_frequency" or p.first == "charge_interval_unit_type" or p.first == "soap_types" %}
+                        {{ p.first }}:
+                       
+                        
+                        {% if p.last contains '/uploads/' %}
+                          <a href="{{ p.last }}">{{ p.last | split: '/' | last }}</a>
+                        {% else %}
+                          {{ p.last }}
+                           <br>
+                        {% endif %}
+                      {% endunless %}
+                    {% endfor %}
+                  </div>
+                {% endif %}
+
+                <p class="small--hide">
+                  <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0" class="btn btn--small btn--secondary cart__remove">{{ 'cart.general.remove' | t }}</a>
+                </p>
+              </td>
+              <td class="cart__price-wrapper cart-flex-item">
+                {{ item.price | money }}
+
+                {% for discount in item.discounts %}
+                  <div class="cart-item__discount medium-up--hide">{{ discount.title }}</div>
+                {% endfor %}
+
+                <div class="cart__edit medium-up--hide">
+                  <button type="button" class="btn btn--secondary btn--small js-edit-toggle cart__edit--active" data-target="line{{ forloop.index }}">
+                    <span class="cart__edit-text--edit">{{ 'cart.general.edit' | t }}</span>
+                    <span class="cart__edit-text--cancel">{{ 'cart.general.cancel' | t }}</span>
+                  </button>
+                </div>
+              </td>
+              <td class="cart__update-wrapper cart-flex-item text-right">
+                <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0" class="btn btn--small btn--secondary cart__remove medium-up--hide">{{ 'cart.general.remove' | t }}</a>
+                <div class="cart__qty">
+                  <label for="updates_{{ item.key }}" class="cart__qty-label">{{ 'cart.label.quantity' | t }}</label>
+                  <input class="cart__qty-input" type="number" name="updates[]" id="updates_{{ item.key }}" value="{{ item.quantity }}" min="0" pattern="[0-9]*">
+                </div>
+                <input type="submit" name="update" class="btn btn--small cart__update medium-up--hide" value="{{ 'cart.general.update' | t }}">
+              </td>
+              <td class="text-right small--hide">
+                {% if item.original_line_price != item.line_price %}
+                  <div class="cart-item__original-price"><s>{{ item.original_line_price | money }}</s></div>
+                {% endif %}
+
+                <div>
+                  {{ item.line_price | money }}
+                </div>
+
+                {% for discount in item.discounts %}
+                  <div class="cart-item__discount">{{ discount.title }}</div>
+                {% endfor %}
+              </td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+
+      <footer class="cart__footer">
+        <div class="grid">
+          {% if section.settings.cart_notes_enable %}
+            <div class="grid__item medium-up--one-half cart-note">
+              <label for="CartSpecialInstructions" class="cart-note__label small--text-center">{{ 'cart.general.note' | t }}</label>
+              <textarea name="note" id="CartSpecialInstructions" class="cart-note__input">{{ cart.note }}</textarea>
+            </div>
+          {% endif %}
+          <div class="grid__item text-right small--text-center{% if section.settings.cart_notes_enable %} medium-up--one-half{% endif %}">
+            <div>
+              <span class="cart__subtotal-title">{{ 'cart.general.subtotal' | t }}</span>
+              <span class="cart__subtotal">{{ cart.total_price | money }}</span>
+            </div>
+            {% if cart.total_discounts > 0 %}
+              <div class="cart__savings">
+                {{ 'cart.general.savings' | t }}
+                <span class="cart__savings-amount">{{ cart.total_discounts | money }}</span>
+              </div>
+            {% endif %}
+            <div class="cart__shipping">{{ 'cart.general.shipping_at_checkout' | t }}</div>
+            <a href="collections/all" class="btn btn--secondary cart__update cart__continue--large small--hide" >{{ 'cart.general.continue_shopping' | t }}</a>
+            <input type="submit" name="update" class="btn btn--secondary cart__update cart__update--large small--hide" value="{{ 'cart.general.update' | t }}">
+            <input type="submit" name="checkout" class="btn btn--small-wide" value="{{ 'cart.general.checkout' | t }}">
+            {% if additional_checkout_buttons %}
+              <div class="additional-checkout-buttons">{{ content_for_additional_checkout_buttons }}</div>
+            {% endif %}
+          </div>
+        </div>
+      </footer>
+    </form>
+  {% else %}
+    <div class="empty-page-content text-center">
+      <h1>{{ 'cart.general.title' | t }}</h1>
+      <p class="cart--empty-message">{{ 'cart.general.empty' | t }}</p>
+      <div class="cookie-message">
+        <p>{{ 'cart.general.cookies_required' | t }}</p>
+      </div>
+      <a href="/" class="btn btn--has-icon-after cart__continue-btn">{{ 'general.404.link' | t }}{% include 'icon-arrow-right' %}</a>
+    </div>
+  {% endif %}
+</div>
+{% endcomment %}
+
+{% schema %}
+  {
+    "name": "Subscription Cart page",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "cart_notes_enable",
+        "label": "Enable cart notes",
+        "default": false
+      },
+      {
+        "type": "text",
+        "id": "freeship",
+        "label": "Free Shipping Amount?",
+        "default": "100"
+      }
+    ]    
+  }
+{% endschema %}
+
+{% stylesheet %}
+  .cart-sub-wrap {
+        background: #F2F2F2;
+    }
+    
+    .cart-sub {
+        padding: 25px;
+        background-color: #fff;
+        z-index: 2;
+    }
+    
+    .button-textbar {
+        position: relative;
+        z-index: 99;
+        margin: 0 auto;
+    }
+    
+    .subscription-block {
+        margin-top: -60px;
+        position: relative;
+        margin-bottom: 70px;
+    }
+    
+    .subscription-block .btns-wrap {
+        display: flex;
+        column-gap: 20px;
+    }
+    
+    .subscription-block .btns-wrap .btn {
+        font-size: 12px;
+        padding: 14px 60px;
+    }
+    
+    .subscription-block .btns-wrap .btn.btn-gold {
+        padding: 14px 30px;
+        background: #9D7A46;
+    }
+    
+    .cart-sub::after {
+        position: absolute;
+        content: '';
+        inset: 10px;
+        border: 1px solid #B58A61;
+        z-index: -1;
+    }
+    
+    .three-col {
+        margin-bottom: 100px;
+    }
+    
+    .three-col .card {
+        background: #fff;
+        padding: 20px;
+        min-height: 248px;
+        position: relative;
+        margin: 0 0 20px;
+    }
+    
+    .three-col .card h4 {
+        color: #3A592D;
+        font-size: 33px;
+        line-height: 34px;
+    }
+    
+    .three-col .card p {
+        color: #9D7A46;
+    }
+    
+    .three-col .card .btn {
+        position: absolute;
+        bottom: 20px;
+        right: 20px;
+    }
+    
+    .cart-btn {
+        font-size: 12px !important;
+        line-height: 17px;
+        letter-spacing: 2.25px;
+        color: #FFFFFF;
+        text-transform: uppercase;
+        font-weight: normal;
+        padding: 12px 28px;
+    }
+    
+    .checkout-form {
+        overflow: hidden;
+    }
+    
+    .checkout-form .heading {
+        display: flex;
+        align-items: center;
+        column-gap: 20px;
+        margin-bottom: 40px;
+    }
+    
+    .checkout-form .heading h3 {
+        color: #3A592D;
+        font-size: 32px;
+    }
+    
+    .checkout-form .heading span {
+        color: #9D7A46;
+        font-size: 12px;
+        line-height: 23px;
+    }
+    
+    .product-item {
+        overflow: hidden;
+        border-bottom: 1px solid #707070;
+        padding-bottom: 30px;
+        margin-bottom: 30px;
+    }
+    
+    .product-item .img-holder {
+        float: left;
+        max-width: 140px;
+        width: 100%;
+        background: #fff;
+        padding: 20px;
+    }
+    
+    .product-item .img-holder img {
+        display: block;
+        width: 70px;
+        margin: 0 auto;
+    }
+    
+    .product-item .txt-holder {
+        overflow: hidden;
+        padding-left: 40px;
+    }
+    
+    .product-item .head {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .product-item .head h5 {
+        color: #3A592D;
+        font-size: 20px;
+        line-height: 23px;
+    }
+    
+    .product-item .head .price {
+        color: #252619;
+        font-size: 15px;
+        line-height: 15px;
+        font-weight: bold;
+    }
+    .product-item .head .price.single_price {
+        font-size: 20px;
+        font-weight: normal;
+    }
+    
+    .product-item p {
+        color: #9D7A46;
+        font-size: 14px;
+        line-height: 17px;
+    }
+    .product-item p + p {
+    	margin-bottom: 5px;
+    }
+    
+    .product-item .bottom {
+        display: flex;
+        flex-direction: column;
+        row-gap: 10px;
+        align-items: center;
+        column-gap: 30px;
+    }
+    
+    .product-item .quantity {
+        display: flex;
+        padding: 0;
+    }
+    
+    .product-item .quantity__minus,
+    .product-item .quantity__plus {
+        display: block;
+        width: 52px;
+        height: 44px;
+        margin: 0;
+        background: #9D7A46;
+        text-decoration: none;
+        text-align: center;
+        line-height: 42px;
+    }
+    
+    .product-item .quantity__minus:hover,
+    .product-item .quantity__plus:hover {
+        background: #575b71;
+        color: #fff;
+    }
+    
+    .product-item .quantity__input {
+        width: 52px;
+        height: 44px;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+        background: #fff;
+        color: #8184a1;
+    }
+    
+    .product-item .quantity__minus:link,
+    .product-item .quantity__plus:link {
+        color: #fff;
+    }
+    
+    .product-item .quantity__minus:visited,
+    .product-item .quantity__plus:visited {
+        color: #fff;
+    }
+    
+    .product-item .bottom .remove-link {
+        font-size: 16px;
+        text-decoration: underline;
+    }
+    
+    .checkout-form .free-shipping {
+        background-color: #E2E2D9;
+        padding: 20px;
+        margin: 0 0 30px;
+    }
+    
+    .checkout-form .free-shipping p {
+        color: #252617;
+        font-size: 16px;
+        line-height: 17px;
+        font-weight: bold;
+    }
+    
+    .checkout-form .free-shipping i {
+        margin-right: 20px;
+        color: #9D7A46;
+    }
+    
+    .checkout-form .btn-gold {
+        background: #9D7A46;
+        padding: 17px 18px;
+    }
+    
+    .order-summary {
+        padding: 50px;
+        margin: 20px 0;
+    }
+    
+    .order-summary .details li {
+        display: flex;
+        justify-content: space-between;
+        margin: 0 0 23px;
+        font-size: 14px;
+    }
+    
+    .order-summary .details li strong {
+        font-weight: 600;
+        color: #252617;
+    }
+    
+    .order-summary .details li hr {
+        margin: 0;
+        border: 1px solid #252617;
+        width: 100%;
+    }
+    
+    .order-summary .details li.total {
+        font-size: 18px;
+    }
+    
+    .order-summary p {
+        font-size: 16px;
+        margin: 0 0 20px;
+    }
+    
+    .checkout-fields input {
+        margin: 0 0 15px;
+        width: 100%;
+        font-size: 14px !important;
+        line-height: 17px;
+        font-weight: 400;
+        padding: 16px 20px;
+    }
+    
+    .checkout-fields .coupen-field {
+        position: relative;
+    }
+    
+    .checkout-fields .coupen-field:after {
+        content: '\f02b';
+        font-family: FontAwesome;
+        position: absolute;
+        top: 12px;
+        right: 15px;
+    }
+    
+    .cart-aside .card {
+        margin: 0 0 20px;
+    }
+    
+    .cart-products h2 {
+        font-size: 41px;
+    }
+    
+    .cart-products .img-wrap {
+        margin: 0;
+    }
+    
+    .cart-products .btn {
+        font-size: 12px;
+        font-weight: normal;
+    }
+    
+    .cart-products strong.product-name {
+        padding: 23px 0;
+        font-size: 18px;
+        line-height: 23px;
+        color: #3A592D;
+    }
+    
+    .subscription-text-section {
+        padding: 70px 0;
+        background: #fff;
+    }
+    
+    .subscription-text-section h2 {
+        font-size: 41px;
+    }
+    
+    .subscription-text-section .link {
+        color: #9D7A46;
+        font-size: 11px;
+        line-height: 13px;
+        text-decoration: underline;
+    }
+    .sub_product_detail {
+    	padding-top: 20px;
+    	border-top: 1px solid #CCC;
+    	margin-top: 20px;
+        clear:both;
+    }
+    .product-item .sub_product_detail .img-holder {
+    	padding: 0px;
+    }
+    .product-item .sub_product_detail .img-holder img{
+        width:90px;
+    }
+    
+    @media only screen and (min-width: 767.98px) {
+        .three-col .card {
+            margin: 0;
+        }
+        .order-summary {
+            margin: 0 0 20px;
+        }
+        .button-textbar {
+            max-width: 85%;
+        }
+        .subscription-block h2 {
+            margin: 0;
+        }
+        .checkout-form .subscription {
+            padding-right: 50px;
+        }
+        .product-item .bottom {
+            flex-direction: row;
+        }
+    }
+{% endstylesheet %}
+<script type="text/javascript">
+  $( "#next_order" ).load( "https://www.mountaintimesoap.com/tools/recurring/portal/{{ customer.metafields.subscriptions.customer_string }}/overview?token=c57f5e173c9445249682ffec27ea770c #MainContent .rct_home__section--next-order h3 strong" );
+  var subUrl = "https://www.mountaintimesoap.com/tools/recurring/portal/{{ customer.metafields.subscriptions.customer_string }}/subscriptions?token=c57f5e173c9445249682ffec27ea770c";
+  $.ajax({
+   url:subUrl,
+     type:'GET',
+     success: function(data) {
+         var content = $('<div>').append(data);
+         var scheduled_o = $(content).find('#MainContent .rct_subscription__info_price + p')
+         $('#scheduled_order').html( scheduled_o );
+     }
+  });
+  var payUrl = "https://www.mountaintimesoap.com/tools/recurring/customer/0c87b3ceb9cbb52a21a93bfd5557c8/subscriptions/";
+  $.ajax({
+   url:payUrl,
+     type:'GET',
+     success: function(data) {
+         var content = $('<div>').append(data);
+         var payment_m = $(content).find('#MainContent .card-summary [data-id]');
+         $('#payment_method').html(payment_m);
+     }
+  });
+</script>
+<script>
+  $(document).ready(function() {
+      const minus = $('.quantity__minus');
+      const plus = $('.quantity__plus');
+      const input = $('.quantity__input');
+      minus.click(function(e) {
+          e.preventDefault();
+          var value = input.val();
+          if (value > 1) {
+              value--;
+          }
+          input.val(value);
+      });
+
+      plus.click(function(e) {
+          e.preventDefault();
+          var value = input.val();
+          value++;
+          input.val(value);
+      })
+  });
+</script>

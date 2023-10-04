@@ -1,0 +1,85 @@
+{% assign collection = collections[section.settings.f_col] %}
+<div class="soap-shop custom-space soap-shop00">
+    <div class="vessel">
+        <h2 class="text-align-center ">{{ section.settings.title }}</h2>
+        <ul class="queue">
+            {% for product in collection.products limit: 4 %}
+            <li class="column-12 column-sm-6 column-md-3 margin-bottom">
+                <div class="product-wrap0 d-flex flex-columns">
+                    <a class="img-wrap" href="{{ product.url }}"">
+                        <img src="{{ product.featured_image | img_url: 'master' }}" alt="img">
+                    </a>
+                    <div class="product-details text-align-center d-flex flex-columns justify-content-between f-grow-1">
+                        <strong class="product-name text-green d-block ethos-h">
+                            {{product.title}}
+                        </strong>
+                        <span class="brand text-yellow text-uppercase d-block neufreit">{{product.type}}</span>
+                        <span class="price d-block neufreit">{{ product.price | money }}</span>
+                        <form action="/cart/add" method="post">
+                            {% if productcurrent.variants.size == 1 %}
+                            <input type="hidden" name="id" value="{{ productcurrent.variants.first.id }}" />
+                            {% else %}
+                            {% comment %} <select class="btn" name="id">{% for variant in productcurrent.variants %}
+                                <option value="{{ variant.id }}">{{ variant.title }}</option>{% endfor %}
+                            </select>
+                            {% endcomment %}
+
+                            <select name="id" data-productid="{{product.id }}" id="ProductSelect-{{ section.id }}"
+                                data-section="{{ section.id }}" class="product-form__variants no-js">
+                                {% for variant in product.variants %}
+                                {% if variant.available %}
+                                <option {% if variant==product.selected_or_first_available_variant %}
+                                    selected="selected" {% endif %} value="{{ variant.id }}">
+                                    {{ variant.title }}
+                                </option>
+                                {% else %}
+                                <option disabled="disabled">{{ variant.title }} - {{ 'products.product.sold_out' | t }}
+                                </option>
+                                {% endif %}
+                                {% endfor %}
+                            </select>
+                            {% endif %}
+                            <div> <button type="submit" class="btn btn-product w-100 text-light">add to
+                                    cart</button></div>
+                        </form>
+
+
+
+                    </div>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+        <a href="{{ collection.url }}" class="btn btn-seceondry text-light neufreit">{{section.settings.shp_btn}}</a>
+    </div>
+</div>
+{% schema %}
+{
+"name": "002-ind-ft-collection",
+"settings": [
+{
+"type": "textarea",
+"id": "title",
+"label": "Featured products Title",
+"default": "Featured products"
+},
+{
+"type": "collection",
+"id": "f_col",
+"label": "Select Collection"
+},
+{
+"type": "textarea",
+"id": "shp_btn",
+"label": "shop button text",
+"default": "Fshop bar soap"
+}
+],
+"presets": [
+{
+"name": "002-ind-ft-collection",
+"category": "custom"
+}
+]
+}
+{% endschema %}

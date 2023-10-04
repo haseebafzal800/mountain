@@ -1,0 +1,59 @@
+<div class="testimonials-home custom-space">
+    <div class="vessel">
+        <h2 class="text-align-center">{{ section.settings.title }}</h2>
+        <div class="slider-testimonial">
+            {% for block in section.blocks %}
+            <div class="slide-testi text-align-center ">
+                <div class="icon-wrap"><img src="{{ block.settings.img1 | img_url: 'master' }}" alt=""></div>
+                <p class="neufreit margin-0">{{ block.settings.testmo }}</p>
+                <span class="name d-block text-uppercase text-yellow">{{ block.settings.name }}</span>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% schema %}
+{
+"name": "006-ind-testmo",
+"class": "ind-05",
+"settings": [
+{
+"type": "textarea",
+"id": "title",
+"label": "title",
+"default": "Soap Club"
+}
+],
+"blocks": [
+{
+"type": "card",
+"name":"card",
+"settings": [
+{
+"type": "textarea",
+"id": "name",
+"label": "name",
+"default": "Trevor f."
+},
+{
+"type": "textarea",
+"id": "testmo",
+"label": "testmo",
+"default": "testmo"
+},
+{
+"type": "image_picker",
+"id": "img1",
+"label": "img1"
+}
+]
+}
+],
+"presets": [
+{
+"name": "006-ind-testmo",
+"category": "custom"
+}
+]
+}
+{% endschema %}

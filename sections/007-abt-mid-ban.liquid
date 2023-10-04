@@ -1,0 +1,69 @@
+<div class="main-banner em-m-banner black-layer green-layer position-relative mountain-banner"
+    style="background-image: url('{{ section.settings.img1 | img_url: 'master' }}');">
+    <div class="vessel">
+        <div class="queue">
+            <div class="column-12">
+                <blockquote class="text-light">
+                    <q class="ethos-h">"{{ section.settings.desc }}
+                        <strong class="ethos-h">{{ section.settings.title }}</strong>
+                    </q>
+                    <cite class="neufreit">{{ section.settings.name }}</cite>
+                </blockquote>
+                {% if section.settings.btn_txt != '' %}
+                <a href="{{ section.settings._btn_url }}" class="btn btn-primary neufreit">
+                    {{ section.settings.btn_txt}}
+                </a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% schema %}
+{
+"name": "007-abt-mid-ban",
+"class": "ind-o2",
+"settings": [
+{
+"type": "textarea",
+"id": "title",
+"label": "title",
+"default": "Wash Your Spirit Clean"
+},
+{
+"type": "textarea",
+"id": "desc",
+"label": "description",
+"default": "Keep close to nature’s heart…"
+},
+{
+"type": "text",
+"id": "name",
+"label": "name",
+"default": "JOHN MUIR"
+},
+{
+"type": "image_picker",
+"id": "img1",
+"label": "IMAGE1"
+},
+{
+"type": "textarea",
+"id": "btn_txt",
+"label": "btn_txt"
+},
+{
+"type": "url",
+"id": "btn_url",
+"label": "btn_url"
+}
+],
+"blocks": [
+],
+"presets": [
+{
+"name": "007-abt-mid-ban",
+"category": "custom"
+}
+]
+}
+{% endschema %}

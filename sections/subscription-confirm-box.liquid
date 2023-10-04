@@ -1,0 +1,65 @@
+{% if section.settings.enable_section == true %}
+<div class="begin-adv2 custom-space text-align-center ">
+    <div class="vessel">
+        <div class="queue">
+            <div class="column-12">
+                <div class="content d-flex flex-columns align-columns-center justify-content-center">
+                    {% if section.settings.title != blank %}
+                      <h4 class="text-green text-capitalize">{{ section.settings.title | escape }}</h4>
+                    {% endif %}
+                    {% if section.settings.text != blank %}
+                      <p>{{ section.settings.text }}</p>
+                    {% endif %}
+                    {% if section.settings.label != blank %}
+                      <a href="#" class="btn btn-seceondry confirm-box">{{ section.settings.label }}</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+{% schema %}
+  {
+    "name": "Subscription Confirm",
+    "class": "subscription-confirm",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "enable_section",
+        "label": "Enable?",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "Let The Adventure Begin!"
+      },
+      {
+        "type": "textarea",
+        "id": "text",
+        "label": "Text"
+      },
+      {
+        "type": "text",
+        "id": "label",
+        "label": "Button Label",
+        "default": "send it"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Subscription Banner",
+        "category": "Image"
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

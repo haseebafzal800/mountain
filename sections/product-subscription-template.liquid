@@ -1,0 +1,1190 @@
+<div class="product-template__container page-width" itemscope itemtype="http://schema.org/Product" id="ProductSection-{{ section.id }}" data-section-id="{{ section.id }}" data-section-type="product" data-enable-history-state="true">
+    <meta itemprop="name" content="{{ product.title }}">
+    <meta itemprop="url" content="{{ shop.url }}{{ product.url }}">
+    <meta itemprop="image" content="{{ product.featured_image.src | img_url: '800x' }}"> {% comment %} Get first variant, or deep linked one {% endcomment %} {%- assign current_variant = product.selected_or_first_available_variant -%} {%- assign product_image_zoom_size = '1024x1024' -%} {%- assign product_image_scale = '2' -%} {%- assign enable_zoom = section.settings.enable_zoom -%} {% case section.settings.image_size %} {% when 'small' %} {%- assign product_image_width = 'medium-up--one-third' -%} {%- assign product_description_width = 'medium-up--two-thirds' -%} {%- assign product_thumbnail_width = 'medium-up--one-third' -%} {%- assign height = 345 -%} {% when 'medium' %} {%- assign product_image_width = 'medium-up--one-half' -%} {%- assign product_description_width = 'medium-up--one-half' -%} {%- assign product_thumbnail_width = 'medium-up--one-quarter' -%} {%- assign height = 530 -%} {% when 'large' %} {%- assign product_image_width = 'medium-up--two-thirds' -%} {%- assign product_description_width = 'medium-up--one-third' -%} {%- assign product_thumbnail_width = 'medium-up--one-fifth' -%} {%- assign height = 720 -%} {% when 'full' %} {%- assign product_image_width = '' -%} {%- assign product_description_width = '' -%} {%- assign product_thumbnail_width = 'medium-up--one-eighth' -%} {%- assign height = 1090 -%} {%- assign enable_zoom = false -%} {% endcase %}
+
+    <div class="grid product-single">
+        <div class="grid__item product-single__photos {{ product_image_width }}{% if section.settings.image_size == 'full' %} product-single__photos--full{% endif %}">
+            {%- assign featured_image = product.selected_or_first_available_variant.featured_image | default: product.featured_image -%} {% for image in product.images %} {% capture img_id %}FeaturedImage-{{ section.id }}-{{ image.id }}{% endcapture %} {% capture img_class %}product-featured-img{% endcapture %} {% capture zoom_img_id %}FeaturedImageZoom-{{ section.id }}-{{ image.id }}{% endcapture %} {% capture img_wrapper_id %}{{ zoom_img_id }}-wrapper{% endcapture %} {%- assign img_url = image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%} {% include 'image-style' with small_style: true, width: height, height: height, wrapper_id: img_wrapper_id, img_id: img_id %}
+
+            <div id="{{ img_wrapper_id }}" class="product-single__photo-wrapper js">
+                <div id="{{ zoom_img_id }}" style="padding-top:{{ 1 | divided_by: image.aspect_ratio | times: 100}}%;" class="product-single__photo{% if enable_zoom %} js-zoom-enabled{% endif %}{% if product.images.size > 1 %} product-single__photo--has-thumbnails{% endif %}{% unless featured_image == image %} hide{% endunless %}" data-image-id="{{ image.id }}" {% if enable_zoom %} data-zoom="{{ image | img_url: product_image_zoom_size, scale: product_image_scale }}" {% endif %}>
+                    <img id="{{ img_id }}" class="feature-row__image {{ img_class }} lazyload{% unless featured_image == image %} lazypreload{% endunless %}" src="{{ image | img_url: '300x300' }}" data-src="{{ img_url }}" data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]" data-aspectratio="{{ image.aspect_ratio }}" data-sizes="auto" alt="{{ image.alt | escape }}">
+                </div>
+            </div>
+            {% endfor %}
+
+            <noscript>
+        {% capture product_image_size %}{{ height }}x{% endcapture %}
+        <img src="{{ featured_image | img_url: product_image_size, scale: product_image_scale }}" alt="{{ featured_image.alt }}" id="FeaturedImage-{{ section.id }}" class="product-featured-img" style="max-width: {{ height }}px;">
+      </noscript> {% if product.images.size > 1 %} {% if product.images.size > 3 %} {%- assign enable_thumbnail_slides = true -%} {% endif %}
+
+            <div class="thumbnails-wrapper{% if enable_thumbnail_slides == true %} thumbnails-slider--active{% endif %}">
+                {% if enable_thumbnail_slides == true %}
+                <button type="button" class="btn btn--link medium-up--hide thumbnails-slider__btn thumbnails-slider__prev thumbnails-slider__prev--{{ section.id }}">
+              {% include 'icon-chevron-left' %}
+              <span class="icon__fallback-text">{{ 'sections.slideshow.previous_slide' | t }}</span>
+            </button> {% endif %}
+                <ul class="grid grid--uniform product-single__thumbnails product-single__thumbnails-{{ section.id }}">
+                    {% for image in product.images %}
+                    <li class="grid__item {{ product_thumbnail_width }} product-single__thumbnails-item js">
+                        <a href="{{ image.src | img_url: product_image_zoom_size, scale: product_image_scale }}" class="text-link product-single__thumbnail product-single__thumbnail--{{ section.id }}" data-thumbnail-id="{{ image.id }}" {% if enable_zoom %}data-zoom="{{ image.src | img_url: product_image_zoom_size, scale: product_image_scale }}" {% endif %}>
+                     <img class="product-single__thumbnail-image" src="{{ image.src | img_url: '110x110', scale: 2 }}" alt="{{ image.alt | escape }}">
+                </a>
+                    </li>
+                    {% endfor %}
+                </ul>
+                {% if enable_thumbnail_slides == true %}
+                <button type="button" class="btn btn--link medium-up--hide thumbnails-slider__btn thumbnails-slider__next thumbnails-slider__next--{{ section.id }}">
+              {% include 'icon-chevron-right' %}
+              <span class="icon__fallback-text">{{ 'sections.slideshow.next_slide' | t }}</span>
+            </button> {% endif %}
+            </div>
+            {% endif %}
+        </div>
+
+        <div class="grid__item {{ product_description_width }}">
+            <div class="product-single__meta">
+
+                <h1 itemprop="name" class="product-single__title">{{ product.title }}</h1>
+
+                {% if section.settings.show_vendor %}
+                <p itemprop="brand" class="product-single__vendor">{{ product.vendor }}</p>
+                {% endif %}
+
+                <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+                    <meta itemprop="priceCurrency" content="{{ shop.currency }}">
+
+                    <link itemprop="availability" href="http://schema.org/{% if product.available %}InStock{% else %}OutOfStock{% endif %}">
+
+                    <p class="product-single__price product-single__price-{{ section.id }}{% unless current_variant.available %} product-price--sold-out{% endunless %}">
+                        {% if current_variant.compare_at_price > current_variant.price %}
+                        <span class="visually-hidden">{{ 'products.product.regular_price' | t }}</span>
+                        <s id="ComparePrice-{{ section.id }}">{{ current_variant.compare_at_price | money }}</s>
+                        <span class="product-price__price product-price__price-{{ section.id }} product-price__sale product-price__sale--single">
+                  <span id="ProductPrice-{{ section.id }}"
+                    itemprop="price" content="{{ current_variant.price | divided_by: 100.00 }}">
+                    {{ current_variant.price | money }}
+                  </span>
+                        <span class="product-price__sale-label product-price__sale-label-{{ section.id }}">{{ 'products.product.on_sale' | t }}</span>
+                        </span>
+                        {% else %}
+                        <span class="visually-hidden">{{ 'products.product.regular_price' | t }}</span>
+                        <s id="ComparePrice-{{ section.id }}" class="hide">{{ current_variant.compare_at_price | money }}</s>
+                        <span class="product-price__price product-price__price-{{ section.id }}">
+                <span id="ProductPrice-{{ section.id }}"
+                  itemprop="price" content="{{ current_variant.price | divided_by: 100.00 }}">
+                  {{ current_variant.price | money }}
+                </span>
+                        <span class="product-price__sale-label product-price__sale-label-{{ section.id }} hide">{{ 'products.product.on_sale' | t }}</span>
+                        </span>
+                        {% endif %}
+                    </p>
+
+                    <form action="/cart/add" data-productid="{{product.id}}" method="post" enctype="multipart/form-data" class="product-form product-form-{{ section.id }}{% unless section.settings.show_variant_labels %} product-form--hide-variant-labels{% endunless %}" data-section="{{ section.id }}">
+
+                        <select name="id" data-productid="{{product.id }}" id="ProductSelect-{{ section.id }}" data-section="{{ section.id }}" class="product-form__variants no-js">
+              {% for variant in product.variants %}
+                {% if variant.available %}
+                  <option {% if variant == product.selected_or_first_available_variant %} selected="selected" {% endif %} value="{{ variant.id }}">
+                    {{ variant.title }}
+                  </option>
+                {% else %}
+                  <option disabled="disabled">{{ variant.title }} - {{ 'products.product.sold_out' | t }}</option>
+                {% endif %}
+              {% endfor %}
+            </select>
+                        
+                        
+                        
+<!--                        CRAPpp-->
+                        
+                        <div id="infiniteoptions-container" style="display: none">
+
+                    <!-- variant fields ========================================= -->
+
+
+                    <div class="product-options visible">
+
+                        <div class="selector-wrapper"><label for="product-select-option-1">Shipping Frequency</label>
+                            <div class="select-wrapper">
+                                <select class="single-option-selector" data-option="option2" id="product-select-option-1">
+                                    <option value="Monthly">Monthly</option>
+                                    <option value="Quarterly">Quarterly</option>
+                                </select>
+                            </div>
+
+
+
+                        </div>
+                        
+                        <select name="" data-productid="50041028621" id="product-select" class="product-select original_select_6753032198" style="display: none;">
+                            
+<!--                            Soap Amount / Shipping -->
+                      
+                        <option value="850570379277">1 / Monthly - $ 20.00</option>
+                      
+                        <option value="850592628749">2 / Monthly - $ 20.00</option>
+                      
+                        <option value="850598952973">3 / Monthly - $ 20.00</option>
+                      
+                        <option value="850613338125">4 / Monthly - $ 240.00</option>
+                      
+                        <option value="403243696141">1 / Quarterly - $ 120.00</option>
+                      
+                        <option selected="selected" value="656528539661">2 / Quarterly - $ 60.00</option>
+                      
+                        <option value="656528572429">3 / Quarterly - $ 480.00</option>
+                      
+                        <option value="656528605197">4 / Quarterly - $ 240.00</option>
+                      
+                    </select>
+                    </div>
+
+
+                    <!-- recharge fields ======================================== -->
+
+                    <input type="hidden" name="properties[subscription_id]" value="89092">
+                    <input type="hidden" name="properties[shipping_interval_unit_type]" value="Months">
+                    <input type="hidden" name="properties[charge_interval_unit_type]" value="Months">
+
+                    <select name="properties[charge_interval_frequency]" id="charge_interval_frequency" class="product-select" required="">
+                  	<option value="1">Monthly</option>
+                  <option value="3">Quarterly</option>
+                </select>
+
+                    <select name="properties[shipping_interval_frequency]" id="shipping_interval_frequency" class="product-select" required="">
+                  <option value="1">Monthly</option>
+                  <option value="3">Quarterly</option>
+                </select>
+
+                    <!-- custom fields ========================================== -->
+
+
+                </div>
+
+                        
+       
+                        <!--Soap Subcription - bars per month -->
+
+                        <div class="soap-supscription-fieldset">
+                            <h3>How Many Bars per Month?</h3>
+                            <div class="soap-subscription-column one-third">
+
+                                <div class="advanced-subscription-option large" data-field="soap_per_month" data-value="1" data-associated-variant-field="product-select-option-0" data-associated-variant-value="1 per month" >
+                                    <img src="https://cdn.shopify.com/s/files/1/2458/1997/files/1_soap.jpg?15288966640979976571" alt="" class="advanced-subscription-option-image small-height">
+                                    <h4 class="advanced-subscription-option-name">1 Bar ($6)</h4>
+                                    <p>Light Showering</p>
+                                </div>
+                            </div>
+                            <div class="soap-subscription-column one-third">
+
+                                <div class="advanced-subscription-option large selected" data-field="soap_per_month" data-value="2" data-associated-variant-field="product-select-option-0" data-associated-variant-value="2 per month" >
+                                    <img src="https://cdn.shopify.com/s/files/1/2458/1997/files/2_soaps.jpg?15288966640979976571" alt="" class="advanced-subscription-option-image small-height">
+                                    <h4 class="advanced-subscription-option-name">2 Bars ($12)</h4>
+                                    <p>Daily Showers</p>
+                                </div>
+                            </div>
+                            <div class="soap-subscription-column one-third">
+
+                                <div class="advanced-subscription-option large" data-field="soap_per_month" data-value="3" data-associated-variant-field="product-select-option-0" data-associated-variant-value="3 per month" >
+                                    <img src="https://cdn.shopify.com/s/files/1/2458/1997/files/3_soaps.jpg?15288966640979976571" alt="" class="advanced-subscription-option-image small-height">
+                                    <h4 class="advanced-subscription-option-name">3 Bars ($18)</h4>
+                                    <p>Daily Showers for couple or small family</p>
+                                </div>
+                            </div>
+                            <div class="soap-subscription-column one-third">
+
+                                <div class="advanced-subscription-option large" data-field="soap_per_month" data-value="4" data-associated-variant-field="product-select-option-0" data-associated-variant-value="4 per month">
+                                    <img src="https://cdn.shopify.com/s/files/1/2458/1997/files/4_soaps.jpg?7919226540664322761" alt="" class="advanced-subscription-option-image small-height">
+                                    <h4 class="advanced-subscription-option-name">4 Bars ($24)</h4>
+                                    <p>An adventure for the whole family</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--      Soap subscription - delivery frequency        -->
+                        <div class="soap-subcription-fieldset">
+                            <h3>How Often Should We Ship?</h3>
+                            <div class="soap-subscription-column one-third">
+                                <div class="advanced-subscription-option large" data-field="shipping_interval_frequency" data-value="1" data-associated-variant-field="product-select-option-1" data-associated-variant-value="Monthly">
+                                    <img src="https://cdn.shopify.com/s/files/1/0911/0164/products/light_roast_grande.jpg?v=1467386620" alt="" class="advanced-subscription-option-image small-height">
+                                    <h4 class="advanced-subscription-option-name">Monthly</h4>
+                                    <p>Add $2 for shipping</p>
+
+                                </div>
+                            </div>
+                            <div class="soap-subscription-column one-third">
+                                <div class="advanced-subscription-option large selected" data-field="shipping_interval_frequency" data-value="3" data-associated-variant-field="product-select-option-1" data-associated-variant-value="Quarterly">
+                                    <img src="https://cdn.shopify.com/s/files/1/0911/0164/products/light_roast_grande.jpg?v=1467386620" alt="" class="advanced-subscription-option-image small-height">
+                                    <h4 class="advanced-subscription-option-name">Quarterly</h4>
+                                    <p>Max Savings</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--              Soap subscription - type of soap -->
+                        <div class="soap-subscription-fieldset">
+                            <h3>What Type of Soap?</h3>
+                            <div class="soap-subscription-column one-third">
+                                <div class="advanced-subscription-option large" data-field="soap_type" data-value="Alpine Start" data-multiple="true">
+                                    <img src="https://cdn.shopify.com/s/files/1/2458/1997/files/soap_icon_alpine_start.png?14283160717570130421" alt="" class="advanced-subscription-option-image small-height">
+                                    <h4 class="advanced-subscription-option-name">Alpine Start</h4>
+                                </div>
+                            </div>
+                            <div class="soap-subscription-column one-third">
+                                <div class="advanced-subscription-option large" data-field="soap_type" data-value="Dawn Patrol" data-multiple="true">
+                                    <img src="https://cdn.shopify.com/s/files/1/2458/1997/files/soap_icon_dawn_patrol.png?14283160717570130421" alt="" class="advanced-subscription-option-image small-height">
+                                    <h4 class="advanced-subscription-option-name">Dawn Patrol</h4>
+                                </div>
+                            </div>
+                            <div class="soap-subscription-column one-third">
+                                <div class="advanced-subscription-option large" data-field="soap_type" data-value="Protective" data-multiple="true">
+                                    <img src="https://cdn.shopify.com/s/files/1/2458/1997/files/soap_icon_protective.png?14283160717570130421" alt="" class="advanced-subscription-option-image small-height">
+                                    <h4 class="advanced-subscription-option-name">Protective</h4>
+                                </div>
+                            </div>
+                            <div class="soap-subscription-column one-third">
+                                <div class="advanced-subscription-option large" data-field="soap_type" data-value="Ripple" data-multiple="true">
+                                    <img src="https://cdn.shopify.com/s/files/1/2458/1997/files/soap_icon_ripple.png?14283160717570130421" alt="" class="advanced-subscription-option-image small-height">
+                                    <h4 class="advanced-subscription-option-name">Ripple</h4>
+                                </div>
+                            </div>
+                            <div class="soap-subscription-column one-third">
+                                <div class="advanced-subscription-option large" data-field="soap_type" data-value="Tea Tree" data-multiple="true">
+                                    <img src="https://cdn.shopify.com/s/files/1/2458/1997/files/soap_icon_tea_tree.png?14283160717570130421" alt="" class="advanced-subscription-option-image small-height">
+                                    <h4 class="advanced-subscription-option-name">Tea Tree</h4>
+                                </div>
+                            </div>
+                            <div class="soap-subscription-column one-third">
+                                <div class="advanced-subscription-option large" data-field="soap_type" data-value="True Grit" data-multiple="true">
+                                    <img src="https://cdn.shopify.com/s/files/1/2458/1997/files/soap_icon_true_grit.png?14283160717570130421" alt="" class="advanced-subscription-option-image small-height">
+                                    <h4 class="advanced-subscription-option-name">True Grit</h4>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="add-to-cart">
+
+                        <div class="product-form__item product-form__item--submit">
+                            <button type="submit" name="add" id="add-to-cart-button" class="btn product-form__cart-submit{% if product.options.size == 1 and product.variants[0].title == 'Default Title' %} product-form__cart-submit--small{% endif %}">
+                <span id="AddToCartText-{{ section.id }}">
+                  {% unless current_variant.available %}
+                    {{ 'products.product.sold_out' | t }}
+                  {% else %}
+                    {{ 'products.product.add_to_cart' | t }}
+                  {% endunless %}
+                </span>
+              </button>
+                        </div>
+                            </div>
+                    </form>
+
+                </div>
+
+                <div class="product-single__description rte" itemprop="description">
+                    {{ product.description }}
+                </div>
+
+                {% if section.settings.show_share_buttons %} {% include 'social-sharing', share_title: product.title, share_permalink: product.url, share_image: product %} {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+        .advanced-subscription-fieldset {
+            margin-bottom: 64px;
+            overflow: auto;
+            zoom: 1;
+        }
+
+        .advanced-subscription-title {
+            text-align: center;
+            margin-top: 0;
+        }
+
+        .advanced-subscription-subtitle {
+            text-align: center;
+            font-size: 18px;
+        }
+
+        .advanced-subscription-column {
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            float: left;
+            padding: 8px;
+        }
+
+        .advanced-subscription-column.one-third {
+            width: 33.333333%;
+        }
+
+        @media (max-width: 880px) {
+            .advanced-subscription-column.one-third {
+                width: 100%;
+            }
+        }
+
+        .advanced-subscription-column.one-fourth {
+            width: 25%;
+        }
+
+        @media (max-width: 1000px) {
+            .advanced-subscription-column.one-fourth {
+                width: 50%;
+            }
+        }
+
+        .advanced-subscription-column.full {
+            width: 100%;
+        }
+
+        .advanced-subscription-column.half {
+            width: 50%;
+        }
+
+        .advanced-subscription-option {
+            padding: 16px;
+            border: 1px #ddd solid;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .advanced-subscription-option:hover {
+            border: 1px solid #000000;
+        }
+
+        .advanced-subscription-option.selected {
+            border: 3px solid #000000;
+            padding: 14px;
+        }
+
+        .advanced-subscription-option.text-only {
+            border: 1px #fff solid;
+            padding: 16px 16px 0;
+        }
+
+        .advanced-subscription-option.text-only:hover {
+            border: 1px solid #fff;
+        }
+
+        .advanced-subscription-option.selected.text-only {
+            border: 3px solid #fff;
+            padding: 14px;
+        }
+
+        .advanced-subscription-option-name {
+            margin: 8px 0;
+        }
+
+        .advanced-subscription-option-description {
+            font-size: 16px;
+            font-style: italic;
+            margin: 8px 0;
+        }
+
+        .advanced-subscription-option.selected .advanced-subscription-option-checkmark {
+            background-color: #1dc179;
+            border-color: #1dc179;
+        }
+
+        .advanced-subscription-option.large {
+            text-align: center;
+            font-weight: lighter;
+        }
+
+        .advanced-subscription-fieldset-legend,
+        .advanced-subscription-fieldset-subheading {
+            text-align: center;
+        }
+
+        .advanced-subscription-fieldset-subheading {
+            font-size: 16px;
+            margin-top: -10px;
+        }
+
+        .advanced-subscription-option-checkmark {
+            width: 64px;
+            height: 64px;
+            line-height: 64px;
+            text-align: center;
+            border: 1px #ddd solid;
+            display: block;
+            border-radius: 100%;
+            font-size: 32px;
+            font-weight: lighter;
+            text-indent: -5px;
+            color: #ffffff;
+            transition: all .2s;
+        }
+
+        .advanced-subscription-option-checkmark.square {
+            border-radius: 0;
+        }
+
+        @media (min-width: 720px) {
+            .advanced-subscription-option-checkmark.square {
+                display: none;
+            }
+        }
+
+        .advanced-subscription-option.mini .advanced-subscription-option-checkmark {
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            border: 1px #ddd solid;
+            display: inline-block;
+            border-radius: 0;
+            font-size: 24px;
+            color: #ddd;
+        }
+
+        .advanced-subscription-option.mini.selected .advanced-subscription-option-checkmark {
+            border: 1px #1dc179 solid;
+            color: white;
+        }
+
+        .advanced-subscription-option.mini .advanced-subscription-option-label {
+            font-size: 18px;
+            line-height: 40px;
+            vertical-align: top;
+            margin-left: 8px;
+            font-style: italic;
+            display: inline-block;
+        }
+
+        .advanced-subscription-option.mini {
+            display: inline-block;
+            border: 1px solid white;
+        }
+
+        .advanced-subscription-option.mini:hover {
+            border: 1px solid white;
+        }
+
+        .advanced-subscription-option.mini.selected {
+            border: 1px solid white;
+            padding: 16px;
+        }
+
+        .advanced-subscription-option.mini.selected,
+        .advanced-subscription-option.mini:hover {
+            border-size: 0;
+        }
+
+        .advanced-subscription-option.large .advanced-subscription-option-checkmark {
+            margin: 16px auto 0;
+        }
+
+        .advanced-subscription-option.small .advanced-subscription-option-checkmark {
+            position: absolute;
+            top: 16px;
+        }
+
+        .advanced-subscription-option.small .advanced-subscription-option-description {
+            margin-left: 75px;
+            margin-bottom: 0;
+        }
+
+        .advanced-subscription-option.small .advanced-subscription-option-name {
+            margin-left: 75px;
+        }
+
+        .advanced-subscription .underlined {
+            text-decoration: underline;
+        }
+
+        .advanced-subscription .plus {
+            vertical-align: top;
+        }
+
+        .advanced-subscription input[type=submit] {
+            display: block;
+            height: 80px;
+            margin: 0 auto;
+            font-size: 32px;
+        }
+
+        .advanced-subscription .add-to-cart {
+            margin-top: 0;
+        }
+
+        .advanced-subscription textarea {
+            background-color: #f6f6f6;
+            line-height: 1.5;
+        }
+
+        .advanced-subscription-summary {
+            padding: 16px;
+            border: 1px #ddd solid;
+            width: 75%;
+            margin-left: 12.5%;
+            overflow: auto;
+            zoom: 1;
+            margin-bottom: 64px;
+            border-radius: 5px;
+        }
+
+        .advanced-subscription-summary-legend {
+            text-align: center;
+        }
+
+        .advanced-subscription-summary-image {
+            float: left;
+            width: 30%;
+        }
+
+        table.advanced-subscription-summary-table {
+            float: left;
+            width: 70%;
+            border: none;
+            margin: 0;
+        }
+
+        table.advanced-subscription-summary-table td {
+            border-top: none;
+            border-right: none;
+            border-left: none;
+            border-bottom: none;
+            vertical-align: top;
+            text-transform: uppercase;
+            font-size: 16px;
+            padding: 10px;
+        }
+
+        table.advanced-subscription-summary-table td:first-child {
+            text-align: right;
+        }
+
+
+        .advanced-subscription .product-form-submit-wrap {
+            display: block;
+            width: 300px;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 720px) {
+            /* layout */
+            .advanced-subscription-column {
+                padding: 0;
+            }
+            .advanced-subscription-column.one-fourth {
+                width: 100%;
+            }
+            .advanced-subscription-column.half {
+                width: 100%;
+            }
+
+            .main-content {
+                padding-top: 60px;
+                padding-left: 0;
+                padding-right: 0;
+            }
+
+            .advanced-subscription-title {
+                font-size: 28px;
+                margin-bottom: 16px;
+                padding: 0 16px;
+            }
+            .advanced-subscription-subtitle {
+                font-size: 16px;
+                padding: 0 16px;
+                margin-top: 0;
+            }
+            .advanced-subscription-minititle {
+                font-size: 12px;
+                padding: 0 16px;
+                margin-top: 0;
+            }
+
+            .advanced-subscription-fieldset-legend {
+                font-size: 16px;
+                padding: 0 16px;
+            }
+
+            .advanced-subscription-option {
+                border: none;
+                border-top: 1px #ddd solid;
+                padding: 16px;
+            }
+            .advanced-subscription-option.selected,
+            .advanced-subscription-option:hover {
+                border: none;
+                border-top: 1px #ddd solid;
+                padding: 16px;
+            }
+            .advanced-subscription-option.last {
+                border-bottom: 1px #ddd solid;
+            }
+
+            .advanced-subscription-option-image {
+                position: absolute;
+                width: 80px;
+                right: 16px;
+                top: 16px;
+            }
+
+            .advanced-subscription-option-image.small-height {
+                top: 50%;
+                margin-top: -25px;
+            }
+
+            .advanced-subscription-option.large .advanced-subscription-option-name,
+            .advanced-subscription-option.large .advanced-subscription-option-description,
+            .advanced-subscription-option.small .advanced-subscription-option-name,
+            .advanced-subscription-option.small .advanced-subscription-option-description {
+                text-align: left;
+                padding-left: 56px;
+                width: 100%;
+                margin: 0;
+            }
+
+            .advanced-subscription-option.large .advanced-subscription-option-name,
+            .advanced-subscription-option.large .advanced-subscription-option-description {
+                padding-right: 88px;
+            }
+
+
+
+            .advanced-subscription-option.large .advanced-subscription-option-name,
+            .advanced-subscription-option.small .advanced-subscription-option-name {
+                font-size: 14px;
+            }
+
+            .advanced-subscription-option.large .advanced-subscription-option-description,
+            .advanced-subscription-option.small .advanced-subscription-option-description {
+                font-size: 13px;
+            }
+
+            .advanced-subscription-option.large .advanced-subscription-option-checkmark,
+            .advanced-subscription-option.small .advanced-subscription-option-checkmark {
+                width: 40px;
+                height: 40px;
+                line-height: 40px;
+                font-size: 16px;
+                position: absolute;
+                left: 16px;
+                top: 16px;
+                margin: 0;
+            }
+
+            .advanced-subscription textarea {
+                font-size: 16px;
+                width: 90%;
+                margin: 0 auto;
+            }
+
+            .advanced-subscription-summary {
+                padding: 16px 8px;
+                width: 90%;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .advanced-subscription-summary-legend {
+                font-size: 16px;
+            }
+
+            .advanced-subscription-summary-image {
+                display: none;
+            }
+
+            table.advanced-subscription-summary-table {
+                float: none;
+                width: 100%;
+            }
+
+            table.advanced-subscription-summary-table td {
+                font-size: 12px;
+            }
+
+            table.advanced-subscription-summary-table td:first-child {
+                text-align: right;
+            }
+
+            .advanced-subscription input[type=submit],
+            .advanced-subscription .product-form-submit-wrap {
+                width: 255px;
+                font-size: 20px;
+                height: 64px;
+            }
+
+        }
+    </style>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+
+<script>
+    function addItemToCart(variant_id, quantity, shipping_interval_frequency, shipping_interval_unit_type, subscription_id) {
+        
+        var variantId = $('#product-select').val()
+        
+        data = {
+            "quantity": quantity,
+            "id": variantId,
+            "properties[shipping_interval_frequency]": shipping_interval_frequency,
+            "properties[shipping_interval_unit_type]": "Months",
+            "properties[subscription_id]": subscription_id
+        }
+        jQuery.ajax({
+            type: 'POST',
+            url: '/cart/add.js',
+            data: data,
+            dataType: 'json',
+            success: function() {
+                window.location.href = '/cart';
+            },
+            error: function() {
+                    console.log('error');
+                }
+        });
+    }
+    
+    jQuery("form[action='/cart/add'] [type=submit]").on("click", function(e) {
+
+            e.preventDefault();
+
+            if (!hasSelectedFrequencyAndPaymentPlan()) {
+                return false;
+            }
+
+            var $chargeIntervalFrequency = $('#charge_interval_frequency'),
+                $shippingIntervalFrequency = $('#shipping_interval_frequency');
+
+        
+        
+    
+            addItemToCart(656528539661, 1, "1", "Months", "89092")
+        });
+
+</script>
+
+<script>
+    
+    var variantsOptionsAndPrice = [
+
+            {
+                options: ["1", "Quarterly"],
+                price: '$ 6'
+            },
+
+            {
+                options: ["2", "Quarterly"],
+                price: '$ 12'
+            },
+
+            {
+                options: ["3", "Quarterly"],
+                price: '$ 18'
+            },
+
+            {
+                options: ["4", "Quarterly"],
+                price: '$ 24'
+            },
+
+            {
+                options: ["1", "Monthly"],
+                price: '$ 8'
+            },
+
+            {
+                options: ["2", "Monthly"],
+                price: '$ 14'
+            },
+
+            {
+                options: ["3", "Monthly"],
+                price: '$ 20'
+            },
+
+            {
+                options: ["4", "Monthly"],
+                price: '$ 26'
+            },
+
+        ];
+    
+    $('#shipping_interval_frequency').on('change', function() {
+            var frequency = $(this).val();
+            var optionsForFrequency = variantsOptionsAndPrice.filter(function(v) {
+                return v.options[1].indexOf(frequency) !== -1;
+            });
+
+            
+
+        });
+
+</script>
+
+<script>
+        (function($) {
+            'use strict';
+
+            function indexFieldsets() {
+                $('.advanced-subscription-fieldset-legend:visible').each(function(index, legend) {
+                    var $legend = $(legend);
+                    $legend.find('span.index').remove();
+                    $legend.prepend('<span class="index">' + (++index) + '. <span>');
+                });
+            }
+            indexFieldsets();
+
+            function handleMultipleSelect($option, field, value, isDefault) {
+
+                var $checkbox = $('input:checkbox[data-value="' + value + '"]'),
+                    isChecked = $checkbox.is(':checked');
+
+                $checkbox.attr('checked', !isChecked);
+                $option.toggleClass('selected');
+
+                if (isDefault) {
+                    /* remove all other selections */
+                    $('input:checkbox[data-field=' + field + ']').attr('checked', false);
+                    $option.parents('.soap-subscription-fieldset').find('.advanced-subscription-option').removeClass('selected');
+
+                    $option.addClass('selected');
+                    $checkbox.attr('checked', true);
+
+                    moveOn();
+                } else {
+                    $('input:checkbox[data-field=' + field + ']:checked[data-default=true]').attr('checked', false);
+                    $option.parents('.advanced-subscription-fieldset').find('.advanced-subscription-option[data-default=true]').removeClass('selected');
+                }
+
+                var countChecked = $('input:checkbox[data-field=' + field + ']:checked').length;
+
+                if (countChecked === 3) {
+                    moveOn();
+                }
+
+                if (countChecked > 3) {
+                    $checkbox.attr('checked', false);
+                    $option.removeClass('selected');
+                    alert('You can only select 3 flavors. Unselect one of the selected flavors to be able to select this one.');
+                }
+
+                function moveOn() {
+                    window.setTimeout(function() {
+                        goTo($option.parents('.advanced-subscription-fieldset').next());
+                    }, 100);
+                }
+
+                updateSummary()
+
+                function updateSummary() {
+                    var selectedFlavors = [];
+                    $('input:checkbox[data-field=' + field + ']:checked').each(function(index, item) {
+                        selectedFlavors.push($(item).data('label'));
+                    });
+
+                    $('.advanced-subscription-summary').find('[data-field=flavors]').find('strong').text(selectedFlavors.join(', '));
+                }
+
+            }
+
+            function handleSingleSelect($option, field, value, associatedVariantField, associatedVariantValue, label) {
+                /* if option is already selected, just ignore it */
+                if ($option.hasClass('selected')) {
+                    return;
+                }
+
+                /* unselect other options and select clicked one */
+                $option.parents('.soap-subscription-fieldset').find('.advanced-subscription-option').removeClass('selected');
+                $option.addClass('selected');
+
+                console.log(associatedVariantField);
+                console.log(associatedVariantValue);
+
+                if (associatedVariantField) {
+                    var $associatedVariantField = $('select.single-option-selector:contains(' + associatedVariantValue + ')');
+                    $associatedVariantField.val(associatedVariantValue);
+                    if ("createEvent" in document) {
+                        var evt = document.createEvent("HTMLEvents");
+                        evt.initEvent("change", false, true);
+                        $associatedVariantField[0].dispatchEvent(evt);
+                    } else {
+                        $associatedVariantField[0].fireEvent("onchange");
+                        console.log('fire event onchange')
+                    }
+
+                }
+
+                /* update real corresponding select field value */
+                $('#' + field).val(value).trigger('change');
+
+                var $next = $option.parents('.soap-subscription-fieldset').next();
+
+            }
+
+            $('.advanced-subscription-option').on('click', function() {
+                var $option = $(this),
+                    field = $option.data('field'),
+                    value = $option.data('value'),
+                    multiple = $option.data('multiple'),
+                    isDefault = $option.data('default'),
+                    associatedVariantField = $option.data('associated-variant-field'),
+                    associatedVariantValue = $option.data('associated-variant-value');
+
+                multiple
+                    ?
+                    handleMultipleSelect($option, field, value, isDefault) :
+                    handleSingleSelect($option, field, value, associatedVariantField, associatedVariantValue);
+            });
+
+        }(jQuery));
+    </script>
+
+<script>
+        // required for splitting variants
+        // see ProductView
+        window.productJSON = {
+    "id": 50041028621,
+    "title": "Soap Subscription Box",
+    "body_html": "",
+    "vendor": "Mountain Time Soap",
+    "product_type": "Subscription",
+    "created_at": "2017-11-01T22:29:53-06:00",
+    "handle": "soap-subscription-box",
+    "updated_at": "2017-11-16T14:37:13-07:00",
+    "published_at": "2017-11-07T20:37:21-07:00",
+    "template_suffix": "product-subscription",
+    "published_scope": "global",
+    "tags": "",
+    "variants": [
+      {
+        "id": 403243696141,
+        "product_id": 50041028621,
+        "title": "1 / Quarterly",
+        "price": "6.00",
+        "sku": "",
+        "position": 1,
+        "compare_at_price": null,
+        "fulfillment_service": "manual",
+        "inventory_management": null,
+        "option1": "1",
+        "option2": "Quarterly",
+        "option3": null,
+        "created_at": "2017-11-01T22:29:53-06:00",
+        "updated_at": "2017-11-15T17:26:33-07:00",
+        "taxable": true,
+        "barcode": "",
+        "grams": 0,
+        "image_id": null,
+        "weight": 0,
+        "weight_unit": "lb",
+        "requires_shipping": true
+      },
+      {
+        "id": 656528539661,
+        "product_id": 50041028621,
+        "title": "2 / Quarterly",
+        "price": "12.00",
+        "sku": "",
+        "position": 2,
+        "compare_at_price": null,
+        "fulfillment_service": "manual",
+        "inventory_management": null,
+        "option1": "2",
+        "option2": "Quarterly",
+        "option3": null,
+        "created_at": "2017-11-08T17:05:52-07:00",
+        "updated_at": "2017-11-15T17:26:33-07:00",
+        "taxable": true,
+        "barcode": "",
+        "grams": 0,
+        "image_id": null,
+        "weight": 0,
+        "weight_unit": "lb",
+        "requires_shipping": true
+      },
+      {
+        "id": 656528572429,
+        "product_id": 50041028621,
+        "title": "3 / Quarterly",
+        "price": "18.00",
+        "sku": "",
+        "position": 3,
+        "compare_at_price": null,
+        "fulfillment_service": "manual",
+        "inventory_management": null,
+        "option1": "3",
+        "option2": "Quarterly",
+        "option3": null,
+        "created_at": "2017-11-08T17:05:52-07:00",
+        "updated_at": "2017-11-15T17:26:33-07:00",
+        "taxable": true,
+        "barcode": "",
+        "grams": 0,
+        "image_id": null,
+        "weight": 0,
+        "weight_unit": "lb",
+        "requires_shipping": true
+      },
+      {
+        "id": 656528605197,
+        "product_id": 50041028621,
+        "title": "4 / Quarterly",
+        "price": "24.00",
+        "sku": "",
+        "position": 4,
+        "compare_at_price": null,
+        "fulfillment_service": "manual",
+        "inventory_management": null,
+        "option1": "4",
+        "option2": "Quarterly",
+        "option3": null,
+        "created_at": "2017-11-08T17:05:52-07:00",
+        "updated_at": "2017-11-15T17:26:34-07:00",
+        "taxable": true,
+        "barcode": "",
+        "grams": 0,
+        "image_id": null,
+        "weight": 0,
+        "weight_unit": "lb",
+        "requires_shipping": true
+      },
+      {
+        "id": 850570379277,
+        "product_id": 50041028621,
+        "title": "1 / Monthly",
+        "price": "8.00",
+        "sku": "",
+        "position": 5,
+        "compare_at_price": null,
+        "fulfillment_service": "manual",
+        "inventory_management": null,
+        "option1": "1",
+        "option2": "Monthly",
+        "option3": null,
+        "created_at": "2017-11-13T21:22:48-07:00",
+        "updated_at": "2017-11-15T17:26:34-07:00",
+        "taxable": false,
+        "barcode": "",
+        "grams": 0,
+        "image_id": null,
+        "weight": 0,
+        "weight_unit": "lb",
+        "requires_shipping": true
+      },
+      {
+        "id": 850592628749,
+        "product_id": 50041028621,
+        "title": "2 / Monthly",
+        "price": "14.00",
+        "sku": "",
+        "position": 6,
+        "compare_at_price": null,
+        "fulfillment_service": "manual",
+        "inventory_management": null,
+        "option1": "2",
+        "option2": "Monthly",
+        "option3": null,
+        "created_at": "2017-11-13T21:23:31-07:00",
+        "updated_at": "2017-11-15T17:26:34-07:00",
+        "taxable": false,
+        "barcode": "",
+        "grams": 0,
+        "image_id": null,
+        "weight": 0,
+        "weight_unit": "lb",
+        "requires_shipping": true
+      },
+      {
+        "id": 850598952973,
+        "product_id": 50041028621,
+        "title": "3 / Monthly",
+        "price": "20.00",
+        "sku": "",
+        "position": 7,
+        "compare_at_price": null,
+        "fulfillment_service": "manual",
+        "inventory_management": null,
+        "option1": "3",
+        "option2": "Monthly",
+        "option3": null,
+        "created_at": "2017-11-13T21:23:52-07:00",
+        "updated_at": "2017-11-15T17:26:35-07:00",
+        "taxable": true,
+        "barcode": "",
+        "grams": 0,
+        "image_id": null,
+        "weight": 0,
+        "weight_unit": "lb",
+        "requires_shipping": true
+      },
+      {
+        "id": 850613338125,
+        "product_id": 50041028621,
+        "title": "4 / Monthly",
+        "price": "26.00",
+        "sku": "",
+        "position": 8,
+        "compare_at_price": null,
+        "fulfillment_service": "manual",
+        "inventory_management": null,
+        "option1": "4",
+        "option2": "Monthly",
+        "option3": null,
+        "created_at": "2017-11-13T21:24:11-07:00",
+        "updated_at": "2017-11-15T17:26:35-07:00",
+        "taxable": false,
+        "barcode": "",
+        "grams": 0,
+        "image_id": null,
+        "weight": 0,
+        "weight_unit": "lb",
+        "requires_shipping": true
+      }
+    ],
+    "options": [
+      {
+        "id": 63279792141,
+        "product_id": 50041028621,
+        "name": "Soap Quantity",
+        "position": 1,
+        "values": [
+          "1",
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      {
+        "id": 122764656653,
+        "product_id": 50041028621,
+        "name": "Shipping",
+        "position": 2,
+        "values": [
+          "Quarterly",
+          "Monthly"
+        ]
+      }
+    ],
+    "images": [
+      
+    ],
+    "image": null
+  
+        };
+    </script>
+
+{% if collection %}
+<div class="text-center return-link-wrapper">
+    <a href="{{ collection.url }}" class="btn btn--secondary btn--has-icon-before return-link">
+      {% include 'icon-arrow-left' %}
+      {{ 'products.product.back_to_collection' | t: title: collection.title }}
+    </a>
+</div>
+{% endif %} {% unless product == empty %}
+<script type="application/json" id="ProductJson-{{ section.id }}">
+    {
+        {
+            product | json
+        }
+    }
+
+</script>
+{% endunless %} {% schema %} { "name": "Product pages", "settings": [ { "type": "select", "id": "image_size", "label": "Image size", "options": [ { "value": "small", "label": "Small" }, { "value": "medium", "label": "Medium" }, { "value": "large", "label": "Large" }, { "value": "full", "label": "Full-width" } ], "default": "medium" }, { "type": "checkbox", "id": "show_quantity_selector", "label": "Show quantity selector", "default": false }, { "type": "checkbox", "id": "show_variant_labels", "label": "Show variant labels", "default": true }, { "type": "checkbox", "id": "show_vendor", "label": "Show vendor", "default": false }, { "type": "checkbox", "id": "enable_zoom", "label": "Enable image zoom", "default": true }, { "type": "checkbox", "id": "show_share_buttons", "label": "Show social sharing buttons", "default": true } ] } {% endschema %}

@@ -1,0 +1,705 @@
+{% section '001-sup-ban' %}
+{% section 'subscription-cart-template' %}
+
+{% comment %}
+<style>
+    .cart-sub-wrap {
+        background: #F2F2F2;
+    }
+    
+    .cart-sub {
+        padding: 25px;
+        background-color: #fff;
+        z-index: 2;
+    }
+    
+    .button-textbar {
+        position: relative;
+        z-index: 99;
+        margin: 0 auto;
+    }
+    
+    .subscription-block {
+        margin-top: -60px;
+        position: relative;
+        margin-bottom: 70px;
+    }
+    
+    .subscription-block .btns-wrap {
+        display: flex;
+        column-gap: 20px;
+    }
+    
+    .subscription-block .btns-wrap .btn {
+        font-size: 12px;
+        padding: 14px 60px;
+    }
+    
+    .subscription-block .btns-wrap .btn.btn-gold {
+        padding: 14px 30px;
+        background: #9D7A46;
+    }
+    
+    .cart-sub::after {
+        position: absolute;
+        content: '';
+        inset: 10px;
+        border: 1px solid #B58A61;
+        z-index: -1;
+    }
+    
+    .three-col {
+        margin-bottom: 100px;
+    }
+    
+    .three-col .card {
+        background: #fff;
+        padding: 20px;
+        min-height: 248px;
+        position: relative;
+        margin: 0 0 20px;
+    }
+    
+    .three-col .card h4 {
+        color: #3A592D;
+        font-size: 33px;
+        line-height: 34px;
+    }
+    
+    .three-col .card p {
+        color: #9D7A46;
+    }
+    
+    .three-col .card .btn {
+        position: absolute;
+        bottom: 20px;
+        right: 20px;
+    }
+    
+    .cart-btn {
+        font-size: 12px !important;
+        line-height: 17px;
+        letter-spacing: 2.25px;
+        color: #FFFFFF;
+        text-transform: uppercase;
+        font-weight: normal;
+        padding: 12px 28px;
+    }
+    
+    .checkout-form {
+        overflow: hidden;
+    }
+    
+    .checkout-form .heading {
+        display: flex;
+        align-items: center;
+        column-gap: 20px;
+        margin-bottom: 40px;
+    }
+    
+    .checkout-form .heading h3 {
+        color: #3A592D;
+        font-size: 32px;
+    }
+    
+    .checkout-form .heading span {
+        color: #9D7A46;
+        font-size: 12px;
+        line-height: 23px;
+    }
+    
+    .product-item {
+        overflow: hidden;
+        border-bottom: 1px solid #707070;
+        padding-bottom: 30px;
+        margin-bottom: 30px;
+    }
+    
+    .product-item .img-holder {
+        float: left;
+        max-width: 140px;
+        width: 100%;
+        background: #fff;
+        padding: 20px;
+    }
+    
+    .product-item .img-holder img {
+        display: block;
+        width: 50px;
+        margin: 0 auto;
+    }
+    
+    .product-item .txt-holder {
+        overflow: hidden;
+        padding-left: 40px;
+    }
+    
+    .product-item .head {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .product-item .head h5 {
+        color: #3A592D;
+        font-size: 20px;
+        line-height: 23px;
+    }
+    
+    .product-item .head .price {
+        color: #252619;
+        font-size: 15px;
+        line-height: 15px;
+        font-weight: bold;
+    }
+    
+    .product-item p {
+        color: #9D7A46;
+        font-size: 14px;
+        line-height: 17px;
+    }
+    
+    .product-item .bottom {
+        display: flex;
+        flex-direction: column;
+        row-gap: 10px;
+        align-items: center;
+        column-gap: 30px;
+    }
+    
+    .product-item .quantity {
+        display: flex;
+        padding: 0;
+    }
+    
+    .product-item .quantity__minus,
+    .product-item .quantity__plus {
+        display: block;
+        width: 52px;
+        height: 44px;
+        margin: 0;
+        background: #9D7A46;
+        text-decoration: none;
+        text-align: center;
+        line-height: 42px;
+    }
+    
+    .product-item .quantity__minus:hover,
+    .product-item .quantity__plus:hover {
+        background: #575b71;
+        color: #fff;
+    }
+    
+    .product-item .quantity__input {
+        width: 52px;
+        height: 44px;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+        background: #fff;
+        color: #8184a1;
+    }
+    
+    .product-item .quantity__minus:link,
+    .product-item .quantity__plus:link {
+        color: #fff;
+    }
+    
+    .product-item .quantity__minus:visited,
+    .product-item .quantity__plus:visited {
+        color: #fff;
+    }
+    
+    .product-item .bottom .remove-link {
+        font-size: 16px;
+        text-decoration: underline;
+    }
+    
+    .checkout-form .free-shipping {
+        background-color: #E2E2D9;
+        padding: 20px;
+        margin: 0 0 30px;
+    }
+    
+    .checkout-form .free-shipping p {
+        color: #252617;
+        font-size: 16px;
+        line-height: 17px;
+        font-weight: bold;
+    }
+    
+    .checkout-form .free-shipping i {
+        margin-right: 20px;
+        color: #9D7A46;
+    }
+    
+    .checkout-form .btn-gold {
+        background: #9D7A46;
+        padding: 17px 18px;
+    }
+    
+    .order-summary {
+        padding: 50px;
+        margin: 20px 0;
+    }
+    
+    .order-summary .details li {
+        display: flex;
+        justify-content: space-between;
+        margin: 0 0 23px;
+        font-size: 14px;
+    }
+    
+    .order-summary .details li strong {
+        font-weight: 600;
+        color: #252617;
+    }
+    
+    .order-summary .details li hr {
+        margin: 0;
+        border: 1px solid #252617;
+        width: 100%;
+    }
+    
+    .order-summary .details li.total {
+        font-size: 18px;
+    }
+    
+    .order-summary p {
+        font-size: 16px;
+        margin: 0 0 20px;
+    }
+    
+    .checkout-fields input {
+        margin: 0 0 15px;
+        width: 100%;
+        font-size: 14px !important;
+        line-height: 17px;
+        font-weight: 400;
+        padding: 16px 20px;
+    }
+    
+    .checkout-fields .coupen-field {
+        position: relative;
+    }
+    
+    .checkout-fields .coupen-field:after {
+        content: '\f02b';
+        font-family: FontAwesome;
+        position: absolute;
+        top: 12px;
+        right: 15px;
+    }
+    
+    .cart-aside .card {
+        margin: 0 0 20px;
+    }
+    
+    .cart-products h2 {
+        font-size: 41px;
+    }
+    
+    .cart-products .img-wrap {
+        margin: 0;
+    }
+    
+    .cart-products .btn {
+        font-size: 12px;
+        font-weight: normal;
+    }
+    
+    .cart-products strong.product-name {
+        padding: 23px 0;
+        font-size: 18px;
+        line-height: 23px;
+        color: #3A592D;
+    }
+    
+    .subscription-text-section {
+        padding: 70px 0;
+        background: #fff;
+    }
+    
+    .subscription-text-section h2 {
+        font-size: 41px;
+    }
+    
+    .subscription-text-section .link {
+        color: #9D7A46;
+        font-size: 11px;
+        line-height: 13px;
+        text-decoration: underline;
+    }
+    
+    @media only screen and (min-width: 767.98px) {
+        .three-col .card {
+            margin: 0;
+        }
+        .order-summary {
+            margin: 0 0 20px;
+        }
+        .button-textbar {
+            max-width: 85%;
+        }
+        .subscription-block h2 {
+            margin: 0;
+        }
+        .checkout-form .subscription {
+            padding-right: 50px;
+        }
+        .product-item .bottom {
+            flex-direction: row;
+        }
+    }
+</style>
+<div class="cart-sub-wrap">
+    <div class="vessel">
+        <div class="queue subscription-block">
+            <div class="column-12">
+                <div class="cart-sub position-relative w-100">
+                    <div class="button-textbar d-flex justify-content-between align-columns-center flex-wrap">
+                        <h2>Manage Subscription</h2>
+                        <div class="btns-wrap">
+                            <button class="btn btn-gold">SKIP</button>
+                            <button class="btn btn-product">ORDER NOW</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="three-col">
+            <div class="queue">
+                <div class="column-12 column-md-4">
+                    <div class="card">
+                        <h4>Last Shipment Date / Order #:</h4>
+                        <p>Delivered 3/23/2022<br> Order # 123456</p>
+                    </div>
+                </div>
+                <div class="column-12 column-md-4">
+                    <div class="card">
+                        <h4>Shipping Frequency:</h4>
+                        <p>Scheduled Every 3 Months</p>
+                        <a href="#" class="btn btn-product cart-btn text-light">CHANGE</a>
+                    </div>
+                </div>
+                <div class="column-12 column-md-4">
+                    <div class="card">
+                        <h4>Next Order Date:</h4>
+                        <p>Next Order Date:</p>
+                        <a href="#" class="btn btn-product cart-btn text-light">CHANGE</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <form class="checkout-form">
+            <div class="queue">
+                <div class="column-12 column-md-8">
+                    <div class="subscription">
+                        <div class="heading">
+                            <h3>Subscription</h3>
+                            <span>4 ITEMS</span>
+                        </div>
+                        <div class="product-item">
+                            <div class="img-holder">
+                                <img src="//cdn.shopify.com/s/files/1/2458/1997/files/about-product_9db19b38-e791-4169-b635-69bb710e5b1a.png?v=1663151696" alt="">
+                            </div>
+                            <div class="txt-holder">
+                                <div class="head">
+                                    <h5>Alpine Start</h5>
+                                    <span class="price">$8.00</span>
+                                </div>
+                                <p>CATEGORY: <strong>BODY SOAP</strong></p>
+                                <div class="bottom">
+                                    <div class="quantity">
+                                        <a href="#" class="quantity__minus"><span>-</span></a>
+                                        <input name="quantity" type="text" class="quantity__input" value="1">
+                                        <a href="#" class="quantity__plus"><span>+</span></a>
+                                    </div>
+                                    <a href="#" class="btn btn-product cart-btn text-light">REPLACE</a>
+                                    <a class="remove-link" href="#">REMOVE</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-item">
+                            <div class="img-holder">
+                                <img src="//cdn.shopify.com/s/files/1/2458/1997/files/about-product_9db19b38-e791-4169-b635-69bb710e5b1a.png?v=1663151696" alt="">
+                            </div>
+                            <div class="txt-holder">
+                                <div class="head">
+                                    <h5>Alpine Start</h5>
+                                    <span class="price">$8.00</span>
+                                </div>
+                                <p>CATEGORY: <strong>BODY SOAP</strong></p>
+                                <div class="bottom">
+                                    <div class="quantity">
+                                        <a href="#" class="quantity__minus"><span>-</span></a>
+                                        <input name="quantity2" type="text" class="quantity__input" value="2">
+                                        <a href="#" class="quantity__plus"><span>+</span></a>
+                                    </div>
+                                    <a href="#" class="btn btn-product cart-btn text-light">REPLACE</a>
+                                    <a class="remove-link" href="#">REMOVE</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-item">
+                            <div class="img-holder">
+                                <img src="//cdn.shopify.com/s/files/1/2458/1997/files/about-product_9db19b38-e791-4169-b635-69bb710e5b1a.png?v=1663151696" alt="">
+                            </div>
+                            <div class="txt-holder">
+                                <div class="head">
+                                    <h5>Alpine Start</h5>
+                                    <span class="price">$8.00</span>
+                                </div>
+                                <p>CATEGORY: <strong>BODY SOAP</strong></p>
+                                <div class="bottom">
+                                    <div class="quantity">
+                                        <a href="#" class="quantity__minus"><span>-</span></a>
+                                        <input name="quantity3" type="text" class="quantity__input" value="3">
+                                        <a href="#" class="quantity__plus"><span>+</span></a>
+                                    </div>
+                                    <a href="#" class="btn btn-product cart-btn text-light">REPLACE</a>
+                                    <a class="remove-link" href="#">REMOVE</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-item">
+                            <div class="img-holder">
+                                <img src="//cdn.shopify.com/s/files/1/2458/1997/files/about-product_9db19b38-e791-4169-b635-69bb710e5b1a.png?v=1663151696" alt="">
+                            </div>
+                            <div class="txt-holder">
+                                <div class="head">
+                                    <h5>Alpine Start</h5>
+                                    <span class="price">$8.00</span>
+                                </div>
+                                <p>CATEGORY: <strong>BODY SOAP</strong></p>
+                                <div class="bottom">
+                                    <div class="quantity">
+                                        <a href="#" class="quantity__minus"><span>-</span></a>
+                                        <input name="quantity4" type="text" class="quantity__input" value="4">
+                                        <a href="#" class="quantity__plus"><span>+</span></a>
+                                    </div>
+                                    <a href="#" class="btn btn-product cart-btn text-light">REPLACE</a>
+                                    <a class="remove-link" href="#">REMOVE</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="free-shipping">
+                            <p><i class="fa fa-car" aria-hidden="true"></i>ONLY $26.00 TO GO FOR FREE SHIPPING!</p>
+                        </div>
+                        <a class="btn btn-gold w-100" href="#">ADD ADDITIONAL ITEMS</a>
+                    </div>
+                </div>
+                <div class="column-12 column-md-4 cart-aside">
+                    <div class="cart-sub position-relative order-summary">
+                        <div class="heading">
+                            <h3>Order Summary</h3>
+                        </div>
+                        <ul class="details">
+                            <li>
+                                <strong>SUBTOTAL</strong>
+                                <strong>$89.00</strong>
+                            </li>
+                            <li>
+                                <strong>MEMBER DISCOUNT</strong>
+                                <strong>$89.00</strong>
+                            </li>
+                            <li>
+                                <strong>SHIPPING</strong>
+                                <strong>FREE</strong>
+                            </li>
+                            <li>
+                                <strong>ESTIMATED TAX</strong>
+                                <strong>$89.00</strong>
+                            </li>
+                            <li>
+                                <hr>
+                            </li>
+                            <li class="total">
+                                <strong>TOTAL</strong>
+                                <strong>$78.89</strong>
+                            </li>
+                        </ul>
+                        <p>EST. DELIVERY BY <strong>MARCH 26, 2022</strong></p>
+                        <div class="checkout-fields">
+                            <div class="coupen-field">
+                                <input type="text" placeholder="Coupon Code">
+                            </div>
+                            <input class="btn btn-product w-100" type="submit" value="PROCEED TO CHECKOUT">
+                        </div>
+                    </div>
+                    <div class="three-col">
+                        <div class="card">
+                            <h4>Shipping Address</h4>
+                            <p>Address Line Goes Here<br>City, State, Zip Code, USA</p>
+                            <a href="#" class="btn btn-product cart-btn text-light">CHANGE</a>
+                        </div>
+                        <div class="card">
+                            <h4>Payment Method:</h4>
+                            <p>****6890 Expires 12/2025</p>
+                            <a href="#" class="btn btn-product cart-btn text-light">CHANGE</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="cart-products soap-shop">
+        <div class="vessel">
+            <h2 class="text-center"><strong>Anything Else We Can Help With?</strong></h2>
+            <ul class="queue">
+                <li class="column-12 column-sm-6 column-md-3 margin-bottom">
+                    <div class="product-wrap0 d-flex flex-columns">
+                        <div class="img-wrap">
+                            <img src="https://cdn.shopify.com/s/files/1/2458/1997/files/q1.png?v=1660154200" alt="img">
+                        </div>
+                        <div class="cart-product-details text-align-center d-flex flex-columns justify-content-between f-grow-1">
+                            <strong class="product-name text-green d-block ethos-h">
+                    Bar Soaps
+                </strong>
+                            <button type="submit" class="btn btn-product w-100 text-light">SHOP THE COLLECTION</button>
+                        </div>
+                    </div>
+                </li>
+                <li class="column-12 column-sm-6 column-md-3 margin-bottom">
+                    <div class="product-wrap0 d-flex flex-columns">
+                        <div class="img-wrap">
+                            <img src="https://cdn.shopify.com/s/files/1/2458/1997/files/q1.png?v=1660154200" alt="img">
+                        </div>
+                        <div class="cart-product-details text-align-center d-flex flex-columns justify-content-between f-grow-1">
+                            <strong class="product-name text-green d-block ethos-h">
+                    Bar Soaps
+                </strong>
+                            <button type="submit" class="btn btn-product w-100 text-light">SHOP THE COLLECTION</button>
+                        </div>
+                    </div>
+                </li>
+                <li class="column-12 column-sm-6 column-md-3 margin-bottom">
+                    <div class="product-wrap0 d-flex flex-columns">
+                        <div class="img-wrap">
+                            <img src="https://cdn.shopify.com/s/files/1/2458/1997/files/q1.png?v=1660154200" alt="img">
+                        </div>
+                        <div class="cart-product-details text-align-center d-flex flex-columns justify-content-between f-grow-1">
+                            <strong class="product-name text-green d-block ethos-h">
+                    Bar Soaps
+                </strong>
+                            <button type="submit" class="btn btn-product w-100 text-light">SHOP THE COLLECTION</button>
+                        </div>
+                    </div>
+                </li>
+                <li class="column-12 column-sm-6 column-md-3 margin-bottom">
+                    <div class="product-wrap0 d-flex flex-columns">
+                        <div class="img-wrap">
+                            <img src="https://cdn.shopify.com/s/files/1/2458/1997/files/q1.png?v=1660154200" alt="img">
+                        </div>
+                        <div class="cart-product-details text-align-center d-flex flex-columns justify-content-between f-grow-1">
+                            <strong class="product-name text-green d-block ethos-h">
+                    Bar Soaps
+                </strong>
+                            <button type="submit" class="btn btn-product w-100 text-light">SHOP THE COLLECTION</button>
+                        </div>
+                    </div>
+                </li>
+                <li class="column-12 column-sm-6 column-md-3 margin-bottom">
+                    <div class="product-wrap0 d-flex flex-columns">
+                        <div class="img-wrap">
+                            <img src="https://cdn.shopify.com/s/files/1/2458/1997/files/q1.png?v=1660154200" alt="img">
+                        </div>
+                        <div class="cart-product-details text-align-center d-flex flex-columns justify-content-between f-grow-1">
+                            <strong class="product-name text-green d-block ethos-h">
+                    Bar Soaps
+                </strong>
+                            <button type="submit" class="btn btn-product w-100 text-light">SHOP THE COLLECTION</button>
+                        </div>
+                    </div>
+                </li>
+                <li class="column-12 column-sm-6 column-md-3 margin-bottom">
+                    <div class="product-wrap0 d-flex flex-columns">
+                        <div class="img-wrap">
+                            <img src="https://cdn.shopify.com/s/files/1/2458/1997/files/q1.png?v=1660154200" alt="img">
+                        </div>
+                        <div class="cart-product-details text-align-center d-flex flex-columns justify-content-between f-grow-1">
+                            <strong class="product-name text-green d-block ethos-h">
+                    Bar Soaps
+                </strong>
+                            <button type="submit" class="btn btn-product w-100 text-light">SHOP THE COLLECTION</button>
+                        </div>
+                    </div>
+                </li>
+                <li class="column-12 column-sm-6 column-md-3 margin-bottom">
+                    <div class="product-wrap0 d-flex flex-columns">
+                        <div class="img-wrap">
+                            <img src="https://cdn.shopify.com/s/files/1/2458/1997/files/q1.png?v=1660154200" alt="img">
+                        </div>
+                        <div class="cart-product-details text-align-center d-flex flex-columns justify-content-between f-grow-1">
+                            <strong class="product-name text-green d-block ethos-h">
+                    Bar Soaps
+                </strong>
+                            <button type="submit" class="btn btn-product w-100 text-light">SHOP THE COLLECTION</button>
+                        </div>
+                    </div>
+                </li>
+                <li class="column-12 column-sm-6 column-md-3 margin-bottom">
+                    <div class="product-wrap0 d-flex flex-columns">
+                        <div class="img-wrap">
+                            <img src="https://cdn.shopify.com/s/files/1/2458/1997/files/q1.png?v=1660154200" alt="img">
+                        </div>
+                        <div class="cart-product-details text-align-center d-flex flex-columns justify-content-between f-grow-1">
+                            <strong class="product-name text-green d-block ethos-h">
+                    Bar Soaps
+                </strong>
+                            <button type="submit" class="btn btn-product w-100 text-light">SHOP THE COLLECTION</button>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="subscription-text-section text-center">
+        <div class="vessel">
+            <h2><strong>No Longer Need This Subscription?</strong></h2>
+            <a class="link" href="#">CANCEL MY SUBSCRIPTION</a>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function() {
+        const minus = $('.quantity__minus');
+        const plus = $('.quantity__plus');
+        const input = $('.quantity__input');
+        minus.click(function(e) {
+            e.preventDefault();
+            var value = input.val();
+            if (value > 1) {
+                value--;
+            }
+            input.val(value);
+        });
+
+        plus.click(function(e) {
+            e.preventDefault();
+            var value = input.val();
+            value++;
+            input.val(value);
+        })
+    });
+</script>
+{% endcomment %}
+
+
+{% include 'subscription-cart-footer' %}
+{% comment %} The contents of the cart.liquid template can be found in /sections/cart-template.liquid {% endcomment %}
+{% comment %}
+{% section 'cart-template' %}
+{% endcomment %}
+<div data-app="eastsideco_cartOffers" data-shop="{{ shop.permanent_domain }}" data-money-format="{{ shop.money_format }}">
+    <script id="cartData" type="application/json">
+        {
+            {
+                cart.items | json
+            }
+        }
+    </script>
+</div>
+
+<script src="https://cdn.pagefly.io/static/assets/pf-custom-shopify-cart.min.js" defer></script>

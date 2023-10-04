@@ -1,0 +1,72 @@
+<div class="em-connected custom-space overflow-hidden">
+    <div class="vessel">
+        <div class="queue">
+            <div class="column-12">
+                <div class="content-container text-center margin-bottom">
+                    <h2>{{ section.settings.title }}</h2>
+                    <p>{{ section.settings.desc }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="queue">
+            <div class="column-12">
+                {% form 'contact' %}
+                {% if form.posted_successfully? %}
+                <p class="note form-success">
+                    {{ 'contact.form.post_success' | t }}
+                </p>
+                {% endif %}
+                {{ form.errors | default_errors }}
+                <div class="em-row-01">
+                    <input type="text" name="contact[first_name]" id="first-name" placeholder="First Name" />
+                    <input type="text" name="contact[last_name]" id="last-name" placeholder="Last Name" />
+                    <input type="email" name="contact[email]" id="email" placeholder="Email Address" />
+                    <input type="text" name="contact[company_name]" id="company-name"
+                        placeholder="Company Name(if applicable)" />
+                </div>
+                <textarea name="contact[body]" id="message" class="margin-bottom" placeholder="Message"></textarea>
+                <button type="submit" class="btn btn-primary">{{ section.settings.btn_txt }}</button>
+                {% endform %}
+            </div>
+        </div>
+    </div>
+</div>
+{% schema %}
+{
+"name": "002-cn-contact-form",
+"class": "ind-o2",
+"settings": [
+{
+"type": "textarea",
+"id": "title",
+"label": "title",
+"default": "Let’s Connect"
+},
+{
+"type": "textarea",
+"id": "desc",
+"label": "description",
+"default": "Have a question you didn’t find an answered in our FAQ? "
+},
+{
+"type": "image_picker",
+"id": "img1",
+"label": "IMAGE1"
+},
+{
+"type": "textarea",
+"id": "btn_txt",
+"label": "btn_txt",
+"default": "SEND MESSAGE"
+}
+],
+"blocks": [
+],
+"presets": [
+{
+"name": "002-cn-contact-form",
+"category": "custom"
+}
+]
+}
+{% endschema %}

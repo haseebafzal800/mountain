@@ -1,0 +1,56 @@
+<div class="newsletter custom-space">
+    <div class="vessel">
+        <div class="queue justify-content-center">
+            <div class="column-12 column-sm-10 column-md-8  text-align-center">
+              <div class="em-news">
+                <h2>{{ section.settings.title }}</h2>
+                <p>{{ section.settings.desc }}</p>
+                {% form 'customer' %}
+                {{ form.errors | default_errors }}
+                {% if form.posted_successfully? %}
+                <p class="form--success">{{ 'general.newsletter_form.confirmation' | t }}</p>
+                {% else %}
+                <div class="form-group">
+                    <input type="hidden" name="contact[tags]" value="newsletter">
+                    <input type="email" name="contact[email]" id="Email" class="balgin d-block w-100 margin-bottom"
+                        value="{% if customer %}{{ customer.email }}{% endif %}"
+                        placeholder="Enter Your Email Address" autocorrect="off"
+                        autocapitalize="off">
+                    <input type="button" name="commit" id="Subscribe" value="{{ 'general.newsletter_form.submit' | t }}"
+                        class="btn btn-seceondry input-btn w-100 neufreit">
+                </div>
+                {% endif %}
+                {% endform %}
+              </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% schema %}
+{
+"name": "009-ind-newsletter",
+"class": "ind-o2",
+"settings": [
+{
+"type": "textarea",
+"id": "title",
+"label": "title",
+"default": "Join The Newsletter"
+},
+{
+"type": "textarea",
+"id": "desc",
+"label": "desc",
+"default": "Sign up to keep in touch!"
+}
+],
+"blocks": [
+],
+"presets": [
+{
+"name": "009-ind-newsletter",
+"category": "custom"
+}
+]
+}
+{% endschema %}

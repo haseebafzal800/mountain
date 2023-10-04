@@ -1,0 +1,63 @@
+<div class="em-mind-wrapper overflow-hidden custom-space">
+    <div class="vessel">
+        <div class="queue">
+            <div class="column-12">
+                <div class="content-container margin-bottom text-center">
+                    <h2>{{ section.settings.title }}</h2>
+                    <p>{{ section.settings.rich }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="queue">
+            <div class="column-12">
+                <div class="cc-container">
+                    {% for block in section.blocks %}
+                    <div class="image-wrap">
+                        {% if block.settings.img %}
+                        <img src="{{ block.settings.img | img_url: 'master' }}" alt="">
+                        {% endif %}
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% schema %}
+{
+"name": "006-abt-mnt",
+"class": "ind-05",
+"settings": [
+{
+"type": "textarea",
+"id": "title",
+"label": "title",
+"default": "Wash Your Spirit Clean"
+},
+{
+"type": "richtext",
+"id": "rich",
+"label": "text long"
+}
+],
+"blocks": [
+{
+"type": "image",
+"name":"image",
+"settings": [
+{
+"type": "image_picker",
+"id": "img",
+"label": "img"
+}
+]
+}
+],
+"presets": [
+{
+"name": "006-abt-mnt",
+"category": "custom"
+}
+]
+}
+{% endschema %}

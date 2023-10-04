@@ -1,0 +1,231 @@
+<div class="em-footer-wrap overflow-hidden">
+        <footer class="footer-wrapper custom-space">
+            <div class="vessel">
+                <div class="queue">
+                  {% for block in section.blocks %}
+                    {% case block.type %}
+                      {% when 'image_picker' %}
+                    <div class="column-12 column-sm-8 column-xl-3">
+                        <div class="em-first">
+                            <a href="{{ routes.root_url }}" class="footer-logo margin-bottom">
+                              {% if block.settings.logo != blank %}
+                                <img src="{{ block.settings.logo | img_url: 'x1024' }}" alt="">
+                              {% else %}
+                                <span class="h2">{{ shop.name }}</span>
+                              {% endif %}
+                            </a>
+                          {% if block.settings.logo_text != blank %}
+                            <p class="text-light balgin">{{ block.settings.logo_text }}</p>
+                          {% endif %}
+                      {% if block.settings.logo_email != blank %}
+                            <a href="mailto:{{ block.settings.logo_email }}"><strong
+                                    class="text-light text-uppercase neufreit margin-bottom">{{ block.settings.logo_email }}</strong>
+                            </a>
+                      {% endif %}    
+                            <ul class="social-icons d-flex margin-bottom">
+                              {% if block.settings.social_01 != blank %}
+                                <li><a href="{{ block.settings.social_01 }}"><i class="text-light fa-brands fa-facebook-f"></i></a></li>
+                               {% endif %} 
+                              {% if block.settings.social_02 != blank %}
+                                <li><a href="{{ block.settings.social_02 }}"><i class="text-light fa-brands fa-instagram"></i></a></li>
+                              {% endif %}  
+                              {% if block.settings.social_03 %}
+                                <li><a href="{{ block.settings.social_03 }}"><i class="text-light fa-brands fa-youtube"></i></a></li>
+                              {% endif %}  
+                            </ul>
+                        </div>
+                    </div>
+                  {% when 'link_list' %}
+                    <div class="column-4 column-xl-2">
+                        <div class="em-second margin-bottom">
+                        {% if block.settings.nav_heading != blank %}
+                            <strong class="text-uppercase neufreit margin-bottom-1">{{ block.settings.nav_heading | escape }}</strong>
+                        {% endif %}  
+                            <ul class="footer-list">
+                              {% for link in block.settings.nav_list.links %}
+                                <li><a href="{{ link.url }}" class="text-light text-uppercase neufreit">{{ link.title }}</a></li>
+                              {% endfor %}
+                            </ul>
+                        </div>
+                    </div> 
+                  {% when 'newsletter' %}
+
+                      <div class="column-12 column-sm-4 column-xl-3">
+                            <div class="em-fivth margin-bottom">
+                               {% if block.settings.news_heading != blank %}
+                                <strong class="text-uppercase neufreit margin-bottom-1">{{ block.settings.news_heading | escape }}</strong>
+                               {% endif %}   
+ 
+                         {% form 'customer', id: 'footer-form'%}
+                           {{ form.errors | default_errors }}
+                            {% if form.posted_successfully? %}
+                              <p class="form--success">{{ 'general.newsletter_form.confirmation' | t }}</p>
+                            {% else %}
+                                  {% if block.settings.news_text != blank %}
+                                    <label for="em-email-0" class="balgin margin-bottom">{{ block.settings.news_text | escape }}</label>
+                                  {% endif %}    
+                                    <div class="input-container">
+                                   <input type="hidden" name="contact[tags]" value="newsletter">
+                                    <input type="email"
+                                      name="contact[email]"
+                                      id="em-email-0"
+                                      class="input-group__field newsletter__input"
+                                      value="{% if customer %}{{ customer.email }}{% endif %}"
+                                      placeholder="Your Email Address"
+                                      autocorrect="off"
+                                      autocapitalize="off">
+                                        <span class="input-group__btn">
+                                          <button type="submit" class="footer-btn btn newsletter__submit" name="commit" id="Subscribe">
+                                            <span class="newsletter__submit-text--large">{{ 'general.newsletter_form.submit' | t }}</span>
+                                          </button>
+                                        </span>
+                                    </div>
+                              {% endif %}
+                         {% endform %}
+                            </div>
+                        </div>
+
+ 
+                  
+                    {% endcase %}
+                  {% endfor %}
+                </div>
+                <div class="queue">
+                    <div class="column-12 column-sm-6 column-lg-8 em-cc-00">
+                        <ul class="em-list-00 margin-bottom"> 
+                            <li>&copy;{{ 'now' | date: "%Y" }},{{ shop.name | link_to: '/' }}</li>
+                            <li>all rights reserved</li>
+                          {% if section.settings.author_01 != blank %}
+                            <li class="d-flex align-columns-center">copywriting by <a target="_blank" href="{{ section.settings.author_02 }}">{{ section.settings.author_01 }}</a></li>
+                          {% endif %}  
+                          {% if section.settings.author_03 != blank %}
+                            <li class="d-flex align-columns-center">website design by <a target="_blank" href="{{ section.settings.author_04 }}">{{ section.settings.author_03 }}</a></li>
+                          {% endif %}  
+                        </ul>
+                    </div>
+                  {% if section.settings.checkbox == true %}
+                    <div class="column-12 column-sm-6 column-lg-4">
+                        <ul class="payment-methods d-flex align-columns-center justify-content-center">
+                            <li class="em-pay"><img src="https://cdn.shopify.com/s/files/1/2458/1997/files/discover.svg?v=1659638061" alt=""></li>
+                            <li class="em-pay"><img src="https://cdn.shopify.com/s/files/1/2458/1997/files/visa.svg?v=1659638062" alt=""></li>
+                            <li class="em-pay"><img src="https://cdn.shopify.com/s/files/1/2458/1997/files/paypal.svg?v=1659638062" alt=""></li>
+                            <li class="em-pay"><img src="https://cdn.shopify.com/s/files/1/2458/1997/files/mastercard.svg?v=1659638062" alt=""></li>
+                            <li class="em-pay"><img src="https://cdn.shopify.com/s/files/1/2458/1997/files/amercian_expres.svg?v=1659638061" alt=""></li>
+                        </ul>
+                    </div>
+                   {% endif %}   
+                </div>
+            </div>
+        </footer>
+    </div>
+
+
+{% schema %}
+  {
+    "name": "Footer-new",
+    "settings":[
+      {
+          "type": "checkbox",
+          "id": "checkbox",
+          "label": "Enable Payment Icons",
+          "default": true
+      },
+      {
+          "type": "text",
+          "id": "author_01",
+          "label": "Copy Writer Name"
+      },
+      {
+          "type": "url",
+          "id": "author_02",
+          "label": "Copy Writer Website"
+      },
+      {
+          "type": "text",
+          "id": "author_03",
+          "label": "Designer Name"
+      },
+      {
+          "type": "url",
+          "id": "author_04",
+          "label": "Designer Website"
+      }
+    ],
+    "blocks":[
+      {
+        "type": "image_picker",
+        "name": "logo/social-icons",
+        "settings":[
+          {
+            "type": "image_picker",
+            "id": "logo",
+            "label": "Footer Logo"
+          },
+          {
+            "type": "textarea",
+            "id": "logo_text",
+            "label": "Footer Content"
+          },
+          {
+            "type": "text",
+            "id": "logo_email",
+            "label": "Add Email"
+          },
+          {
+            "type": "url",
+            "id": "social_01",
+            "label": "FB"
+          },
+          {
+            "type": "url",
+            "id": "social_02",
+            "label": "INSTAGRAM"
+          },
+          {
+            "type": "url",
+            "id": "social_03",
+            "label": "YOUTUBE"
+          }
+        ]
+      },
+      {
+        "type": "link_list",
+        "name": "Nav List",
+        "settings":[
+          {
+            "type": "text",
+            "id": "nav_heading",
+            "label": "Nav Heading" 
+          },
+          {
+            "type": "link_list",
+            "id": "nav_list",
+            "label": "Nav List" 
+          }
+        ]
+      },
+      {
+        "type": "newsletter",
+        "name": "newsletter",
+        "settings":[
+          {
+            "type": "text",
+            "id": "news_heading",
+            "label": "Newsletter Heading" 
+          },
+          {
+            "type": "textarea",
+            "id": "news_text",
+            "label": "Newsletter Content" 
+          }
+        ]
+      }
+    ] 
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

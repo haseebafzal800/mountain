@@ -1,0 +1,148 @@
+{% if section.settings.enable_section == true %}
+<div class="soap-shop custom-space soap-shop00 soap-quantity-selection advanced-subscription-fieldset">
+    <div class="vessel">
+        {% if section.settings.title != blank %}
+          <h2 class="text-align-center "><strong>{{ section.settings.title | escape }}</strong></h2>
+        {% endif %}
+        <ul class="queue">
+          {% for block in section.blocks %}
+            {% assign count = forloop.index %}
+            {% if block.settings.image != blank %}
+              <li class="column-12 column-sm-6 column-md-3 margin-bottom advanced-subscription-option{% if count == 2 %} active{% endif %}" data-quantity="{{ block.settings.qty | escape }}" data-field="soap_per_month" data-value="{{ block.settings.qty | escape }}">
+                <div class="product-wrap0 d-flex flex-columns">
+                    <div class="img-wrap">
+                        <img src="{{ block.settings.image | img_url:'400x' }}" alt="{{ block.settings.image.alt }}">
+                    </div>
+                    <div class="product-details text-align-center d-flex flex-columns justify-content-between f-grow-1">
+                        {% if block.settings.title != blank %}
+                          <strong class="product-name text-green d-block ethos-h">{{ block.settings.title | escape }}</strong>
+                        {% endif %}
+                        {% if block.settings.text != blank %}
+                          <span class="brand text-yellow text-uppercase d-block neufreit">{{ block.settings.text | escape }}</span>
+                        {% endif %}
+                        {% if block.settings.price != blank %}
+                          <div class="price d-block neufreit">
+                            <span class="ourprice strikethrow" data-ourprice="{{ block.settings.price | escape }}">{{ block.settings.price | times: 100.0 | money }}</span>
+                            <span class="salePrice"></span>
+                          </div>
+                        {% endif %}
+                        <button type="submit" class="btn btn-product w-100 text-light">Select option</button>
+                    </div>
+                </div>
+              </li>
+            {% endif %}
+            
+          {% endfor %}
+        </ul>
+
+    </div>
+</div>
+{% endif %}
+ <style>
+   .price .ourprice.strikethrow{
+     text-decoration: line-through;
+   }
+   .price .salePrice{
+     color:red;
+   }
+ </style>
+ <script>
+   $(document).ready(function(){
+     $('[data-ourprice]').each(function(){
+       const getV = $(this).data('ourprice');
+       const discountPer = parseFloat(getV * 15 / 100).toFixed(2);
+       const subPrice = parseFloat(getV - discountPer).toFixed(2);
+       $(this).parent().find('.salePrice').text('$'+subPrice);
+     })
+   })
+ </script>
+{% schema %}
+  {
+    "name": "Soap Qty Selcetion",
+    "class": "subscription_qty",
+    "max_blocks": 4,
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "enable_section",
+        "label": "Enable?",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "Select Your Handmade Soap Quantity"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "text",
+        "name": "Quantity Box",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+          },
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Box Title"
+          },
+          {
+            "type": "text",
+            "id": "text",
+            "label": "Box Text"
+          },
+          {
+            "type": "text",
+            "id": "price",
+            "label": "Box Price"
+          },
+          {
+            "type": "select",
+            "id": "qty",
+            "options": [
+              {
+                "value": "1",
+                "label": "1"
+              },
+              {
+                "value": "2",
+                "label": "2"
+              },
+              {
+                "value": "3",
+                "label": "3"
+              },
+              {
+                "value": "4",
+                "label": "4"
+              }
+            ],
+            "default": "1",
+            "label": "Box Quantity"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Subscription Support",
+        "category": "Text",
+        "blocks": [
+          {
+            "type": "text"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

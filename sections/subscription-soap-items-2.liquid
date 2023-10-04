@@ -1,0 +1,293 @@
+{% if section.settings.enable_section == true %}
+<div class="soap-shop custom-space soap-shop00 choose-adv choose-adv2 soap-free-shipping-selection">
+    <div class="vessel">
+        {% if section.settings.title != blank %}
+          <h2 class="text-align-center "><strong>{{ section.settings.title | escape }}</strong></h2>
+        {% endif %}
+        <ul class="queue">
+            {% for block in section.blocks %}
+              {% liquid
+            	assign product = block.settings.product
+            	assign product_img = product.featured_image | img_url: '540x540'
+              %}
+              {% assign count = forloop.index %}
+                <li class="column-12 column-sm-6 column-md-4 margin-bottom">
+                    <div class="product-wrap0 d-flex flex-columns">
+                        {% if block.settings.image != blank %}
+                          <div class="img-wrap">
+                              <img src="{{ block.settings.image | img_url:'540x540' }}" alt="{{ block.settings.image.alt }}">
+                          </div>
+                        {% else %}
+                          <div class="img-wrap">
+                              <img src="{{ product_img }}" alt="{{ product.featured_image.alt }}">
+                          </div>
+                        {% endif %}
+                        <div data-v-id="{{ product.id }}" class="product-details text-align-center d-flex flex-columns justify-content-between f-grow-1">
+                            {% if block.settings.title != blank %}
+                              <strong class="product-name text-green d-block ethos-h">{{ block.settings.title | escape }}</strong>
+                            {% else %}
+                              <strong class="product-name text-green d-block ethos-h">{{ product.title }}</strong>
+                            {% endif %}
+                            {% if block.settings.text != blank %}
+                              <span class="brand text-yellow text-uppercase d-block neufreit">{{ block.settings.text | escape }}</span>
+                            {% endif %}
+    
+                            <div class="d-flex field-11 flex-wrap">
+                                <button type="button" class="text-light subtracting">-</button>
+                                <input type="text" id="1" value="0" min="1" max="100" maxlength="100">
+                                <button type="button" class="text-light adding">+</button>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                
+            {% endfor %}
+            {% comment %}
+            <li class="column-12 column-sm-6 column-md-4 margin-bottom">
+                <div class="product-wrap0 d-flex flex-columns">
+                    <div class="img-wrap">
+                        <img src="https://cdn.shopify.com/s/files/1/2458/1997/files/Screen_Shot_2022-05-11_at_10.58.38_AM.png?v=1660154200" alt="img">
+                    </div>
+                    <div data-v-id="39267168157757" class="product-details text-align-center d-flex flex-columns justify-content-between f-grow-1">
+                        <strong class="product-name text-green d-block ethos-h">
+                            Bamboo Soap Deck
+                        </strong>
+                        <span class="brand text-yellow text-uppercase d-block neufreit">Prolongs the Life of Your
+                            Soap</span>
+
+                        <div class="d-flex field-11 flex-wrap">
+                            <button type="button" class="text-light subtracting">-</button>
+                            <input type="text" id="1" value="0" min="1" max="100" maxlength="100">
+                            <button type="button" class="text-light adding">+</button>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="column-12 column-sm-6 column-md-4 margin-bottom">
+                <div class="product-wrap0 d-flex flex-columns">
+                    <div class="img-wrap">
+                        <img src="https://cdn.shopify.com/s/files/1/2458/1997/files/Screen_Shot_2022-03-30_at_3.14.12_PM_5da8c6af-91c5-459b-9eaa-5972ac07e07c.png?v=1660219462" alt="img">
+                    </div>
+                    <div data-v-id="49215377549" class="product-details text-align-center d-flex flex-columns justify-content-between f-grow-1">
+                        <strong class="product-name text-green d-block ethos-h">
+                            Shampoo Bar
+                        </strong>
+                        <span class="brand text-yellow text-uppercase d-block neufreit">Aloe vera, tea tree,
+                            rosemary</span>
+
+                        <div class="d-flex field-11 flex-wrap">
+                            <button type="button" class="text-light subtracting">-</button>
+                            <input type="text" id="1" value="0" min="1" max="100" maxlength="100">
+                            <button type="button" class="text-light adding">+</button>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="column-12 column-sm-6 column-md-4 margin-bottom">
+                <div class="product-wrap0 d-flex flex-columns">
+                    <div class="img-wrap">
+                        <img src="https://cdn.shopify.com/s/files/1/2458/1997/files/Screen_Shot_2022-03-30_at_3.14.16_PM.png?v=1660154200" alt="img">
+                    </div>
+                    <div data-v-id="31309148946493" class="product-details text-align-center d-flex flex-columns justify-content-between f-grow-1">
+                        <strong class="product-name text-green d-block ethos-h">
+                            Pet Shampoo
+                        </strong>
+                        <span class="brand text-yellow text-uppercase d-block neufreit">Lemongrass, spearmint</span>
+
+                        <div class="d-flex field-11 flex-wrap">
+                            <button type="button" class="text-light subtracting">-</button>
+                            <input type="text" id="1" value="0" min="1" max="100" maxlength="100">
+                            <button type="button" class="text-light adding">+</button>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="column-12 column-sm-6 column-md-4 margin-bottom">
+                <div class="product-wrap0 d-flex flex-columns">
+                    <div class="img-wrap">
+                        <img src="https://cdn.shopify.com/s/files/1/2458/1997/files/Screen_Shot_2022-04-13_at_12.09.48_PM.png?v=1660154201" alt="img">
+                    </div>
+                    <div data-v-id="31315423428669" class="product-details text-align-center d-flex flex-columns justify-content-between f-grow-1">
+                        <strong class="product-name text-green d-block ethos-h">
+                            Shaving Soap
+                        </strong>
+                        <span class="brand text-yellow text-uppercase d-block neufreit">coconut oil, shea butter</span>
+
+                        <div class="d-flex field-11 flex-wrap">
+                            <button type="button" class="text-light subtracting">-</button>
+                            <input type="text" id="1" value="0" min="1" max="100" maxlength="100">
+                            <button type="button" class="text-light adding">+</button>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="column-12 column-sm-6 column-md-4 margin-bottom">
+                <div class="product-wrap0 d-flex flex-columns">
+                    <div class="img-wrap">
+                        <img src="https://cdn.shopify.com/s/files/1/2458/1997/files/Screen_Shot_2022-03-30_at_3.14.33_PM.png?v=1660154201" alt="img">
+                    </div>
+                    <div data-v-id="31885433012285" class="product-details text-align-center d-flex flex-columns justify-content-between f-grow-1">
+                        <strong class="product-name text-green d-block ethos-h">
+                            Muscle Recovery Soak
+                        </strong>
+                        <span class="brand text-yellow text-uppercase d-block neufreit">Himalayan pink salt, essential
+                            oils</span>
+
+                        <div class="d-flex field-11 flex-wrap">
+                            <button type="button" class="text-light subtracting">-</button>
+                            <input type="text" id="1" value="0" min="1" max="100" maxlength="100">
+                            <button type="button" class="text-light adding">+</button>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="column-12 column-sm-6 column-md-4 margin-bottom">
+                <div class="product-wrap0 d-flex flex-columns">
+                    <div class="img-wrap">
+                        <img src="https://cdn.shopify.com/s/files/1/2458/1997/files/Screen_Shot_2022-03-30_at_3.14.37_PM.png?v=1660154200" alt="img">
+                    </div>
+                    <div data-v-id="31309818363965" class="product-details text-align-center d-flex flex-columns justify-content-between f-grow-1">
+                        <strong class="product-name text-green d-block ethos-h">
+                            Lip Balm
+                        </strong>
+                        <span class="brand text-yellow text-uppercase d-block neufreit">Peppermint, green tea
+                            extract</span>
+
+                        <div class="d-flex field-11 flex-wrap">
+                            <button type="button" class="text-light subtracting">-</button>
+                            <input type="text" id="1" value="0" min="1" max="100" maxlength="100">
+                            <button type="button" class="text-light adding">+</button>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="column-12 column-sm-6 column-md-4 margin-bottom">
+                <div class="product-wrap0 d-flex flex-columns">
+                    <div class="img-wrap">
+                        <img src="https://cdn.shopify.com/s/files/1/2458/1997/files/Screen_Shot_2022-03-30_at_3.14.47_PM.png?v=1660154200" alt="img">
+                    </div>
+                    <div  data-v-id="49215603469" class="product-details text-align-center d-flex flex-columns justify-content-between f-grow-1">
+                        <strong class="product-name text-green d-block ethos-h">
+                            Dawn Patrol Essential Oils
+                        </strong>
+                        <span class="brand text-yellow text-uppercase d-block neufreit">Orange, grapefruit, lemon</span>
+
+                        <div class="d-flex field-11 flex-wrap">
+                            <button type="button" class="text-light subtracting">-</button>
+                            <input type="text" id="1" value="0" min="1" max="100" maxlength="100">
+                            <button type="button" class="text-light adding">+</button>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="column-12 column-sm-6 column-md-4 margin-bottom">
+                <div class="product-wrap0 d-flex flex-columns">
+                    <div class="img-wrap">
+                        <img src="https://cdn.shopify.com/s/files/1/2458/1997/files/Screen_Shot_2022-03-30_at_8.08.52_PM.png?v=1660154200" alt="img">
+                    </div>
+                    <div data-v-id="49215975309" class="product-details text-align-center d-flex flex-columns justify-content-between f-grow-1">
+                        <strong class="product-name text-green d-block ethos-h">
+                            Elevate Essential Oils
+                        </strong>
+                        <span class="brand text-yellow text-uppercase d-block neufreit">Patchouli, Clove, Balsam</span>
+
+                        <div class="d-flex field-11 flex-wrap">
+                            <button type="button" class="text-light subtracting">-</button>
+                            <input type="text" id="1" value="0" min="1" max="100" maxlength="100">
+                            <button type="button" class="text-light adding">+</button>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="column-12 column-sm-6 column-md-4 margin-bottom">
+                <div class="product-wrap0 d-flex flex-columns">
+                    <div class="img-wrap">
+                        <img src="https://cdn.shopify.com/s/files/1/2458/1997/files/Screen_Shot_2022-03-30_at_8.08.42_PM.png?v=1660154200" alt="img">
+                    </div>
+                    <div data-v-id="2421577646093" class="product-details text-align-center d-flex flex-columns justify-content-between f-grow-1">
+                        <strong class="product-name text-green d-block ethos-h">
+                            Alpine Start Essential Oils
+                        </strong>
+                        <span class="brand text-yellow text-uppercase d-block neufreit">Spearmint, eucalyptus,
+                            cedarwood</span>
+
+                        <div class="d-flex field-11 flex-wrap">
+                            <button type="button" class="text-light subtracting">-</button>
+                            <input type="text" id="1" value="0" min="1" max="100" maxlength="100">
+                            <button type="button" class="text-light adding">+</button>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            {% endcomment %}
+        </ul>
+
+    </div>
+</div>
+{% endif %}
+
+{% schema %}
+  {
+    "name": "Soap Items 2",
+    "class": "soap_items_2",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "enable_section",
+        "label": "Enable?",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "Select Your Handmade Soap Quantity"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "text",
+        "name": "Add Item",
+        "settings": [
+          {
+            "type": "product",
+            "id": "product",
+            "label": "Select Product"
+          },
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+          },
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Item Title"
+          },
+          {
+            "type": "text",
+            "id": "text",
+            "label": "Item Text"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Soap Items 2",
+        "category": "Text",
+        "blocks": [
+          {
+            "type": "text"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

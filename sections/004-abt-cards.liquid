@@ -1,0 +1,59 @@
+<div class="em-grid-wrapper overflow-hidden">
+    <div class="vessel">
+        <div class="queue">
+            {% for block in section.blocks %}
+            <div class="cc-column column-6 column-sm-4 column-md-3">
+                <div class="em-grid">
+                    <div class="cc-container">
+                        <div class="image-wrap"><img src="{{ block.settings.img1 | img_url: 'master' }}" alt="">
+                        </div>
+                        <div class="em-cc">
+                            <strong class="margin-bottom">{{ block.settings.title }}</strong>
+                            <p>{{ block.settings.desc }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% schema %}
+{
+"name": "004-abt-cards",
+"class": "ind-05",
+"settings": [
+],
+"blocks": [
+{
+"type": "card",
+"name":"card",
+"settings": [
+{
+"type": "textarea",
+"id": "title",
+"label": "title",
+"default": "Your Natural Soap"
+},
+{
+"type": "textarea",
+"id": "desc",
+"label": "desc",
+"default": "dessc"
+},
+{
+"type": "image_picker",
+"id": "img1",
+"label": "img1"
+}
+]
+}
+],
+"presets": [
+{
+"name": "004-abt-cards",
+"category": "custom"
+}
+]
+}
+{% endschema %}

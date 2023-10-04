@@ -1,0 +1,70 @@
+{% assign collection = collections[section.settings.f_col] %}
+<div class="gift-box custom-space event-1">
+    <div class="vessel">
+        <div class="queue">
+            <div class="column-12 column-lg-4">
+                <div class="content margin-bottom">
+                    <h2>{{ section.settings.title }}</h2>
+                    <p>{{ section.settings.desc }}</p>
+                    {% if section.settings.btn_txt != '' %}
+                    <a href="{{ section.settings.btn_url }}" class="btn btn-seceondry text-light neufreit">{{
+                        section.settings.btn_txt }}</a>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="column-12 column-lg-8">
+                <div class="queue">
+                    {% for product in collection.products limit: 3 %}
+                    <div class="column-12 column-md-4">
+                        <div class="img-wrap position-relative black-layer  margin-bottom-1">
+                            <img src="{{ product.featured_image | img_url: 'master' }}" alt="img">
+                            <strong class="gift-name text-light neufreit">{{product.title}}</strong>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% schema %}
+{
+"name": "004-gift-box",
+"settings": [
+{
+"type": "textarea",
+"id": "title",
+"label": "Title",
+"default": "Curated Gift Boxes"
+},
+{
+"type": "textarea",
+"id": "desc",
+"label": "desc",
+"default": "Our products are so much more than a gift. They’re a way to help someone celebrate the everyday joy in theirlife."
+},
+{
+"type": "collection",
+"id": "f_col",
+"label": "Select Collection"
+},
+{
+"type": "textarea",
+"id": "btn_txt",
+"label": "btn_txt",
+"default": "begin to adventure"
+},
+{
+"type": "url",
+"id": "btn_url",
+"label": "btn_url"
+}
+],
+"presets": [
+{
+"name": "004-gift-box",
+"category": "custom"
+}
+]
+}
+{% endschema %}

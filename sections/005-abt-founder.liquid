@@ -1,0 +1,60 @@
+<div class="em-founder-wrapper custom-space overflow-hidden">
+    <div class="vessel">
+        <div class="queue">
+            <div class="em-cc-00 column-12 column-lg-4">
+                <div class="image-wrap">
+                    {% if section.settings.img %}
+                    <img src="{{ section.settings.img | img_url: 'master' }}" alt="">
+                    {% endif %}
+                </div>
+            </div>
+            <div class="column-12 column-lg-8 em-cc-00">
+                <div class="cc-container">
+                    <h2>{{ section.settings.title }}</h2>
+                    <blockquote>
+                        <q>{{ section.settings.rich }}</q>
+                        <cite>{{ section.settings.f_name }}</cite>
+                    </blockquote>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% schema %}
+{
+"name": "005-abt-founder",
+"class": "ind-o2",
+"settings": [
+{
+"type": "textarea",
+"id": "title",
+"label": "title",
+"default": "Wash Your Spirit Clean"
+},
+{
+"type": "richtext",
+"id": "rich",
+"label": "text long"
+},
+{
+"type": "image_picker",
+"id": "img",
+"label": "img"
+},
+{
+"type": "text",
+"id": "f_name",
+"label": "f_name",
+"default": "cheers, stacy"
+}
+],
+"blocks": [
+],
+"presets": [
+{
+"name": "005-abt-founder",
+"category": "custom"
+}
+]
+}
+{% endschema %}

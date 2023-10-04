@@ -1,0 +1,131 @@
+{% if section.settings.enable_section == true %}
+<div class="soap-shop custom-space soap-shop00 choose-adv soap-items-selection advanced-subscription-fieldset">
+    <div class="vessel">
+        {% if section.settings.title != blank %}
+          <h2 class="text-align-center advanced-subscription-fieldset-legend"><strong>{{ section.settings.title | escape }}</strong> (Select <span class="soap-quantity-number">6</span>)</h2>
+        {% endif %}
+        
+        <ul class="queue">
+            {% for block in section.blocks %}
+              {% assign count = forloop.index %}
+              {% if block.settings.surprise == true %}
+                <li class="column-12 column-sm-6 column-md-4 margin-bottom">
+                    <div class="product-wrap0 d-flex flex-columns">
+                        <div class="img-wrap surprise-me">
+                            <button class="btn btn-seceondry">A real adventure</button>
+                            <span class="question-mark">?</span>
+                        </div>
+                        <div class="product-details text-align-center d-flex flex-columns justify-content-between f-grow-1">
+                            {% if block.settings.title != blank %}
+                              <strong class="product-name text-green d-block ethos-h">{{ block.settings.title | escape }}</strong>
+                            {% endif %}
+                            {% if block.settings.text != blank %}
+                              <span class="brand text-yellow text-uppercase d-block neufreit">{{ block.settings.text | escape }}</span>
+                            {% endif %}
+    
+                            <div class="d-flex field-11 flex-wrap">
+                                <button type="button" class="text-light subtracting">-</button>
+                                <input type="text" id="1" value="0" min="1" max="100" maxlength="100">
+                                <button type="button" class="text-light adding">+</button>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+              {% else %}
+                {% if block.settings.image != blank %}
+                  <li class="column-12 column-sm-6 column-md-4 margin-bottom">
+                      <div class="product-wrap0 d-flex flex-columns">
+                          <div class="img-wrap">
+                              <img src="{{ block.settings.image | img_url:'400x' }}" alt="{{ block.settings.image.alt }}">
+                          </div>
+                          <div class="product-details text-align-center d-flex flex-columns justify-content-between f-grow-1">
+                              {% if block.settings.title != blank %}
+                                <strong class="product-name text-green d-block ethos-h">{{ block.settings.title | escape }}</strong>
+                              {% endif %}
+                              {% if block.settings.text != blank %}
+                                <span class="brand text-yellow text-uppercase d-block neufreit">{{ block.settings.text | escape }}</span>
+                              {% endif %}
+      
+                              <div class="d-flex field-11 flex-wrap">
+                                  <button type="button" class="text-light subtracting">-</button>
+                                  <input type="text" id="1" value="0" min="1" max="100" maxlength="100">
+                                  <button type="button" class="text-light adding">+</button>
+                              </div>
+                          </div>
+                      </div>
+                  </li>
+                {% endif %}
+              {% endif %}
+            {% endfor %}
+       </ul>
+
+    </div>
+</div>
+{% endif %}
+
+{% schema %}
+  {
+    "name": "Soap Items",
+    "class": "soap_items",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "enable_section",
+        "label": "Enable?",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "Select Your Handmade Soap Quantity"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "text",
+        "name": "Soap Item",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+          },
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Item Title"
+          },
+          {
+            "type": "text",
+            "id": "text",
+            "label": "Item Text"
+          },
+          {
+            "type": "checkbox",
+            "id": "surprise",
+            "label": "Surprise?",
+            "default": false
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Soap Items",
+        "category": "Text",
+        "blocks": [
+          {
+            "type": "text"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

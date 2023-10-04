@@ -1,0 +1,51 @@
+<div class="main-banner em-story-01 black-layer position-relative" style="background-image: url('https://cdn.shopify.com/s/files/1/2458/1997/files/story-banner.jpg?v=1659967629');">
+            <div class="vessel">
+                <div class="content-banner text-align-center">
+                    <strong class="neufreit text-light">March 11, 2022</strong>
+                    <h2 class="text-light">
+                        Which Mountain Time Soap 
+                        Bar Is Right For You?
+                    </h2>
+                    <p class="text-light">This blog post makes shopping for soap online easier.
+                        Find your perfect bar of Mountain Time Soap.</p>
+                    <a href="#" class="btn btn-primary neufreit">Read the blog post</a>
+                </div>
+            </div>
+        </div>
+
+
+<div class="soap-shop story-soap-shop custom-space without-bg-soap">
+            <div class="vessel">
+                <h2 class="text-align-center ">The Mountain Time Blog</h2>
+                <ul class="queue">
+                
+                    {% for article in blog.articles %}
+                  
+                    <li class="column-12 column-sm-6 column-md-4 margin-bottom {{ forloop.index | divided_by: 3 }}">
+                        <div class="product-wrap0 d-flex flex-columns">
+                            <div class="img-wrap">
+                                <img src="{{ article.image.src | img_url: 'master'}}" alt="img">
+                            </div>
+                            <div class="product-details text-align-center d-flex flex-columns justify-content-between f-grow-1">
+                                <div class="pd-em">
+                                    <strong class="product-name text-green d-block ethos-h">
+                                       {{ article.title }}
+                                    </strong>
+                                    <p>{{ article.excerpt }}</p> 
+                                </div>
+                                <a href="{{ article.url }}" class="btn btn-product w-100 text-light">Read the blog post</a>
+                            </div>
+                        </div>
+                    </li>
+                  {% endfor %}
+                   
+                </ul> 
+                       
+               
+            </div>
+        </div>
+
+        <script>
+          var blog_articles_count = "{{blog.articles_count}}";
+    console.log(blog_articles_count);
+   </script>

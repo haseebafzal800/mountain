@@ -1,0 +1,59 @@
+<div class="main-banner black-layer position-relative"
+    style="background-image: url('{{ section.settings.img1 | img_url: 'master' }}');">
+    <div class="vessel">
+        <div class="content-banner text-align-center">
+            <h2 class="text-light">
+                {{ section.settings.title }}
+            </h2>
+            <p class="text-light">{{ section.settings.desc }}</p>
+            {% if section.settings.btn_txt != blank %}
+            <a href="{{ section.settings._btn_url }}" class="btn btn-primary neufreit">
+                {{ section.settings.btn_txt}}
+            </a>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% schema %}
+  {
+    "name": "001-support",
+    "settings": [
+      {
+      "type": "textarea",
+      "id": "title",
+      "label": "title",
+      "default": "Wash Your Spirit Clean"
+      },
+      {
+      "type": "textarea",
+      "id": "desc",
+      "label": "description",
+      "default": "Mountain Time Soap & Supply is a trailblazing personal care brand creating joy in the everyday, and leaving"
+      },
+      {
+      "type": "image_picker",
+      "id": "img1",
+      "label": "IMAGE1"
+      },
+      {
+      "type": "textarea",
+      "id": "btn_txt",
+      "label": "btn_txt",
+      "default": "Shop All"
+      },
+      {
+      "type": "url",
+      "id": "btn_url",
+      "label": "btn_url"
+      }
+    ],
+    "blocks": [
+      ],
+    "presets": [
+      {
+      "name": "001-support",
+      "category": "custom"
+      }
+  ]
+  }
+{% endschema %}

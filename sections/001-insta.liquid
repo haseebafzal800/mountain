@@ -1,0 +1,58 @@
+<div class="em-footer-wrap overflow-hidden">
+  <div class="vessel-fluid">
+     <div class="queue">
+       <div class="content-container">
+      {% for block in section.blocks %} 
+        {% if block.settings.image != blank %}
+           <div class="insta-wrapper">
+             <a class="insta-post" target="_blank" href="{{ section.settings.url }}">
+                <img src="{{ block.settings.image | img_url: 'x1024' }}" alt="image">
+            </a>
+            <div class="hover-icon"><i class="fa-brands fa-instagram"></i></div>
+          </div>
+        {% endif %}  
+      {% endfor %}   
+      </div>
+    </div>  
+  </div>
+</div>  
+
+
+
+{% schema %}
+  {
+    "name": "001-insta",
+    "settings": [
+      {
+        "type": "url",
+        "id": "url",
+        "label": "IG Url"
+      }
+    ],
+    "max_blocks": 8,
+    "blocks":[
+      {
+        "type": "image_picker",
+        "name": "image",
+        "settings":[
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "IG Image"
+          }
+        ]
+      }
+    ],
+    "presets":[
+      {
+        "name": "001-insta"
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

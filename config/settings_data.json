@@ -1,0 +1,2247 @@
+{
+  "current": {
+    "color_text": "#000000",
+    "color_body_text": "#1b1b1b",
+    "color_sale_text": "#ff6633",
+    "color_borders": "#ffffff",
+    "color_button": "#ff9933",
+    "color_button_text": "#ffffff",
+    "color_small_button": "#669966",
+    "color_small_button_text": "#ffffff",
+    "color_text_field": "#ededed",
+    "color_text_field_text": "#000000",
+    "color_image_overlay_text": "#ffffff",
+    "color_image_overlay": "#bdbdbd",
+    "image_overlay_opacity": 28,
+    "color_body_bg": "#fff",
+    "type_header_family": "Google_Work+Sans_600_sans",
+    "type_header_base_size": "26px",
+    "type_base_family": "Google_Work+Sans_400_sans",
+    "type_base_size": "16px",
+    "type_bold_product_titles": false,
+    "share_facebook": true,
+    "share_twitter": true,
+    "share_pinterest": true,
+    "social_twitter_link": "",
+    "social_facebook_link": "https:\/\/www.facebook.com\/mountaintimesoap\/",
+    "social_pinterest_link": "",
+    "social_instagram_link": "https:\/\/www.instagram.com\/mountaintimesoap\/",
+    "social_tumblr_link": "",
+    "social_snapchat_link": "",
+    "social_youtube_link": "",
+    "social_vimeo_link": "",
+    "favicon": "shopify:\/\/shop_images\/MTS-7-logo-name.png",
+    "checkout_header_image": "",
+    "checkout_logo_image": "shopify:\/\/shop_images\/logo-h.png",
+    "checkout_logo_position": "left",
+    "checkout_logo_size": "medium",
+    "checkout_body_background_image": "",
+    "checkout_body_background_color": "#fff",
+    "checkout_input_background_color_mode": "white",
+    "checkout_sidebar_background_image": "",
+    "checkout_sidebar_background_color": "#fafafa",
+    "checkout_heading_font": "Helvetica Neue",
+    "checkout_body_font": "Helvetica Neue",
+    "checkout_accent_color": "#669966",
+    "checkout_button_color": "#ff9933",
+    "checkout_error_color": "#ff6633",
+    "sections": {
+      "header": {
+        "type": "header",
+        "settings": {
+          "align_logo": "left",
+          "logo": "shopify:\/\/shop_images\/MTS-7-logo-name.JPG",
+          "logo_max_width": "250",
+          "main_linklist": "main-menu",
+          "message": true,
+          "home_page_only": false,
+          "message_text": "$6 flat rate shipping on orders over $20, Free shipping when you spend $50!",
+          "message_link": "",
+          "color_bg": "#2d2e87",
+          "color_text": "#ffffff"
+        }
+      },
+      "hero": {
+        "type": "hero",
+        "settings": {
+          "image": "shopify:\/\/shop_images\/Aspen_Grove.jpg",
+          "alignment": "center",
+          "title": "LATHER UP AN ADVENTURE",
+          "text": "<p><em>rugged soap made from nature<\/em><\/p>",
+          "hero_size": "large",
+          "text_size": "large",
+          "button_label": "Join the adventure",
+          "button_link": "shopify:\/\/pages\/subscribe"
+        }
+      },
+      "feature-row": {
+        "type": "feature-row",
+        "settings": {
+          "layout": "left",
+          "title": "COMMITTED TO CHANGE",
+          "text": "<p>We love the environment and we are doing our part to protect it. All of our packaging are compostable materials.&nbsp;<\/p>",
+          "button_label": "",
+          "button_link": ""
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "settings": {
+          "footer_linklist": "main-menu",
+          "footer_linklist_two": "footer",
+          "footer_newsletter_enable": true,
+          "show_payment_icons": true
+        }
+      },
+      "product-subscription2-template": {
+        "type": "product-subscription2-template",
+        "settings": {
+        }
+      },
+      "collection-template": {
+        "type": "collection-template",
+        "settings": {
+          "layout": "grid",
+          "grid": "4",
+          "rows": "4",
+          "show_collection_image": true,
+          "show_vendor": false,
+          "sort_enable": true,
+          "tags_enable": true
+        }
+      },
+      "product-template": {
+        "type": "product-template",
+        "settings": {
+          "image_size": "medium",
+          "show_quantity_selector": false,
+          "show_variant_labels": true,
+          "show_vendor": true,
+          "enable_zoom": true,
+          "show_share_buttons": true,
+          "ingredients": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dignissimos, magni. Perferendis\n                                possimus, quam\n                                laudantium in iusto illum minus corporis!",
+          "scent_profile": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dignissimos, magni. Perferendis\n                                possimus, quam\n                                laudantium in iusto illum minus corporis!",
+          "natural_coloring": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dignissimos, magni. Perferendis\n                                possimus, quam\n                                laudantium in iusto illum minus corporis!",
+          "dimensions": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dignissimos, magni. Perferendis\n                                possimus, quam\n                                laudantium in iusto illum minus corporis!",
+          "end_life_guide": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dignissimos, magni. Perferendis\n                                possimus, quam\n                                laudantium in iusto illum minus corporis!",
+          "don_with_purchase": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dignissimos, magni. Perferendis\n                                possimus, quam\n                                laudantium in iusto illum minus corporis!",
+          "f_col": "bar-soaps"
+        }
+      },
+      "blog-template": {
+        "type": "blog-template",
+        "settings": {
+          "layout": "list",
+          "article": "news\/which-mountain-time-soap-bar-is-right-for-you",
+          "blog_show_author": true,
+          "blog_show_date": true
+        }
+      },
+      "cart-template": {
+        "type": "cart-template",
+        "settings": {
+          "cart_notes_enable": true
+        }
+      },
+      "pagefly-home": {
+        "type": "pagefly-home",
+        "settings": {
+        }
+      },
+      "new-header": {
+        "type": "new-header",
+        "settings": {
+          "message": true,
+          "message_text": "$6 FLAT RATE SHIPPING ON ORDERS OVER $20, FREE SHIPPING WHEN YOU SPEND $50!",
+          "color_bg": "#3a592d",
+          "color_text": "#ffffff",
+          "logo": "shopify:\/\/shop_images\/logo-h.png",
+          "main_linklist": "main-mega-menu"
+        }
+      },
+      "new-footer": {
+        "type": "new-footer",
+        "blocks": {
+          "efa5e7e3-fa35-4faa-8a6d-4f8c162e7428": {
+            "type": "image_picker",
+            "settings": {
+              "logo": "shopify:\/\/shop_images\/footer-logo.png",
+              "logo_text": "Mountain Time Soap & Supply is a trailblazing personal care brand creating joy in the everyday, and leaving the planet better than we found it. Adventure on, wash your spirit clean.",
+              "logo_email": "mountaintimesoap@gmail.com",
+              "social_01": "https:\/\/www.facebook.com\/mountaintimesoap\/",
+              "social_02": "https:\/\/www.instagram.com\/mountaintimesoap\/",
+              "social_03": "#"
+            }
+          },
+          "33cdac00-7e7c-4bc9-88c0-b7f212ff239b": {
+            "type": "link_list",
+            "settings": {
+              "nav_heading": "navigate",
+              "nav_list": "footer-menu"
+            }
+          },
+          "08bc83e9-3059-45c7-8952-6a124b617dba": {
+            "type": "link_list",
+            "settings": {
+              "nav_heading": "OUR SOAP",
+              "nav_list": "our-soap"
+            }
+          },
+          "4e74b980-8719-4bc8-9336-173f0804470e": {
+            "type": "link_list",
+            "settings": {
+              "nav_heading": "SUPPORT",
+              "nav_list": "support"
+            }
+          },
+          "b3465c4d-7ade-4a81-b178-a5bb84f3ec0b": {
+            "type": "newsletter",
+            "settings": {
+              "news_heading": "JOIN OUR MAILING LIST",
+              "news_text": "Be the first to know about Mountain Time events, new product launches and exclusive offers for our members!"
+            }
+          }
+        },
+        "block_order": [
+          "efa5e7e3-fa35-4faa-8a6d-4f8c162e7428",
+          "33cdac00-7e7c-4bc9-88c0-b7f212ff239b",
+          "08bc83e9-3059-45c7-8952-6a124b617dba",
+          "4e74b980-8719-4bc8-9336-173f0804470e",
+          "b3465c4d-7ade-4a81-b178-a5bb84f3ec0b"
+        ],
+        "settings": {
+          "checkbox": true,
+          "author_01": "KELCIE",
+          "author_02": "",
+          "author_03": "STUDIO HUMANKIND",
+          "author_04": ""
+        }
+      },
+      "166299254546f26eb5": {
+        "type": "001-abt-ban",
+        "settings": {
+          "title": "Wash Your Spirit Clean",
+          "desc": "Mountain Time Soap & Supply is a trailblazing personal care brand creating joy in the everyday, <br>and leaving the planet better than we found it. Adventure on, wash your spirit clean.",
+          "img1": "shopify:\/\/shop_images\/home-banner-min.png",
+          "btn_txt": "Shop All products",
+          "btn_url": "shopify:\/\/collections\/all",
+          "video": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/a66ad951fcc446a5b3d2c8f948efd652.mp4"
+        }
+      },
+      "16629927295dc10992": {
+        "type": "002-ind-ft-collection",
+        "settings": {
+          "title": "mountain time classics",
+          "f_col": "bar-soaps",
+          "shp_btn": "shop bar soap"
+        }
+      },
+      "16629928973ee9e074": {
+        "type": "003-ind-adv",
+        "blocks": {
+          "970449ef-e571-4eb6-80e8-b05aabd71cee": {
+            "type": "card",
+            "settings": {
+              "title": "15% Off Site-Wide for members",
+              "desc": "If you’re an Adventure Soap Club member, you’re our people. And we always take care of our people."
+            }
+          },
+          "f7e1b2cc-ca64-44ee-a35d-3c97cc24e8d4": {
+            "type": "card",
+            "settings": {
+              "title": "Mix & Match Your Natural Soap",
+              "desc": "You pick the number of bars, of which soap varieties you want and how frequently new bars ship."
+            }
+          },
+          "5caf1eb9-b071-4a76-86cf-e06b3b442246": {
+            "type": "card",
+            "settings": {
+              "title": "Pause Or Cancel At Any Time",
+              "desc": "Taking off for an epic road trip? Backpacking for a month? Stocked up on soap? Cancel or pause at any time, no questions asked."
+            }
+          }
+        },
+        "block_order": [
+          "970449ef-e571-4eb6-80e8-b05aabd71cee",
+          "f7e1b2cc-ca64-44ee-a35d-3c97cc24e8d4",
+          "5caf1eb9-b071-4a76-86cf-e06b3b442246"
+        ],
+        "settings": {
+          "title": "The Adventure Soap Club",
+          "desc": "Life moves quickly and we value time above all else. The Adventure Soap Club is a soap subscription service that simplifies your life so you can spend more time on the road, in the mountains, or wherever your next adventure takes you. Shipments of your choice are conveniently delivered to your door, customized to meet your needs.",
+          "img1": "shopify:\/\/shop_images\/Mask_Group_83-min.png",
+          "btn_txt": "begin the adventure",
+          "btn_url": "shopify:\/\/pages\/subscription-page"
+        }
+      },
+      "166299330109f64c32": {
+        "type": "004-abt-cards",
+        "blocks": {
+          "387ff963-5f5a-4bb6-87f9-bf37af656cd1": {
+            "type": "card",
+            "settings": {
+              "title": "HANDCRAFTED IN <br>\nGOLDEN, COLORADO",
+              "desc": "We make all of our products, and hand cut our soap, in the heart of the Rockies.",
+              "img1": "shopify:\/\/shop_images\/about-01.png"
+            }
+          },
+          "299ae8bf-3107-4fc5-aa8e-4efa41f72599": {
+            "type": "card",
+            "settings": {
+              "title": "",
+              "desc": "We donate 1% of all gross sales to local, environmental non-profits.",
+              "img1": "shopify:\/\/shop_images\/about-02.png"
+            }
+          },
+          "4f7720e4-b85e-40c4-9606-2d1ebe8f5388": {
+            "type": "card",
+            "settings": {
+              "title": "BIODEGRADABLE",
+              "desc": "Unless you can use it forever, our products break down naturally.",
+              "img1": "shopify:\/\/shop_images\/about-04.png"
+            }
+          },
+          "a5e0ed81-0f73-42be-b870-dd0454939e97": {
+            "type": "card",
+            "settings": {
+              "title": "VEGAN",
+              "desc": "We’re proud to use vegan and plant-based oils for our products.",
+              "img1": "shopify:\/\/shop_images\/about-03.png"
+            }
+          },
+          "7a10c94c-38e2-499d-b4aa-8de09a757457": {
+            "type": "card",
+            "settings": {
+              "title": "LOADS OF LATHER",
+              "desc": "All of the bubbles. None of the lathering agents.",
+              "img1": "shopify:\/\/shop_images\/about-05.png"
+            }
+          },
+          "35c46ca3-c37e-446d-821f-a7d8b906c010": {
+            "type": "card",
+            "settings": {
+              "title": "PURE ESSENTIAL OILS",
+              "desc": "We create intentional aromatherapy with each bar for every wash.",
+              "img1": "shopify:\/\/shop_images\/about-06.png"
+            }
+          },
+          "5a329365-d690-4ca3-baa2-4f5239b6b170": {
+            "type": "card",
+            "settings": {
+              "title": "MOISTURE RICH",
+              "desc": "Formulated to be hydrating, even in the driest climates.",
+              "img1": "shopify:\/\/shop_images\/about-07.png"
+            }
+          },
+          "5146b079-cb71-480a-a9af-1fd44ba40013": {
+            "type": "card",
+            "settings": {
+              "title": "COMPOSTABLE PACKAGING",
+              "desc": "All of our packaging is either compostable or recyclable.",
+              "img1": "shopify:\/\/shop_images\/about-08.png"
+            }
+          }
+        },
+        "block_order": [
+          "387ff963-5f5a-4bb6-87f9-bf37af656cd1",
+          "299ae8bf-3107-4fc5-aa8e-4efa41f72599",
+          "4f7720e4-b85e-40c4-9606-2d1ebe8f5388",
+          "a5e0ed81-0f73-42be-b870-dd0454939e97",
+          "7a10c94c-38e2-499d-b4aa-8de09a757457",
+          "35c46ca3-c37e-446d-821f-a7d8b906c010",
+          "5a329365-d690-4ca3-baa2-4f5239b6b170",
+          "5146b079-cb71-480a-a9af-1fd44ba40013"
+        ],
+        "settings": {
+        }
+      },
+      "16629938242de770ea": {
+        "type": "004-gift-box",
+        "settings": {
+          "title": "Curated <br> Gift Boxes",
+          "desc": "Our products are so much more than a gift. They’re a way to help someone celebrate the everyday joy in their life.",
+          "f_col": "hoiday-gift-guide",
+          "btn_txt": "shop the collection",
+          "btn_url": "shopify:\/\/collections"
+        }
+      },
+      "1662993967819647e4": {
+        "type": "006-ind-testmo",
+        "blocks": {
+          "0c284a0e-a431-4b5c-8c86-36588e31ec4f": {
+            "type": "card",
+            "settings": {
+              "name": "Trevor f.",
+              "testmo": "“I’ve never used bar soap before but since I started using this soap, it’s my soap of choice!”",
+              "img1": "shopify:\/\/shop_images\/quote_icon_3.png"
+            }
+          },
+          "ddec0b69-26c9-4602-9b9e-a5ce6e3fae93": {
+            "type": "card",
+            "settings": {
+              "name": "Kiry — denver",
+              "testmo": "“I give this soap to every visitor, family member, business colleague, as a Colorado made gift! As soon as you smell it you feel like you are at 8500 feet. Perfect if someone is missing CO, the mountains, or adventure!”",
+              "img1": "shopify:\/\/shop_images\/quote_icon_3.png"
+            }
+          },
+          "c2ce703d-27c0-4bce-a800-78f038a337ad": {
+            "type": "card",
+            "settings": {
+              "name": "Amy l.",
+              "testmo": "“Thank you for continuing to make my favorite soaps! I really love the Shea butter as my hands have been so dry from constant hand washing.”",
+              "img1": "shopify:\/\/shop_images\/quote_icon_3.png"
+            }
+          },
+          "e1d4ad13-ec04-4902-8864-b88afb408d12": {
+            "type": "card",
+            "settings": {
+              "name": "Shawn",
+              "testmo": "\"This soap actually made my dry skin clear up and smells great. I've tried many different soaps from other companies that had great reviews but none of them compare to mountain time! Great product!”",
+              "img1": "shopify:\/\/shop_images\/quote_icon_3.png"
+            }
+          },
+          "a955f085-eb74-4e91-8aad-1cc923979bcb": {
+            "type": "card",
+            "settings": {
+              "name": "Logan",
+              "testmo": "“Best soap in Colorado! Locally made here in Golden, Colorado from a fantastic couple. Highly recommend.”",
+              "img1": "shopify:\/\/shop_images\/quote_icon_3_66a62ead-ce56-4e3e-b13e-b06f9b0809ef.png"
+            }
+          },
+          "e0b03d38-40c1-42ce-9543-7416a1e2373b": {
+            "type": "card",
+            "settings": {
+              "name": "Laurel",
+              "testmo": "\"This shaving soap is incredible! Use it anywhere you'd use shave gel\/shaving cream and it is dreamy--smooth, effective and smells great.”",
+              "img1": "shopify:\/\/shop_images\/quote_icon_3_66a62ead-ce56-4e3e-b13e-b06f9b0809ef.png"
+            }
+          },
+          "4b3a4530-d67c-4f2c-9b61-6a7aae04c00a": {
+            "type": "card",
+            "settings": {
+              "name": "Michelle J.",
+              "testmo": "“The only soap I use! I have eczema and very sensitive skin and this is the perfect exfoliation soap. They always deliver promptly and I’m a lifer.”",
+              "img1": "shopify:\/\/shop_images\/quote_icon_3_66a62ead-ce56-4e3e-b13e-b06f9b0809ef.png"
+            }
+          }
+        },
+        "block_order": [
+          "0c284a0e-a431-4b5c-8c86-36588e31ec4f",
+          "ddec0b69-26c9-4602-9b9e-a5ce6e3fae93",
+          "c2ce703d-27c0-4bce-a800-78f038a337ad",
+          "e1d4ad13-ec04-4902-8864-b88afb408d12",
+          "a955f085-eb74-4e91-8aad-1cc923979bcb",
+          "e0b03d38-40c1-42ce-9543-7416a1e2373b",
+          "4b3a4530-d67c-4f2c-9b61-6a7aae04c00a"
+        ],
+        "settings": {
+          "title": "Trail Talk & Testimonials"
+        }
+      },
+      "1662995957c1786097": {
+        "type": "009-ind-newsletter",
+        "settings": {
+          "title": "Join the Newsletter",
+          "desc": "We don't like waste, so we'd never waste your time with an email that didn't include helpful information, important updates, or joy for your everyday life. Sign up to keep in touch!"
+        }
+      },
+      "166299609292ea1f1f": {
+        "type": "010-icon-banner",
+        "settings": {
+          "title": "Interested In A Retail Partnership",
+          "desc": "Help us spread the soap! We welcome the opportunity to partner with your business to bring Mountain Time Soap and our other natural products to your location and to your customers.",
+          "img1": "shopify:\/\/shop_images\/Mask_Group_81-min.png",
+          "btn_txt": "get in contact",
+          "btn_url": "shopify:\/\/pages\/contact-2"
+        }
+      },
+      "001-cn-ban": {
+        "type": "001-cn-ban",
+        "settings": {
+          "title": "Let’s Connect",
+          "desc": "Have a question you didn’t find an answered in our FAQ? Or maybe you have <br>collaboration idea we’d love to hear about? Please don’t hesitate to reach out!",
+          "img1": "shopify:\/\/shop_images\/contact-00_0ed457f9-9dd4-4bb4-ac0f-cbbf2b0cbd7f.jpg",
+          "btn_txt": "",
+          "btn_url": ""
+        }
+      },
+      "002-cn-contact-form": {
+        "type": "002-cn-contact-form",
+        "settings": {
+          "title": "Let’s Connect",
+          "desc": "We are always on Mountain Time, but our business hours are M_F 8am-5pm MST.",
+          "btn_txt": "SEND MESSAGE"
+        }
+      },
+      "003-cn-bt-banner": {
+        "type": "003-cn-bt-banner",
+        "settings": {
+          "title": "Wash Your Spirit Clean",
+          "desc": "At Mountain Time, we know that life happens outside. Everything else is only possible because of trees, winds, and tides.\n<br><br>\nOur love of the outdoors made us want for better. What started as a quest to remove harmful chemicals from our founder's life turned into a trail blazing personal care brand creating joy in the everyday. Our love of the outdoors and our community made us want for better, so we made it, one bar at a time.",
+          "img1": "shopify:\/\/shop_images\/bg-faq.png",
+          "btn_txt": "read the full story",
+          "btn_url": "https:\/\/www.mountaintimesoap.com\/blogs\/stories"
+        }
+      },
+      "004-cn-loc-map": {
+        "type": "004-cn-loc-map",
+        "settings": {
+          "title": "Find Mountain Time Retailers",
+          "cal_embed": ""
+        }
+      },
+      "005-cn-ls-ban": {
+        "type": "005-cn-ls-ban",
+        "settings": {
+          "title": "Interested In A Retail Partnership?",
+          "desc": "Help us spread the soap! We welcome the opportunity to partner with your business to bring Mountain Time Soap and our other natural products to your location and to your customers.",
+          "img1": "shopify:\/\/shop_images\/contact-01.jpg",
+          "btn_txt": "get in contact",
+          "btn_url": "shopify:\/\/pages\/contact-2"
+        }
+      },
+      "166315015174777236": {
+        "type": "003-cn-bt-banner",
+        "settings": {
+          "title": "We’re Always On Mountain Time",
+          "desc": "At Mountain Time, we know that life happens outside. Everything else is only possible because of trees, winds, and tides.\n<br><br>\nOur love of the outdoors made us want for better. What started as a quest to remove harmful chemicals from our founder's life turned into a trail blazing personal care brand creating joy in the everyday. Our love of the outdoors and our community made us want for better, so we made it, one bar at a time.",
+          "img1": "shopify:\/\/shop_images\/bg-faq.png",
+          "btn_txt": "read the full story",
+          "btn_url": "shopify:\/\/pages\/stories"
+        }
+      },
+      "001-ev-ban": {
+        "type": "001-ev-ban",
+        "settings": {
+          "title": "Find Retailers & Upcoming Events",
+          "desc": "Mountain Time Soap is expanding! You can find our products in over 150 retail locations across the country.",
+          "img1": "shopify:\/\/shop_images\/Mask_Group_112-min_1.png",
+          "btn_txt": "",
+          "btn_url": ""
+        }
+      },
+      "002-ev-events": {
+        "type": "002-ev-events",
+        "blocks": {
+          "35170881-c06c-48d9-9889-1550694e678e": {
+            "type": "event",
+            "settings": {
+              "ename": "THIS EVENT NAME GOES HERE & HERE",
+              "etime": "12.00-2.00 PM MST",
+              "elname": "THIS LOCATION NAME",
+              "epin1": "address 1",
+              "epin2": "address 2"
+            }
+          },
+          "9ccacfd0-0619-4e31-9489-75cfccf20876": {
+            "type": "event",
+            "settings": {
+              "ename": "THIS EVENT NAME GOES HERE & HERE",
+              "etime": "12.00-2.00 PM MST",
+              "elname": "THIS LOCATION NAME",
+              "epin1": "address 1",
+              "epin2": "address 2"
+            }
+          },
+          "52612036-5dc7-4595-afd7-6bc44975b53c": {
+            "type": "event",
+            "settings": {
+              "ename": "THIS EVENT NAME GOES HERE & HERE",
+              "etime": "12.00-2.00 PM MST",
+              "elname": "THIS LOCATION NAME",
+              "epin1": "address 1",
+              "epin2": "address 2"
+            }
+          }
+        },
+        "block_order": [
+          "35170881-c06c-48d9-9889-1550694e678e",
+          "9ccacfd0-0619-4e31-9489-75cfccf20876",
+          "52612036-5dc7-4595-afd7-6bc44975b53c"
+        ],
+        "settings": {
+          "title": "Upcoming Events",
+          "desc": "We have the most amazing customers and we love to see you in real life. Track us down at our next event!",
+          "img1": "shopify:\/\/shop_images\/bg-faq.png"
+        }
+      },
+      "003-ev-embed": {
+        "type": "003-ev-embed",
+        "settings": {
+          "title": "Upcoming Events",
+          "cal_embed": "<script src=\"https:\/\/www.theshopcalendar.com\/widget.js\" class=\"calendar-widget\" data-calendar-uuid=\"68990885-6abc-4994-9272-c6ba9d2db164\"><\/script>\n<div id=\"theshopcalendar-widget-68990885-6abc-4994-9272-c6ba9d2db164\"><\/div>"
+        }
+      },
+      "004-ev-bt-ban": {
+        "type": "004-ev-bt-ban",
+        "settings": {
+          "title": "Interested In A Retail Partnership?",
+          "desc": "Help us spread the soap! We welcome the opportunity to partner with your business to bring Mountain Time Soap and our other natural products to your location and to your customers.",
+          "img1": "shopify:\/\/shop_images\/contact-01.jpg",
+          "btn_txt": "get in contact",
+          "btn_url": ""
+        }
+      },
+      "009-ind-newsletter": {
+        "type": "009-ind-newsletter",
+        "settings": {
+          "title": "Join The Newsletter",
+          "desc": "We don't like waste, so we'd never waste your time with an email that didn't include helpful information, important updates, or joy for your everyday life. Sign up to keep in touch!"
+        }
+      },
+      "001-abt-ban": {
+        "type": "001-abt-ban",
+        "settings": {
+          "title": "Our Handcrafted Process",
+          "desc": "From ingredients to packaging, you can trust that we’re mindful about our business practices while honoring an age-old heritage process.",
+          "img1": "shopify:\/\/shop_images\/Mask_Group_70.png",
+          "btn_txt": "",
+          "btn_url": "",
+          "video": ""
+        }
+      },
+      "002-abt-rich": {
+        "type": "002-abt-rich",
+        "settings": {
+          "title": "Our Story Starts With An Aspiration To Do Better",
+          "desc": "BETTER FOR OUR SKIN. BETTER FOR OUR COMMUNITY. BETTER FOR OUR PLANET.",
+          "rich": "<p>Have you ever found yourself in the soap isle, glazed over by so many low quality options and wanting for something better? That’s precisely where our founder, Stacy, found herself one day. Bewildered by the wall of plastics, industrial era bar soaps, and endocrine-disrupting fragrances. That moment left her wondering why humanity didn’t put more thought into the ingredients we put on our skin and down our drains. It’s a moment that stuck with her and inspired her to dig deeper and look for a way to do better.<br\/><br\/>She set out to make an eco-friendly soap that was truly made from nature. The result was a  biodegradable bar soap with loads of lather that leaves your skin feeling healthy.<br\/><br\/>Now, our handmade soap can be found in National Parks and zero waste stores across the country. We’ve become a personal care brand that makes products that are good for your skin, and the planet. From lip balms to bath salt, we pride ourselves on putting the same love and care into each of our products as we did those first bars of soap.<\/p>"
+        }
+      },
+      "003-abt-split": {
+        "type": "003-abt-split",
+        "settings": {
+          "title": "Our Vision",
+          "rich": "<p>At Mountain Time Soap, we know that life happens outside. It happens around a campfire, a walk in the neighborhood, or on a boat in the middle of the ocean. Everything else is only possible because of trees, winds, and tides.<br\/><br\/>Our love of the outdoors and our community made us want for better. We found a way to protect our planet and love on our people by creating a natural soap. <br\/><br\/>We believe that each wash is a fresh start. We believe in a world where if you pack it in, you pack it out. We are leave no trace kind of people, and we hope to inspire others to do the same.<\/p>",
+          "img": "shopify:\/\/shop_images\/Mask_Group_14.png"
+        }
+      },
+      "004-abt-cards": {
+        "type": "004-abt-cards",
+        "blocks": {
+          "d9056d19-d443-457f-8d14-e3314606811e": {
+            "type": "card",
+            "settings": {
+              "title": "HANDCRAFTED IN <br>\nGOLDEN, COLORADO",
+              "desc": "We make all of our products, and hand cut our soap, in the heart of the Rockies.",
+              "img1": "shopify:\/\/shop_images\/about-01.png"
+            }
+          },
+          "f395c5d1-5c61-40be-b478-f4711f940a15": {
+            "type": "card",
+            "settings": {
+              "title": "",
+              "desc": "We donate 1% of all gross sales to <br>local, environmental non-profits.",
+              "img1": "shopify:\/\/shop_images\/about-02.png"
+            }
+          },
+          "bac1a9e2-6249-4f6b-b94c-79889e798272": {
+            "type": "card",
+            "settings": {
+              "title": "BIODEGRADABLE",
+              "desc": "Unless you can use it forever, our <br>products break down naturally.",
+              "img1": "shopify:\/\/shop_images\/about-03.png"
+            }
+          },
+          "e335db46-45dd-4ef5-bc0b-24022727491e": {
+            "type": "card",
+            "settings": {
+              "title": "VEGAN",
+              "desc": "We’re proud to use vegan and <br>plant-based oils for our products.",
+              "img1": "shopify:\/\/shop_images\/about-04.png"
+            }
+          },
+          "4d52b390-5399-407a-9490-5f6293805db3": {
+            "type": "card",
+            "settings": {
+              "title": "LOADS OF LATHER",
+              "desc": "All of the bubbles. None <br>of the lathering agents.",
+              "img1": "shopify:\/\/shop_images\/about-05.png"
+            }
+          },
+          "39ed51b5-fbe4-4f8e-99dc-272d03bac603": {
+            "type": "card",
+            "settings": {
+              "title": "PURE ESSENTIAL OILS",
+              "desc": "We create intentional aromatherapy <br>with each bar for every wash.",
+              "img1": "shopify:\/\/shop_images\/about-06.png"
+            }
+          },
+          "c7d49e9f-bde6-4ca1-b115-e1fb7986a867": {
+            "type": "card",
+            "settings": {
+              "title": "MOISTURE RICH",
+              "desc": "Formulated to be hydrating, <br>even in the driest climates.",
+              "img1": "shopify:\/\/shop_images\/about-07.png"
+            }
+          },
+          "c76b1164-cbde-4a11-a1ec-fc4aa6ea812e": {
+            "type": "card",
+            "settings": {
+              "title": "COMPOSTABLE PACKAGING",
+              "desc": "All of our packaging is either <br>compostable or recyclable.",
+              "img1": "shopify:\/\/shop_images\/about-08.png"
+            }
+          }
+        },
+        "block_order": [
+          "d9056d19-d443-457f-8d14-e3314606811e",
+          "f395c5d1-5c61-40be-b478-f4711f940a15",
+          "bac1a9e2-6249-4f6b-b94c-79889e798272",
+          "e335db46-45dd-4ef5-bc0b-24022727491e",
+          "4d52b390-5399-407a-9490-5f6293805db3",
+          "39ed51b5-fbe4-4f8e-99dc-272d03bac603",
+          "c7d49e9f-bde6-4ca1-b115-e1fb7986a867",
+          "c76b1164-cbde-4a11-a1ec-fc4aa6ea812e"
+        ],
+        "settings": {
+        }
+      },
+      "005-abt-founder": {
+        "type": "005-abt-founder",
+        "settings": {
+          "title": "Meet Our Founder",
+          "rich": "<p>I started this journey on a mission to reduce toxic chemicals and plastic waste from my life. In 2013, I made my first bar of soap with ingredients that I felt good about. I was adamant about not using fragrance oils or artificial colors, both of which are still common ingredients in the “natural” soap industry today. Over the last decade, making soap for my community has become my love language. We’re creating a product at Mountain Time Soap that has the ability to make a positive impact on someone’s life every single day, which is an opportunity we don’t take lightly. We strategically use aromatherapy to boost your mood, bring you comfort, and leave you with a feeling of well-being. From washing your hands in the backcountry, to teaching your children the importance of hand washing at the kitchen sink, I hope you feel the joy and love I put into making your soap. <\/p><p>Adventure on, wash your spirit clean.<\/p>",
+          "img": "shopify:\/\/shop_images\/about-founder.jpg",
+          "f_name": "cheers, stacy"
+        }
+      },
+      "006-abt-mnt": {
+        "type": "006-abt-mnt",
+        "blocks": {
+          "0f144f49-c8ce-4718-a6a1-6243810a720a": {
+            "type": "image",
+            "settings": {
+              "img": "shopify:\/\/shop_images\/mind-3.jpg"
+            }
+          },
+          "58a58070-9980-48a3-ade5-b837f38d9375": {
+            "type": "image",
+            "settings": {
+              "img": "shopify:\/\/shop_images\/mind-2.jpg"
+            }
+          },
+          "2f2e2f1c-6141-4da6-914c-e3f12fe8c452": {
+            "type": "image",
+            "settings": {
+              "img": "shopify:\/\/shop_images\/mind-1.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "0f144f49-c8ce-4718-a6a1-6243810a720a",
+          "58a58070-9980-48a3-ade5-b837f38d9375",
+          "2f2e2f1c-6141-4da6-914c-e3f12fe8c452"
+        ],
+        "settings": {
+          "title": "Mountain Time State Of Mind",
+          "rich": "<p>To us, Mountain Time isn’t simply defined by a geographical region to set your clocks to. It’s about being present in the moment. It’s about connecting with nature and honoring the spirit of life. It’s a place where adventure happens and anything is possible. It’s an opportunity to break down barriers and provide for our neighbors. Whether we’re climbing a peak or mixing up a fresh batch of soap, we’re always in a Mountain Time state of mind.<\/p>"
+        }
+      },
+      "007-abt-mid-ban": {
+        "type": "007-abt-mid-ban",
+        "settings": {
+          "title": "Wash your spirit clean.\"",
+          "desc": "Keep close to nature’s heart… and break clear away, once in awhile, and climb a mountain or spend a week in the woods.",
+          "name": "JOHN MUIR",
+          "img1": "shopify:\/\/shop_images\/bg-faq.png",
+          "btn_txt": "",
+          "btn_url": ""
+        }
+      },
+      "008-abt-ing": {
+        "type": "008-abt-ing",
+        "blocks": {
+          "99ff93f3-265f-42db-bcbf-1fa1db20b5b9": {
+            "type": "ing",
+            "settings": {
+              "title": "Plant-Based Oils",
+              "desc": "We use vegan and ethically sourced plant <br>based oils, like coconut oil and shea butter."
+            }
+          },
+          "0efd1831-ba32-460b-82b8-a8492dd09916": {
+            "type": "ing",
+            "settings": {
+              "title": "Clays & BOTANICALS",
+              "desc": "We use clays and botanicals to create the rich, earthy colors."
+            }
+          },
+          "37812fe2-c302-4e9e-a1aa-5de78ca17f6c": {
+            "type": "ing",
+            "settings": {
+              "title": "PURE ESSENTIAL OILS",
+              "desc": "Aromatherapy with every wash."
+            }
+          },
+          "902602f5-6546-494f-bc41-93cb247f7291": {
+            "type": "ing",
+            "settings": {
+              "title": "Natural Exfoliators",
+              "desc": "Exfoliate your skin naturally with coffee grounds, <br> shredded loofah, rolled oats, and volcanic pumice."
+            }
+          },
+          "a36844c5-eef5-4455-a1e7-b05534a5027f": {
+            "type": "ing",
+            "settings": {
+              "title": "No Artificials",
+              "desc": "We never use artificial fragrances, dyes, or <br>synthetic ingredients."
+            }
+          },
+          "cef15fd2-6b5c-441e-a256-8f24af63009a": {
+            "type": "ing",
+            "settings": {
+              "title": "No FILLERS",
+              "desc": "Each ingredient is selected with intention. We use high-quality ingredients, every time."
+            }
+          },
+          "1f6ee266-8911-4d04-929c-892f2f894ec0": {
+            "type": "ing",
+            "settings": {
+              "title": "No Hardening Agents",
+              "desc": "We give our soap an extra long drying time to avoid <br>unnecessary additives."
+            }
+          },
+          "bf3223d5-5a9a-4038-b4d9-219b7835719f": {
+            "type": "ing",
+            "settings": {
+              "title": "No LATHERING AGENTS",
+              "desc": "All of the bubbles. None of the skin-irritating <br>lathering agents like Sodium Lauryl Sulfate."
+            }
+          }
+        },
+        "block_order": [
+          "99ff93f3-265f-42db-bcbf-1fa1db20b5b9",
+          "0efd1831-ba32-460b-82b8-a8492dd09916",
+          "37812fe2-c302-4e9e-a1aa-5de78ca17f6c",
+          "902602f5-6546-494f-bc41-93cb247f7291",
+          "a36844c5-eef5-4455-a1e7-b05534a5027f",
+          "cef15fd2-6b5c-441e-a256-8f24af63009a",
+          "1f6ee266-8911-4d04-929c-892f2f894ec0",
+          "bf3223d5-5a9a-4038-b4d9-219b7835719f"
+        ],
+        "settings": {
+          "titlem": "Down-To-Earth Ingredients",
+          "img": "shopify:\/\/shop_images\/IDLWLD_001_grande-removebg-preview.png"
+        }
+      },
+      "009-abt-pack": {
+        "type": "009-abt-pack",
+        "settings": {
+          "title": "Mindful Packaging",
+          "rich": "<p>From product to packaging, we do our best to leave no trace.<\/p><p>Our shipping materials, soap boxes and retail displays are produced locally. Our shipping materials are 100% post-consumer and have been recycled in Denver, right down the road from our shop in Golden. We support local producers to reduce our impact on the supply chain and minimize our carbon footprint.<\/p><p>All of our packaging is compostable or recyclable at the end of their life cycles.<\/p>",
+          "img": "shopify:\/\/shop_images\/about-packaging.jpg"
+        }
+      },
+      "010-abt-icon-banner": {
+        "type": "010-abt-icon-banner",
+        "settings": {
+          "title": "",
+          "desc": "Since 2018, we’ve been proud to commit 1% of our annual gross sales to local <br>non-profit organizations in Colorado that share our passion for the environment.",
+          "img1": "shopify:\/\/shop_images\/about-planet.jpg",
+          "img": "shopify:\/\/shop_images\/planet-white.png",
+          "btn_txt": "learn more about their work",
+          "btn_url": "https:\/\/onepercentfortheplanet.org"
+        }
+      },
+      "001-sup-ban": {
+        "type": "001-sup-ban",
+        "settings": {
+          "title": "Account Details",
+          "desc": "",
+          "img1": "shopify:\/\/shop_images\/Mask_Group_106.png",
+          "btn_txt": "",
+          "btn_url": ""
+        }
+      },
+      "002-sup-icons": {
+        "type": "002-sup-icons",
+        "blocks": {
+          "c7ca1212-b2e6-4c9a-8362-4878275a6085": {
+            "type": "icon",
+            "settings": {
+              "img1": "shopify:\/\/shop_images\/cs-01.png",
+              "btn_txt": "SHIPPING",
+              "btn_url": ""
+            }
+          },
+          "9abfcaea-f503-4e33-8d73-125ef7f2a1f6": {
+            "type": "icon",
+            "settings": {
+              "img1": "shopify:\/\/shop_images\/cs-02.png",
+              "btn_txt": "Returns & <br>\nExchanges",
+              "btn_url": ""
+            }
+          },
+          "3760877c-a7f8-49b3-b0f2-1ed8efd19449": {
+            "type": "icon",
+            "settings": {
+              "img1": "shopify:\/\/shop_images\/cs-03.png",
+              "btn_txt": "Faqs",
+              "btn_url": ""
+            }
+          },
+          "f501eb97-64b5-48b4-9737-bb13d75f5bec": {
+            "type": "icon",
+            "settings": {
+              "img1": "shopify:\/\/shop_images\/cs-04.png",
+              "btn_txt": "Terms &\n<br>\nconditions",
+              "btn_url": ""
+            }
+          },
+          "4ff423a7-2803-4b4a-9a5f-f806368aed24": {
+            "type": "icon",
+            "settings": {
+              "img1": "shopify:\/\/shop_images\/cs-05.png",
+              "btn_txt": "Privacy\npolicy",
+              "btn_url": ""
+            }
+          }
+        },
+        "block_order": [
+          "c7ca1212-b2e6-4c9a-8362-4878275a6085",
+          "9abfcaea-f503-4e33-8d73-125ef7f2a1f6",
+          "3760877c-a7f8-49b3-b0f2-1ed8efd19449",
+          "f501eb97-64b5-48b4-9737-bb13d75f5bec",
+          "4ff423a7-2803-4b4a-9a5f-f806368aed24"
+        ],
+        "settings": {
+        }
+      },
+      "003-sup-ship": {
+        "type": "003-sup-ship",
+        "settings": {
+          "title": "Shipping",
+          "desc": "We do our best to get orders out within 24 hours of when they are placed. Orders placed after 12 noon on Friday - Sunday will ship on the following Monday.",
+          "tbody": "<tr>\n                                            <th>Order Total<\/th>\n                                            <th>USPS First Class (<13 oz.) <\/th>\n                                            <th>USPS Priority Mail<\/th>\n                                            <th>Expedited FedEx 2Day<\/th> \n                                        <\/tr>\n                                        <tr>\n                                            <td>Up to $20.00<\/td>\n                                            <td>$3.75 - $6.15 (weight & zone)<\/td>\n                                            <td>$7.37 + (weight & zone)<\/td>\n                                            <td>$15.00 flat rate<\/td>\n                                        <\/tr>\n                                        <tr>\n                                            <td>$21.00-$49.99<\/td>\n                                            <td>$6.00 flat rate<\/td>\n                                            <td>$6.00 flat rate<\/td>\n                                            <td>$18.00 flat rate<\/td>\n                                        <\/tr>\n                                        <tr>\n                                            <td>Over $50.00<\/td>\n                                            <td>Free<\/td>\n                                            <td>Free<\/td>\n                                            <td>$20.00 flat rate<\/td>\n                                        <\/tr>\n                                        <tr>\n                                            <td>Shipment Time<\/td>\n                                            <td>3-7 Business Days<\/td>\n                                            <td>3-5 Business Days<\/td>\n                                            <td>3 Business Days (2 + 1 Processing)<\/td>\n                                        <\/tr>",
+          "ship_txt": "United States Postal Service Priority (USPS) Priority <br>\n                                    You will normally receive your order within 3-5 business days. There are certain times of the year, especially during November and December, where there may be slight delays. Please review the usps.com website for further information on any delays they may be experiencing. Mountain Time Soap is not responsible for any USPS shipping delays.\n                                    <br><br>\n                                    USPS First Class Mail - only available for shipments 13oz. and less. Delivery times can range from 3-9+ days depending on your delivery zone.\n                                    <br><br>\n                                    FedEx Expedited 2Day <br>\n                                    You will receive your items within 3 business days (1 days to process your order + 2 days shipping)\n                                    <br><br>\n                                    Shipping Rules and Restrictions <br>\n                                    If we experience higher order volume, there may be delays in shipment. Orders are shipped on business days only. Business days are Monday-Friday, excluding federal holidays within the\n                                    United States.\n                                    <br><br>\n                                    You may also choose to upgrade the shipping method for faster delivery (additional charges apply. See table above for details). Delivery times for FedEx 2Day shipping are based on the day we download the order. Please make sure to allow for a two-day processing time when placing your order (see above table for details).\n                                    <br><br>\n                                    Mountaintimesoap.com is only able to ship to one shipping address per order. If you’d like to ship to multiple addresses, please place separate orders for each unique address.\n                                    <br><br>\n                                    ALASKA, HAWAII, U.S. TERRITORIES <br>\n                                    USPS Priority must be selected.\n                                    <br><br>\n                                    P.O. BOXES AND APO\/FPO ADDRESSES <br>\n                                    Most items may be shipped to a P.O. Box or Military APO\/FPO addresses, but some restrictions apply. Orders being sent to P.O. Boxes or Military APO\/FPO addresses must be shipped via the United States Postal Service Priority (USPS) shipping method.\n                                    <br><br>\n                                    INTERNATIONAL LOCATIONS <br>\n                                    Mountain Time Soap products are intended for end use in the United States. Products sold for end use in the U.S. are not labeled for international distribution.\n                                    <br><br>\n                                    Order Confirmation Email <br>\n                                    When your order is received, we will send you an email confirming your order.\n                                    <br><br>\n                                    Tracking your Shipment <br>\n                                    All packages sent via USPS and FedEx will have a tracking number assigned and a tracking email will be sent once shipped. For questions, please email <a class=\"mail-001\" href=\"mailto:mountaintimesoap@gmail.com\">mountaintimesoap@gmail.com<\/a>. Our office hours are Monday - Friday 8:00 AM - 5:00 PM MST. Mountain Time Soap is not liable for any lost shipments with USPS. The consumer is responsible for claiming all misplaced, lost or undelivered shipments directly with USPS."
+        }
+      },
+      "004-sup-return": {
+        "type": "004-sup-return",
+        "blocks": {
+          "64f9039e-8541-41a6-978c-76fb8e28033b": {
+            "type": "faq",
+            "settings": {
+              "qtxt": "WHERE IS THE SOAP MADE?",
+              "atxt": "Every single bar of our soap is handmade in small batches, cured, cut, packaged, and shipped from our shop at the foothills of the Rocky Mountains in Golden, Colorado."
+            }
+          },
+          "0118b8f0-1d38-4293-85f3-5bdfe91d1c48": {
+            "type": "faq",
+            "settings": {
+              "qtxt": "WHAT IS THE SIZE OF YOUR SOAP?",
+              "atxt": "Our soap is cut at 4”x 2” x 1.25”. which equates to approximately 4.6 oz. after curing. Our product is a handmade and dimensions and colors vary slightly from bar to bar."
+            }
+          },
+          "a6fe5e2f-eba8-4f30-926d-3d361f9b5195": {
+            "type": "faq",
+            "settings": {
+              "qtxt": "HOW DO I STORE MY SOAP?",
+              "atxt": "Our soap is made with only natural ingredients and contains no preservatives. Use it or lose it! Your skin will thank you. On the up-side, the longer cold-process soap sits, the harder the bar becomes and will technically last longer once in use. However, essential oils are volatile and will dissipate over time. We recommend using within one year. Store in a cool dry place. Once you’ve put it to use in the shower, keep your soap high and dry! Allowing your soap to dry out properly in between uses will vastly prolong it’s life. Keep it out of steady water streams and use a dish that allows proper drainage like our Soap Decks."
+            }
+          },
+          "185f2bcd-f01b-4dc9-9bcd-49fbbf854572": {
+            "type": "faq",
+            "settings": {
+              "qtxt": "HOW DOES THE ADVENTURE SOAP CLUB WORK?",
+              "atxt": "Click the Link, choose your soaps, and let the adventure begin. This is a recurring service to make sure you don't run out of soap and never have to use big box soap again!"
+            }
+          },
+          "e8d8e52e-4535-4831-acc3-6b5908abd095": {
+            "type": "faq",
+            "settings": {
+              "qtxt": "WHAT INGREDIENTS ARE IN YOUR SOAP?",
+              "atxt": "It is our mission to use only pure simple ingredients FROM NATURE, and we adhere to this guideline vehemently. Unlike big box soap, we use no lathering agents, no hardening agents, no fillers, and absolutely no artificial dyes or fragrance. Ingredients that we DO use is our soaps are: plant-based-skin-loving oils, natural clays and botanicals for color, and only pure essential oils for antimicrobial and aromatherapy properties. Personally, we read ingredients labels and we encourage our customers to do the same!"
+            }
+          },
+          "c672cb64-e347-47ce-8ada-d141fefea5fd": {
+            "type": "faq",
+            "settings": {
+              "qtxt": "IS YOUR PACKAGING ECO-FRIENDLY?",
+              "atxt": "Yes! We recognize the impact business has on the environment and we take that responsibility seriously. We strive to reduce waste and plastics and provide only minimal, recyclable, and compostable packaging."
+            }
+          },
+          "353c5136-0361-46f6-a798-ab239a4a9a5b": {
+            "type": "faq",
+            "settings": {
+              "qtxt": "HOW LONG DOES A BAR OF SOAP LAST?",
+              "atxt": "We’ve noticed that the longevity of our soaps vary drastically person to person. In our experience, a bar easily last 2-4 weeks of daily showering. Our soaps are 100% natural, meaning there are no chemical hardening agents like big box soap. This makes a softer and more moisturizing bar of soap. It is important that your bar dries between uses. Like mentioned berfore, we encourage you to keep the soap high and dry! The use of one of our stylin’ soap decks is strongly recommended."
+            }
+          },
+          "36d5e77a-df19-4599-ac2b-7c3732de4ee7": {
+            "type": "faq",
+            "settings": {
+              "qtxt": "CAN I ADJUST MY SOAP CLUB ORDER?",
+              "atxt": "You can adjust your varieties quarterly. We recommend you have US choose your scents. All real adventures have an element of surprise and the unknown. We promise to send you a high quality soap that will entice your senses."
+            }
+          },
+          "b41b15af-e222-4b5c-8339-3268713fb67e": {
+            "type": "faq",
+            "settings": {
+              "qtxt": "WHY SHOULD I CARE ABOUT THE INGREDIENTS IN MY SOAP?",
+              "atxt": "Your skin in the largest organ of your body, and we think that’s a pretty big deal! What you put on your skin eventually ends up in your system and that deserves some consideration. We’ve also noticed that the term “all natural” is used very loosely in this industry and we want our customers to be assured that our products are specifically “Made from Nature” for legitimate health and environmental reasons. It’s not jus a gimmicky marketing term!"
+            }
+          },
+          "4a2b3494-fe92-4662-a7e3-cbcc1ae88e66": {
+            "type": "faq",
+            "settings": {
+              "qtxt": "WHAT’S YOUR FAVORITE SOAP?",
+              "atxt": "We are always experimenting with new and creative soaps but we always end of on the good old reliable True Grit. While its a rough bar to start using, after you get used to it the exfoliating properties are unlike any soap you’ve ever used. Use the bar directly on your skin to get the full experience!"
+            }
+          },
+          "5111f9c0-832c-4e33-89ad-a60fa4ce0bca": {
+            "type": "faq",
+            "settings": {
+              "qtxt": "HOW DO I USE THE SOAP?",
+              "atxt": "We've learned showering is an extremely varied activity and everyone does it differently. We use the soap directly on our skin with no wash cloth. This is especially effective with True Grit. But the soap works well in any shower or bath scenario."
+            }
+          },
+          "c62dcaed-9e22-49ca-a1ee-5f466c8311bf": {
+            "type": "faq",
+            "settings": {
+              "qtxt": "WHY SHOULD I JOIN THE CLUB? WHAT ARE THE PERKS?",
+              "atxt": "With the Adventure Soap Club you are far less likely to run out of soap which could lead to a relapse onto big box soap. We offer the Adventure soap Club to our loyal customers to provide the best quality skin-loving soap at a discounted rate, free shipping, and and the convenience of home delivery. You’ll have one less thing to worry about and your soap supply will magically show up at your door as needed. Also being a member of the club gives you special access to limited edition products and pre-sales."
+            }
+          },
+          "dd3b2ed0-0cae-40e5-83a3-a5f7375102ce": {
+            "type": "faq",
+            "settings": {
+              "qtxt": "WHAT’S DIFFERENT ABOUT YOUR SOAP?",
+              "atxt": "We want to change the way you think about showering. You know how it’s easy to get up at 4am to climb a 14er (14,000 foot mountain peaks that Colorado is famous for) or go out on dawn patrol, but you lack that same enthusiasm when you have to get up at 7:30 for work? We understand that not everyday is filled with thrills. Our vision is to bring the stoke of adventure to your every day shower routine. Although we believe our soap is the best soap you’ll ever use, it is not fancy, it’s not a luxury soap reserved just for guests... It’s utilitarian soap made from nature to put you on Mountain Time on a daily basis."
+            }
+          },
+          "06d6bf35-2410-450e-87ad-806e8bf33680": {
+            "type": "faq",
+            "settings": {
+              "qtxt": "DO YOU TEST ON ANIMALS?",
+              "atxt": "My family has been making natural soap since they homesteaded out West over 100 years ago. We have never, and will never test our products on animals. My husband on the other hand, happily tests our new creations! Since we only use ingredients from nature, that are proven healthy and beneficial for your skin, this is a pretty righteous job."
+            }
+          },
+          "7e8eb6da-defd-40e5-844d-a4e827c76f1d": {
+            "type": "faq",
+            "settings": {
+              "qtxt": "CAN I WASH MY HAIR WITH YOUR SOAP?",
+              "atxt": "Yes, our soaps are multi-purpose and are chock full of good stuff for your hair. This was such a popular question that we created a more specified shampoo bar that we now recommended for best results."
+            }
+          },
+          "8b0855c4-4f9d-4e10-a214-7f12ed876145": {
+            "type": "faq",
+            "settings": {
+              "qtxt": "WHAT IF I HAVE ADDITIONAL QUESTIONS?",
+              "atxt": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit iste neque perferendis animi esse iure eligendi quod tempore magni sequi."
+            }
+          }
+        },
+        "block_order": [
+          "64f9039e-8541-41a6-978c-76fb8e28033b",
+          "0118b8f0-1d38-4293-85f3-5bdfe91d1c48",
+          "a6fe5e2f-eba8-4f30-926d-3d361f9b5195",
+          "185f2bcd-f01b-4dc9-9bcd-49fbbf854572",
+          "e8d8e52e-4535-4831-acc3-6b5908abd095",
+          "c672cb64-e347-47ce-8ada-d141fefea5fd",
+          "353c5136-0361-46f6-a798-ab239a4a9a5b",
+          "36d5e77a-df19-4599-ac2b-7c3732de4ee7",
+          "b41b15af-e222-4b5c-8339-3268713fb67e",
+          "4a2b3494-fe92-4662-a7e3-cbcc1ae88e66",
+          "5111f9c0-832c-4e33-89ad-a60fa4ce0bca",
+          "c62dcaed-9e22-49ca-a1ee-5f466c8311bf",
+          "dd3b2ed0-0cae-40e5-83a3-a5f7375102ce",
+          "06d6bf35-2410-450e-87ad-806e8bf33680",
+          "7e8eb6da-defd-40e5-844d-a4e827c76f1d",
+          "8b0855c4-4f9d-4e10-a214-7f12ed876145"
+        ],
+        "settings": {
+          "title": "Returns & Exchanges",
+          "desc": "We stand behind our products and offer guaranteed satisfaction. If you are unhappy for any reason, please reach out to us and we’ll be sure to make it right!",
+          "faq": "FAQs"
+        }
+      },
+      "005-sup-terms": {
+        "type": "005-sup-terms",
+        "settings": {
+          "title": "Terms & Conditions",
+          "desc": "OVERVIEW <br>\n                            This website is operated by Mountain Time Soap & Supply. Throughout the site, the terms\n                            “we”, “us” and “our” refer to Mountain Time Soap & Supply. Mountain Time Soap & Supply\n                            offers this website, including all information, tools and services available from this site to you,\n                            the user, conditioned upon your acceptance of all terms, conditions, policies and notices stated\n                            here.\n                            <br><br>\n                            By visiting our site and\/ or purchasing something from us, you engage in our “Service” and\n                            agree to be bound by the following terms and conditions (“Terms of Service”, “Terms”), including\n                            those additional terms and conditions and policies referenced herein and\/or available by\n                            hyperlink. These Terms of Service apply to all users of the site, including without limitation\n                            users who are browsers, vendors, customers, merchants, and\/ or contributors of content.\n                            <br><br>\n                            Please read these Terms of Service carefully before accessing or using our website. By\n                            accessing or using any part of the site, you agree to be bound by these Terms of Service. If you\n                            do not agree to all the terms and conditions of this agreement, then you may not access the\n                            website or use any services. If these Terms of Service are considered an offer, acceptance is\n                            expressly limited to these Terms of Service.\n                            <br><br>\n                            Any new features or tools which are added to the current store shall also be subject to the\n                            Terms of Service. You can review the most current version of the Terms of Service at any time\n                            on this page. We reserve the right to update, change or replace any part of these Terms of\n                            Service by posting updates and\/or changes to our website. It is your responsibility to check this\n                            page periodically for changes. Your continued use of or access to the website following the\n                            posting of any changes constitutes acceptance of those changes.\n                            <br><br>\n                            Our store is hosted on Shopify Inc. They provide us with the online e-commerce platform that\n                            allows us to sell our products and services to you.\n                            <br><br>\n                            SECTION 1 - ONLINE STORE TERMS <br>\n                            By agreeing to these Terms of Service, you represent that you are at least the age of majority in\n                            your state or province of residence, or that you are the age of majority in your state or province\n                            of residence and you have given us your consent to allow any of your minor dependents to use\n                            this site.\n                            <br><br>\n                            You may not use our products for any illegal or unauthorized purpose nor may you, in the use of\n                            the Service, violate any laws in your jurisdiction (including but not limited to copyright laws).\n                            You must not transmit any worms or viruses or any code of a destructive nature.\n                            A breach or violation of any of the Terms will result in an immediate termination of your Services.\n                            <br><br>\n                            SECTION 2 - GENERAL CONDITIONS <br>\n                            We reserve the right to refuse service to anyone for any reason at any time.\n                            <br><br>\n                            You understand that your content (not including credit card information), may be transferred\n                            unencrypted and involve (a) transmissions over various networks; and (b) changes to conform\n                            and adapt to technical requirements of connecting networks or devices. Credit card information\n                            is always encrypted during transfer over networks.\n                            <br><br>\n                            You agree not to reproduce, duplicate, copy, sell, resell or exploit any portion of the Service, use\n                            of the Service, or access to the Service or any contact on the website through which the service\n                            is provided, without express written permission by us.\n                            <br><br>\n                            The headings used in this agreement are included for convenience only and will not limit or\n                            otherwise affect these Terms.\n                            <br><br>\n                            SECTION 3 - ACCURACY, COMPLETENESS AND TIMELINESS OF INFORMATION <br>\n                            We are not responsible if information made available on this site is not accurate, complete or\n                            current. The material on this site is provided for general information only and should not be\n                            relied upon or used as the sole basis for making decisions without consulting primary, more\n                            accurate, more complete or more timely sources of information. Any reliance on the material on\n                            this site is at your own risk.\n                            <br><br>\n                            This site may contain certain historical information. Historical information, necessarily, is not\n                            current and is provided for your reference only. We reserve the right to modify the contents of\n                            this site at any time, but we have no obligation to update any information on our site. You agree\n                            that it is your responsibility to monitor changes to our site.\n                            <br><br>\n                            SECTION 4 - MODIFICATIONS TO THE SERVICE AND PRICES <br>\n                            Prices for our products are subject to change without notice.\n                            We reserve the right at any time to modify or discontinue the Service (or any part or content\n                            thereof) without notice at any time.\n                            <br><br>\n                            We shall not be liable to you or to any third-party for any modification, price change, suspension\n                            or discontinuance of the Service.\n                            <br><br>\n                            SECTION 5 - PRODUCTS OR SERVICES (if applicable) <br>\n                            Certain products or services may be available exclusively online through the website. These\n                            products or services may have limited quantities and are subject to return or exchange only\n                            according to our Return Policy.\n                            <br><br>\n                            We have made every effort to display as accurately as possible the colors and images of our\n                            products that appear at the store. We cannot guarantee that your computer monitor’s display of\n                            any color will be accurate.\n                            <br><br>\n                            We reserve the right, but are not obligated, to limit the sales of our products or Services to any\n                            person, geographic region or jurisdiction. We may exercise this right on a case-by-case basis.\n                            We reserve the right to limit the quantities of any products or services that we offer. All\n                            descriptions of products or product pricing are subject to change at anytime without notice, at\n                            the sole discretion of us. We reserve the right to discontinue any product at any time. Any offer\n                            for any product or service made on this site is void where prohibited.\n                            <br><br>\n                            We do not warrant that the quality of any products, services, information, or other material\n                            purchased or obtained by you will meet your expectations, or that any errors in the Service will\n                            be corrected.\n                            <br><br>\n                            SECTION 6 - ACCURACY OF BILLING AND ACCOUNT INFORMATION <br>\n                            We reserve the right to refuse any order you place with us. We may, in our sole discretion, limit\n                            or cancel quantities purchased per person, per household or per order. These restrictions may\n                            include orders placed by or under the same customer account, the same credit card, and\/or\n                            orders that use the same billing and\/or shipping address. In the event that we make a change to\n                            or cancel an order, we may attempt to notify you by contacting the e-mail and\/or billing address\/\n                            phone number provided at the time the order was made. We reserve the right to limit or prohibit\n                            orders that, in our sole judgment, appear to be placed by dealers, resellers or distributors.\n                            <br><br>\n                            You agree to provide current, complete and accurate purchase and account information for all\n                            purchases made at our store. You agree to promptly update your account and other information,\n                            including your email address and credit card numbers and expiration dates, so that we can\n                            complete your transactions and contact you as needed.\n                            For more detail, please review our Returns Policy.\n                            <br><br>\n                            SECTION 7 - OPTIONAL TOOLS <br>\n                            We may provide you with access to third-party tools over which we neither monitor nor have any\n                            control nor input.\n                            <br><br>\n                            You acknowledge and agree that we provide access to such tools ”as is” and “as available”\n                            without any warranties, representations or conditions of any kind and without any endorsement.\n                            We shall have no liability whatsoever arising from or relating to your use of optional third-party\n                            tools.\n                            <br><br>\n                            Any use by you of optional tools offered through the site is entirely at your own risk and\n                            discretion and you should ensure that you are familiar with and approve of the terms on which\n                            tools are provided by the relevant third-party provider(s).\n                            <br><br>\n                            We may also, in the future, offer new services and\/or features through the website (including,\n                            the release of new tools and resources). Such new features and\/or services shall also be\n                            subject to these Terms of Service.\n                            <br><br>\n                            SECTION 8 - THIRD-PARTY LINKS <br>\n                            Certain content, products and services available via our Service may include materials from\n                            third-parties.\n                            <br><br>\n                            Third-party links on this site may direct you to third-party websites that are not affiliated with us.\n                            We are not responsible for examining or evaluating the content or accuracy and we do not\n                            warrant and will not have any liability or responsibility for any third-party materials or websites,\n                            or for any other materials, products, or services of third-parties.\n                            <br><br>\n                            We are not liable for any harm or damages related to the purchase or use of goods, services,\n                            resources, content, or any other transactions made in connection with any third-party websites.\n                            Please review carefully the third-party's policies and practices and make sure you understand\n                            them before you engage in any transaction. Complaints, claims, concerns, or questions\n                            regarding third-party products should be directed to the third-party.\n                            <br><br>\n                            SECTION 9 - USER COMMENTS, FEEDBACK AND OTHER SUBMISSIONS <br>\n                            If, at our request, you send certain specific submissions (for example contest entries) or without\n                            a request from us you send creative ideas, suggestions, proposals, plans, or other materials,\n                            whether online, by email, by postal mail, or otherwise (collectively, 'comments'), you agree that\n                            we may, at any time, without restriction, edit, copy, publish, distribute, translate and otherwise\n                            use in any medium any comments that you forward to us. We are and shall be under no\n                            obligation (1) to maintain any comments in confidence; (2) to pay compensation for any\n                            comments; or (3) to respond to any comments.\n                            <br><br>\n                            We may, but have no obligation to, monitor, edit or remove content that we determine in our sole\n                            discretion are unlawful, offensive, threatening, libelous, defamatory, pornographic, obscene or\n                            otherwise objectionable or violates any party’s intellectual property or these Terms of Service.\n                            You agree that your comments will not violate any right of any third-party, including copyright,\n                            trademark, privacy, personality or other personal or proprietary right. You further agree that your\n                            comments will not contain libelous or otherwise unlawful, abusive or obscene material, or\n                            contain any computer virus or other malware that could in any way affect the operation of the\n                            Service or any related website. You may not use a false e-mail address, pretend to be someone\n                            other than yourself, or otherwise mislead us or third-parties as to the origin of any comments.\n                            You are solely responsible for any comments you make and their accuracy. We take no\n                            responsibility and assume no liability for any comments posted by you or any third-party.\n                            <br><br>\n                            SECTION 10 - PERSONAL INFORMATION <br>\n                            Your submission of personal information through the store is governed by our Privacy Policy. To\n                            view our Privacy Policy.\n                            <br><br>\n                            SECTION 11 - ERRORS, INACCURACIES AND OMISSIONS <br>\n                            Occasionally there may be information on our site or in the Service that contains typographical\n                            errors, inaccuracies or omissions that may relate to product descriptions, pricing, promotions,\n                            offers, product shipping charges, transit times and availability. We reserve the right to correct\n                            any errors, inaccuracies or omissions, and to change or update information or cancel orders if\n                            any information in the Service or on any related website is inaccurate at any time without prior\n                            notice (including after you have submitted your order).\n                            We undertake no obligation to update, amend or clarify information in the Service or on any\n                            related website, including without limitation, pricing information, except as required by law. No\n                            specified update or refresh date applied in the Service or on any related website, should be\n                            taken to indicate that all information in the Service or on any related website has been modified\n                            or updated.\n                            <br><br>\n                            SECTION 12 - PROHIBITED USES <br>\n                            In addition to other prohibitions as set forth in the Terms of Service, you are prohibited from\n                            using the site or its content: (a) for any unlawful purpose; (b) to solicit others to perform or\n                            participate in any unlawful acts; (c) to violate any international, federal, provincial or state\n                            regulations, rules, laws, or local ordinances; (d) to infringe upon or violate our intellectual\n                            property rights or the intellectual property rights of others; (e) to harass, abuse, insult, harm,\n                            defame, slander, disparage, intimidate, or discriminate based on gender, sexual orientation,\n                            religion, ethnicity, race, age, national origin, or disability; (f) to submit false or misleading\n                            information; (g) to upload or transmit viruses or any other type of malicious code that will or may\n                            be used in any way that will affect the functionality or operation of the Service or of any related\n                            website, other websites, or the Internet; (h) to collect or track the personal information of others;\n                            (i) to spam, phish, pharm, pretext, spider, crawl, or scrape; (j) for any obscene or immoral\n                            purpose; or (k) to interfere with or circumvent the security features of the Service or any related\n                            website, other websites, or the Internet. We reserve the right to terminate your use of the\n                            Service or any related website for violating any of the prohibited uses.\n                            <br><br>\n                            SECTION 13 - DISCLAIMER OF WARRANTIES; LIMITATION OF LIABILITY <br>\n                            We do not guarantee, represent or warrant that your use of our service will be uninterrupted,\n                            timely, secure or error-free.\n                            <br><br>\n                            We do not warrant that the results that may be obtained from the use of the service will be\n                            accurate or reliable.\n                            <br><br>\n                            You agree that from time to time we may remove the service for indefinite periods of time or\n                            cancel the service at any time, without notice to you.\n                            <br><br>\n                            You expressly agree that your use of, or inability to use, the service is at your sole risk. The\n                            service and all products and services delivered to you through the service are (except as\n                            expressly stated by us) provided 'as is' and 'as available' for your use, without any\n                            representation, warranties or conditions of any kind, either express or implied, including all\n                            implied warranties or conditions of merchantability, merchantable quality, fitness for a particular\n                            purpose, durability, title, and non-infringement.\n                            <br><br>\n                            In no case shall Mountain Time Soap & Supply, our directors, officers, employees, affiliates,\n                            agents, contractors, interns, suppliers, service providers or licensors be liable for any injury,\n                            loss, claim, or any direct, indirect, incidental, punitive, special, or consequential damages of any\n                            kind, including, without limitation lost profits, lost revenue, lost savings, loss of data,\n                            replacement costs, or any similar damages, whether based in contract, tort (including\n                            negligence), strict liability or otherwise, arising from your use of any of the service or any\n                            products procured using the service, or for any other claim related in any way to your use of the\n                            service or any product, including, but not limited to, any errors or omissions in any content, or\n                            any loss or damage of any kind incurred as a result of the use of the service or any content (or\n                            product) posted, transmitted, or otherwise made available via the service, even if advised of\n                            their possibility. Because some states or jurisdictions do not allow the exclusion or the limitation\n                            of liability for consequential or incidental damages, in such states or jurisdictions, our liability\n                            shall be limited to the maximum extent permitted by law.\n                            <br><br>\n                            SECTION 14 - INDEMNIFICATION <br>\n                            You agree to indemnify, defend and hold harmless Mountain Time Soap & Supply and our\n                            parent, subsidiaries, affiliates, partners, officers, directors, agents, contractors, licensors,\n                            service providers, subcontractors, suppliers, interns and employees, harmless from any claim or\n                            demand, including reasonable attorneys’ fees, made by any third-party due to or arising out of\n                            your breach of these Terms of Service or the documents they incorporate by reference, or your\n                            violation of any law or the rights of a third-party.\n                            <br><br>\n                            SECTION 15 - SEVERABILITY <br>\n                            In the event that any provision of these Terms of Service is determined to be unlawful, void or\n                            unenforceable, such provision shall nonetheless be enforceable to the fullest extent permitted\n                            by applicable law, and the unenforceable portion shall be deemed to be severed from these\n                            Terms of Service, such determination shall not affect the validity and enforceability of any other\n                            remaining provisions.\n                            <br><br>\n                            SECTION 16 - TERMINATION <br>\n                            The obligations and liabilities of the parties incurred prior to the termination date shall survive\n                            the termination of this agreement for all purposes.\n                            <br><br>\n                            These Terms of Service are effective unless and until terminated by either you or us. You may\n                            terminate these Terms of Service at any time by notifying us that you no longer wish to use our\n                            Services, or when you cease using our site.\n                            If in our sole judgment you fail, or we suspect that you have failed, to comply with any term or\n                            provision of these Terms of Service, we also may terminate this agreement at any time without\n                            notice and you will remain liable for all amounts due up to and including the date of termination;\n                            and\/or accordingly may deny you access to our Services (or any part thereof).\n                            <br><br>\n                            SECTION 17 - ENTIRE AGREEMENT <br>\n                            The failure of us to exercise or enforce any right or provision of these Terms of Service shall not\n                            constitute a waiver of such right or provision.\n                            <br><br>\n                            These Terms of Service and any policies or operating rules posted by us on this site or in\n                            respect to The Service constitutes the entire agreement and understanding between you and us\n                            and govern your use of the Service, superseding any prior or contemporaneous agreements,\n                            communications and proposals, whether oral or written, between you and us (including, but not\n                            limited to, any prior versions of the Terms of Service).\n                            <br><br>\n                            Any ambiguities in the interpretation of these Terms of Service shall not be construed against\n                            the drafting party.\n                            <br><br>\n                            SECTION 18 - GOVERNING LAW <br>\n                            These Terms of Service and any separate agreements whereby we provide you Services shall\n                            be governed by and construed in accordance with the laws of Mountain Time Soap & Supply.\n                            <br><br>\n                            SECTION 19 - CHANGES TO TERMS OF SERVICE <br>\n                            You can review the most current version of the Terms of Service at any time at this page.\n                            We reserve the right, at our sole discretion, to update, change or replace any part of these\n                            Terms of Service by posting updates and changes to our website. It is your responsibility to\n                            check our website periodically for changes. Your continued use of or access to our website or\n                            the Service following the posting of any changes to these Terms of Service constitutes\n                            acceptance of those changes.\n                            <br><br> \n                            SECTION 20 - CONTACT INFORMATION <br>\n                            Questions about the Terms of Service should be sent to us at <a class=\"mail-001\" href=\"mailto:mountaintimesoap@gmail.com\">mountaintimesoap@gmail.com<\/a>."
+        }
+      },
+      "006-sup-privacy": {
+        "type": "006-sup-privacy",
+        "settings": {
+          "title": "Privacy",
+          "desc": "SECTION 1 - WHAT DO WE DO WITH YOUR INFORMATION?\n                            <br><br>\n                            When you purchase something from our store, as part of the buying and selling process, we collect the personal information you give us such as your name, address and email address.\n                            <br><br>\n                            When you browse our store, we also automatically receive your computer’s internet protocol (IP) address in order to provide us with information that helps us learn about your browser and operating system.\n                            <br><br>\n                            Email marketing (if applicable): With your permission, we may send you emails about our store, new products and other updates.\n                            <br><br>\n                            SECTION 2 - CONSENT\n                            <br><br>\n                            How do you get my consent?\n                            <br><br>\n                            When you provide us with personal information to complete a transaction, verify your credit card, place an order, arrange for a delivery or return a purchase, we imply that you consent to our collecting it and using it for that specific reason only.\n                            <br><br>\n                            If we ask for your personal information for a secondary reason, like marketing, we will either ask you directly for your expressed consent, or provide you with an opportunity to say no.\n                            <br><br>\n                            How do I withdraw my consent?\n                            <br><br>\n                            If after you opt-in, you change your mind, you may withdraw your consent for us to contact you, for the continued collection, use or disclosure of your information, at anytime, by contacting us at mountaintimesoap@gmail.com.\n                            <br><br>\n                            SECTION 3 - DISCLOSURE\n                            <br><br>\n                            We may disclose your personal information if we are required by law to do so or if you violate our Terms of Service.\n                            <br><br>\n                            SECTION 4 - SHOPIFY\n                            <br><br>\n                            Our store is hosted on Shopify Inc. They provide us with the online e-commerce platform that allows us to sell our products and services to you.\n                            <br><br>\n                            Your data is stored through Shopify’s data storage, databases and the general Shopify application. They store your data on a secure server behind a firewall.\n                            <br><br>\n                            Payment:\n                            <br><br>\n                            If you choose a direct payment gateway to complete your purchase, then Shopify stores your credit card data. It is encrypted through the Payment Card Industry Data Security Standard (PCI-DSS). Your purchase transaction data is stored only as long as is necessary to complete your purchase transaction. After that is complete, your purchase transaction information is deleted.\n                            <br><br>\n                            All direct payment gateways adhere to the standards set by PCI-DSS as managed by the PCI Security Standards Council, which is a joint effort of brands like Visa, MasterCard, American Express and Discover.\n                            <br><br>\n                            PCI-DSS requirements help ensure the secure handling of credit card information by our store and its service providers.\n                            <br><br>\n                            For more insight, you may also want to read Shopify’s Terms of Service here or Privacy Statement here.\n                            <br><br>\n                            SECTION 5 - THIRD-PARTY SERVICES\n                            <br><br>\n                            In general, the third-party providers used by us will only collect, use and disclose your information to the extent necessary to allow them to perform the services they provide to us.\n                            <br><br>\n                            However, certain third-party service providers, such as payment gateways and other payment transaction processors, have their own privacy policies in respect to the information we are required to provide to them for your purchase-related transactions.\n                            <br><br>\n                            For these providers, we recommend that you read their privacy policies so you can understand the manner in which your personal information will be handled by these providers.\n                            <br><br>\n                            In particular, remember that certain providers may be located in or have facilities that are located in a different jurisdiction than either you or us. So if you elect to proceed with a transaction that involves the services of a third-party service provider, then your information may become subject to the laws of the jurisdiction(s) in which that service provider or its facilities are located.\n                            <br><br>\n                            As an example, if you are located in Canada and your transaction is processed by a payment gateway located in the United States, then your personal information used in completing that transaction may be subject to disclosure under United States legislation, including the Patriot Act.\n                            <br><br>\n                            Once you leave our store’s website or are redirected to a third-party website or application, you are no longer governed by this Privacy Policy or our website’s Terms of Service.\n                            <br><br>\n                            Links\n                            <br><br>\n                            When you click on links on our store, they may direct you away from our site. We are not responsible for the privacy practices of other sites and encourage you to read their privacy statements.\n                            <br><br>\n                            SECTION 6 - SECURITY\n                            <br><br>\n                            To protect your personal information, we take reasonable precautions and follow industry best practices to make sure it is not inappropriately lost, misused, accessed, disclosed, altered or destroyed.\n                            <br><br>\n                            If you provide us with your credit card information, the information is encrypted using secure socket layer technology (SSL) and stored with a AES-256 encryption. Although no method of transmission over the Internet or electronic storage is 100% secure, we follow all PCI-DSS requirements and implement additional generally accepted industry standards.\n                            <br><br>\n                            COOKIES\n                            <br><br>\n                            Here is a list of cookies that we use. We’ve listed them here so you can choose if you want to opt-out of cookies or not.\n                            <br><br>\n                            _session_id, unique token, sessional, Allows Shopify to store information about your session (referrer, landing page, etc).\n                            <br><br>\n                            _shopify_visit, no data held, Persistent for 30 minutes from the last visit, Used by our website provider’s internal stats tracker to record the number of visits\n                            <br><br>\n                            _shopify_uniq, no data held, expires midnight (relative to the visitor) of the next day, Counts the number of visits to a store by a single customer.\n                            <br><br>\n                            cart, unique token, persistent for 2 weeks, Stores information about the contents of your cart.\n                            <br><br>\n                            _secure_session_id, unique token, sessional\n                            <br><br>\n                            storefront_digest, unique token, indefinite If the shop has a password, this is used to determine if the current visitor has access.\n                            <br><br>\n                            SECTION 7 - AGE OF CONSENT\n                            <br><br>\n                            By using this site, you represent that you are at least the age of majority in your state or province of residence, or that you are the age of majority in your state or province of residence and you have given us your consent to allow any of your minor dependents to use this site.\n                            <br><br>\n                            SECTION 8 - CHANGES TO THIS PRIVACY POLICY\n                            <br><br>\n                            We reserve the right to modify this privacy policy at any time, so please review it frequently. Changes and clarifications will take effect immediately upon their posting on the website. If we make material changes to this policy, we will notify you here that it has been updated, so that you are aware of what information we collect, how we use it, and under what circumstances, if any, we use and\/or disclose it.\n                            <br><br>\n                            If our store is acquired or merged with another company, your information may be transferred to the new owners so that we may continue to sell products to you.\n                            <br><br>\n                            QUESTIONS AND CONTACT INFORMATION\n                            <br><br>\n                            If you would like to: access, correct, amend or delete any personal information we have about you, register a complaint, or simply want more information contact our Privacy Compliance Officer at <a href=\"#\" class=\"mail-001\">mountaintimesoap@gmail.com<\/a>."
+        }
+      },
+      "product-recommendations": {
+        "type": "product-recommendations",
+        "settings": {
+        }
+      },
+      "001-organ": {
+        "type": "001-organ",
+        "blocks": {
+          "2ab9dc9e-3fe1-445f-af7d-e86c14ac391b": {
+            "type": "image_picker",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/process-01.png"
+            }
+          },
+          "9bdc2f89-f3f0-49ec-94de-b4a976a0d151": {
+            "type": "image_picker",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/process-02.png"
+            }
+          },
+          "dfb44628-70b0-4637-bac9-b7800def180d": {
+            "type": "image_picker",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/process-03.png"
+            }
+          },
+          "080213cb-daf6-449a-ad88-398082a43e31": {
+            "type": "image_picker",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/process-04.png"
+            }
+          },
+          "0c90064c-6dd5-4b8d-a1b4-97d321366af4": {
+            "type": "image_picker",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/process-05.png"
+            }
+          },
+          "4c510a3b-23f4-4f9e-b05f-d43b6141b21b": {
+            "type": "image_picker",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/process-06.png"
+            }
+          },
+          "b0a975d0-9014-4905-8a08-8514afcbbf55": {
+            "type": "image_picker",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/process-07.png"
+            }
+          },
+          "64527a3f-703f-43c5-ba07-6cdc454b10f3": {
+            "type": "image_picker",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/process-08.png"
+            }
+          }
+        },
+        "block_order": [
+          "2ab9dc9e-3fe1-445f-af7d-e86c14ac391b",
+          "9bdc2f89-f3f0-49ec-94de-b4a976a0d151",
+          "dfb44628-70b0-4637-bac9-b7800def180d",
+          "080213cb-daf6-449a-ad88-398082a43e31",
+          "0c90064c-6dd5-4b8d-a1b4-97d321366af4",
+          "4c510a3b-23f4-4f9e-b05f-d43b6141b21b",
+          "b0a975d0-9014-4905-8a08-8514afcbbf55",
+          "64527a3f-703f-43c5-ba07-6cdc454b10f3"
+        ],
+        "settings": {
+          "heading": "Organizations We’ve Supported"
+        }
+      },
+      "002-impact": {
+        "type": "002-impact",
+        "settings": {
+          "heading": "Where We’ve Made An Impact",
+          "text": "As proud members of 1% For The Planet we donate 1% of gross sales annually to environmental causes",
+          "image": "shopify:\/\/shop_images\/ezgif.com-gif-maker_4.jpg"
+        }
+      },
+      "000-spec": {
+        "type": "000-spec",
+        "settings": {
+        }
+      },
+      "001-insta": {
+        "type": "001-insta",
+        "blocks": {
+          "3f37de88-a9e8-4acf-a4c2-50257518ae2a": {
+            "type": "image_picker",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/insta-1.jpg"
+            }
+          },
+          "021a8486-b437-46a6-a141-2f95bb5f53e0": {
+            "type": "image_picker",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/insta-2.jpg"
+            }
+          },
+          "4a2cca9b-1a26-4329-a3c5-b8d8959b5e1d": {
+            "type": "image_picker",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/insta-3.jpg"
+            }
+          },
+          "da163773-15d9-4ac4-922e-fcafcb8ff995": {
+            "type": "image_picker",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/insta-4.jpg"
+            }
+          },
+          "fe6062f1-1a6b-4c67-912f-4b851fdd2f38": {
+            "type": "image_picker",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/insta-5.jpg"
+            }
+          },
+          "e4563328-324d-4eb1-a3a9-d34853fef62f": {
+            "type": "image_picker",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/insta-6.jpg"
+            }
+          },
+          "99fd94d1-bdca-4bc6-a138-cdfae38379fd": {
+            "type": "image_picker",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/insta-7.jpg"
+            }
+          },
+          "c9be2355-b5a5-4cf9-ad7c-41b556e7c63a": {
+            "type": "image_picker",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/insta-8.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "3f37de88-a9e8-4acf-a4c2-50257518ae2a",
+          "021a8486-b437-46a6-a141-2f95bb5f53e0",
+          "4a2cca9b-1a26-4329-a3c5-b8d8959b5e1d",
+          "da163773-15d9-4ac4-922e-fcafcb8ff995",
+          "fe6062f1-1a6b-4c67-912f-4b851fdd2f38",
+          "e4563328-324d-4eb1-a3a9-d34853fef62f",
+          "99fd94d1-bdca-4bc6-a138-cdfae38379fd",
+          "c9be2355-b5a5-4cf9-ad7c-41b556e7c63a"
+        ],
+        "settings": {
+          "url": "https:\/\/www.instagram.com\/mountaintimesoap\/"
+        }
+      },
+      "001-proc-ban": {
+        "type": "001-proc-ban",
+        "settings": {
+          "title": "We’re Always On Mountain Time",
+          "desc": "We’re on a mission to elevate the bar soap experience and inspire joy in the day to day.",
+          "img1": "shopify:\/\/shop_images\/Mask_Group_109.png",
+          "btn_txt": "",
+          "btn_url": "",
+          "video": ""
+        }
+      },
+      "subscription-banner": {
+        "type": "subscription-banner",
+        "settings": {
+          "enable_section": true,
+          "image": "shopify:\/\/shop_images\/subscription-banner.png",
+          "title": "Adventure {Noun}",
+          "sub_title": "ad · ​ven · ​ture  |  \\ əd-'ven-chər",
+          "sub_title_2": ": an exciting or remarkable experience",
+          "text": "Our quarterly and monthly soap subscription allows you to choose your own adventure when it comes to washing up. Don’t forget to find a dirt road or climb a peak before your order arrives. What fun is it to clean up if you don’t get a little dirty first?"
+        }
+      },
+      "subscription-support-bar": {
+        "type": "subscription-support-bar",
+        "blocks": {
+          "3a0f6e0f-3111-4f05-a5fd-c04cf1164d70": {
+            "type": "text",
+            "settings": {
+              "text": "Free Shipping On first order"
+            }
+          },
+          "2237b4ab-e1df-4e51-8a14-92291b50beb9": {
+            "type": "text",
+            "settings": {
+              "text": "15% off site-wide For members"
+            }
+          },
+          "51a4feaf-9dd4-4e14-befe-c1bdaf54a653": {
+            "type": "text",
+            "settings": {
+              "text": "Hassle- free ordering"
+            }
+          },
+          "1c6f8925-454d-4f33-9bff-698089d4da48": {
+            "type": "text",
+            "settings": {
+              "text": "Pause or Cancel At Any time"
+            }
+          }
+        },
+        "block_order": [
+          "3a0f6e0f-3111-4f05-a5fd-c04cf1164d70",
+          "2237b4ab-e1df-4e51-8a14-92291b50beb9",
+          "51a4feaf-9dd4-4e14-befe-c1bdaf54a653",
+          "1c6f8925-454d-4f33-9bff-698089d4da48"
+        ],
+        "settings": {
+          "enable_section": true
+        }
+      },
+      "subscription-adventure-club": {
+        "type": "subscription-adventure-club",
+        "blocks": {
+          "8f9c0667-1219-4ce7-91c9-b4a0669f0ca9": {
+            "type": "text",
+            "settings": {
+              "title": "15% Off Site-Wide For Members",
+              "text": "If you’re an Adventure Soap Club member, you’re our people. And we always take care of our people."
+            }
+          },
+          "56488160-7f85-47df-9f1b-8362254b3ec5": {
+            "type": "text",
+            "settings": {
+              "title": "Mix & match your natural soap",
+              "text": "You pick the number of bars, of which soap varieties you want and how frequently new bars ship."
+            }
+          },
+          "08116935-99af-43f7-81e2-ae75d6c481f7": {
+            "type": "text",
+            "settings": {
+              "title": "Pause Or Cancel At Any Time",
+              "text": "Taking off for an epic road trip? Backpacking for a month? Stocked up on soap? Cancel or pause at any time, no questions asked."
+            }
+          }
+        },
+        "block_order": [
+          "8f9c0667-1219-4ce7-91c9-b4a0669f0ca9",
+          "56488160-7f85-47df-9f1b-8362254b3ec5",
+          "08116935-99af-43f7-81e2-ae75d6c481f7"
+        ],
+        "settings": {
+          "enable_section": true,
+          "title": "The Adventure Soap Club",
+          "text": "Free shipping on your first subscription delivery, and any orders $50 and over after that.",
+          "image": "shopify:\/\/shop_images\/sub-club.png",
+          "link": "#shopify-section-subscription-soap-items"
+        }
+      },
+      "subscription-faq": {
+        "type": "subscription-faq",
+        "blocks": {
+          "85f0818f-3ea2-436d-918d-a8c2aefd6174": {
+            "type": "text",
+            "settings": {
+              "title": "WHAT IS THE ADVENTURE SOAP CLUB?",
+              "text": "The Adventure Soap club is the coolest soap subscription club on the internet. Rather than trying to remember to order soap, we send you the number of bars you need, the scents you want, at the frequency you want. And, as a member you get 15% off site wide!"
+            }
+          },
+          "bcccd021-865d-4f5f-99da-c860af371da7": {
+            "type": "text",
+            "settings": {
+              "title": "Do your soap & shampoo bars lather?",
+              "text": "Yes! Our soap lathers better than the next guy, all without the addition of lathering agents or additives. Our superior lather comes from the high concentration of coconut oil and castor oil in our soap formulas."
+            }
+          },
+          "bfebaecc-36d0-42ac-a6df-2c67c3be8c9e": {
+            "type": "text",
+            "settings": {
+              "title": "HOW DOES YOUR SOAP WORK?",
+              "text": "We mix our oils with sodium hydroxide which results in saponified oils. Our soap clean because they’re emulsifiers, which means they can help liquids like oil and water mix. Rather than repelling the water, our soap surrounds the oil, breaks the barrier and makes it easier to wash away. If you would like the full break down, it’s better said by a chemist."
+            }
+          },
+          "f82703e7-5264-4438-89fe-45982a5fd063": {
+            "type": "text",
+            "settings": {
+              "title": "IS THIS A MEN’S SOAP SUBSCRIPTION?",
+              "text": "We believe that Mountain Time Soap transcends the gender binary, but men have mentioned they love our soap bar subscription boxes. Likely because our soap and thoughtfully crafted scents speak to everyone. Some of our top sellers with men include our shaving soap, the shampoo bar, and peak season."
+            }
+          },
+          "06ad575d-97de-46cc-a442-9e4071816d7c": {
+            "type": "text",
+            "settings": {
+              "title": "Can I change my soap type & frequency?",
+              "text": "Yes, our customer portal allows you to make any of these changes at any time. Just be sure to pick your new scents before your order ships!"
+            }
+          },
+          "9a595241-acbf-4fb9-87a2-35d4f14220cc": {
+            "type": "text",
+            "settings": {
+              "title": "Can I cancel any time? If so, how?",
+              "text": "Once you become an Adventure Soap Club member you’re given a login to the customer portal. There you can cancel, or skip, any orders that you need to at any time. Adventure if and when you want!"
+            }
+          }
+        },
+        "block_order": [
+          "85f0818f-3ea2-436d-918d-a8c2aefd6174",
+          "bcccd021-865d-4f5f-99da-c860af371da7",
+          "bfebaecc-36d0-42ac-a6df-2c67c3be8c9e",
+          "f82703e7-5264-4438-89fe-45982a5fd063",
+          "06ad575d-97de-46cc-a442-9e4071816d7c",
+          "9a595241-acbf-4fb9-87a2-35d4f14220cc"
+        ],
+        "settings": {
+          "enable_section": true,
+          "title": "Frequently Asked Questions"
+        }
+      },
+      "subscription-soap-qty-selection": {
+        "type": "subscription-soap-qty-selection",
+        "blocks": {
+          "752e42fd-ffa9-434b-aed6-1a66590cb096": {
+            "type": "text",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/q1.png",
+              "title": "Minimalist : 1 Bar Per Month",
+              "text": "Light showering",
+              "price": "8.00",
+              "qty": "1"
+            }
+          },
+          "7c62ad71-59ad-4518-a3d6-f307e57db064": {
+            "type": "text",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/q2.png",
+              "title": "Single : 2 Bars Per Month",
+              "text": "Daily showers",
+              "price": "16.00",
+              "qty": "2"
+            }
+          },
+          "3a34dd5c-8f5c-421b-a19a-67630e19d9ef": {
+            "type": "text",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/q3.png",
+              "title": "Couple : 3 Bars Per Month",
+              "text": "For couple or small family",
+              "price": "24.00",
+              "qty": "3"
+            }
+          },
+          "5209f8fe-b500-45fb-90e2-71794fbe54ce": {
+            "type": "text",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/q4.png",
+              "title": "Family : 4 Bars Per Month",
+              "text": "Adventure for the whole family",
+              "price": "32.00",
+              "qty": "4"
+            }
+          }
+        },
+        "block_order": [
+          "752e42fd-ffa9-434b-aed6-1a66590cb096",
+          "7c62ad71-59ad-4518-a3d6-f307e57db064",
+          "3a34dd5c-8f5c-421b-a19a-67630e19d9ef",
+          "5209f8fe-b500-45fb-90e2-71794fbe54ce"
+        ],
+        "settings": {
+          "enable_section": true,
+          "title": "Select Your Handmade Soap Quantity"
+        }
+      },
+      "subscription-duration": {
+        "type": "subscription-duration",
+        "blocks": {
+          "1b2507e3-abad-449c-8602-17c5a4a561a1": {
+            "type": "text",
+            "settings": {
+              "title": "Quarterly : Every 90 Days",
+              "text": "Select quarterly delivery to reduce your carbon footprint!",
+              "sub_type": "Quarterly",
+              "recomended": "yes"
+            }
+          },
+          "bea44a76-b396-4043-8e1f-84c732af6da6": {
+            "type": "text",
+            "settings": {
+              "title": "Monthly : Every 30 Days",
+              "text": "",
+              "sub_type": "Monthly",
+              "recomended": "no"
+            }
+          }
+        },
+        "block_order": [
+          "1b2507e3-abad-449c-8602-17c5a4a561a1",
+          "bea44a76-b396-4043-8e1f-84c732af6da6"
+        ],
+        "settings": {
+          "enable_section": true,
+          "title": "How often should we ship?*",
+          "text": "*Our subscription service allows you to edit your shipping frequency to a variety of options once your initial subscription order has been created."
+        }
+      },
+      "subscription-soap-items": {
+        "type": "subscription-soap-items",
+        "blocks": {
+          "b4ec6453-76a6-446c-b33d-f6c0ef3ea2bb": {
+            "type": "text",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/alpine-start.jpg",
+              "title": "Alpine Start",
+              "text": "Spearmint, cedarwood, eucalyptus",
+              "surprise": false
+            }
+          },
+          "ab04d62a-1758-4bab-b063-6e00243d6838": {
+            "type": "text",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/dawn-patrol.jpg",
+              "title": "Dawn Patrol",
+              "text": "Orange, grapefruit, lemon",
+              "surprise": false
+            }
+          },
+          "bef05f6e-e85b-4d82-a58d-f17705e7ac3b": {
+            "type": "text",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/elevate.jpg",
+              "title": "Elevate",
+              "text": "Patchouli, clove, balsam",
+              "surprise": false
+            }
+          },
+          "45b056f5-0e47-46f4-be72-bfe20db79fab": {
+            "type": "text",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/idlewild.jpg",
+              "title": "Idlewild",
+              "text": "Ylang ylang, orange, calendula",
+              "surprise": false
+            }
+          },
+          "4ba3156a-b69a-4ec3-a79e-5b731334e62f": {
+            "type": "text",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/peak-season.jpg",
+              "title": "Peak Season",
+              "text": "Cinnamon, Eucalyptus, Rosemary",
+              "surprise": false
+            }
+          },
+          "86eaafaa-36f7-417f-bb7e-5e9335aea098": {
+            "type": "text",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/tea-tree.jpg",
+              "title": "Tea Tree",
+              "text": "Organic oats, spirulina powder",
+              "surprise": false
+            }
+          },
+          "5cd4880e-c22f-4af4-b9e9-90976ef6561c": {
+            "type": "text",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/sixty-grit.jpg",
+              "title": "Sixty Grit",
+              "text": "Coffee, cedarwood, sage",
+              "surprise": false
+            }
+          },
+          "906559d5-81ce-42de-9b93-3d8cef32d6e8": {
+            "type": "text",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/hippy-dippy.jpg",
+              "title": "Hippy Dippy",
+              "text": "Spearmint, Patchouli, Activated Charcoal",
+              "surprise": false
+            }
+          },
+          "8cf046c6-1811-4651-a1d6-9ee181e57d48": {
+            "type": "text",
+            "settings": {
+              "title": "Surprise Me!",
+              "text": "Mountain time will choose",
+              "surprise": true
+            }
+          }
+        },
+        "block_order": [
+          "b4ec6453-76a6-446c-b33d-f6c0ef3ea2bb",
+          "ab04d62a-1758-4bab-b063-6e00243d6838",
+          "bef05f6e-e85b-4d82-a58d-f17705e7ac3b",
+          "45b056f5-0e47-46f4-be72-bfe20db79fab",
+          "4ba3156a-b69a-4ec3-a79e-5b731334e62f",
+          "86eaafaa-36f7-417f-bb7e-5e9335aea098",
+          "5cd4880e-c22f-4af4-b9e9-90976ef6561c",
+          "906559d5-81ce-42de-9b93-3d8cef32d6e8",
+          "8cf046c6-1811-4651-a1d6-9ee181e57d48"
+        ],
+        "settings": {
+          "enable_section": true,
+          "title": "CHOOSE YOUR ADVENTURE"
+        }
+      },
+      "subscription-soap-items-2": {
+        "type": "subscription-soap-items-2",
+        "blocks": {
+          "5c07d4e3-e83e-41a8-98e3-2bbf4cff2c6d": {
+            "type": "text",
+            "settings": {
+              "product": "bamboo-soap-deck",
+              "image": "shopify:\/\/shop_images\/mountain-time-soap.jpg",
+              "title": "",
+              "text": "Prolongs the Life of Your Soap"
+            }
+          },
+          "910bc279-ccb0-46e7-aa6e-c62a7552b1e7": {
+            "type": "text",
+            "settings": {
+              "product": "shampoo-bar",
+              "image": "shopify:\/\/shop_images\/shampoo-bar.jpg",
+              "title": "",
+              "text": "Aloe vera, tea tree, rosemary"
+            }
+          },
+          "3b611247-1228-4a10-bc98-c5d4b33e66c1": {
+            "type": "text",
+            "settings": {
+              "product": "pet-shampoo",
+              "image": "shopify:\/\/shop_images\/pet-shampoo.jpg",
+              "title": "",
+              "text": "Lemongrass, spearmint"
+            }
+          },
+          "fdeac47f-c302-4264-b3e3-9537a79a7fe2": {
+            "type": "text",
+            "settings": {
+              "product": "shaving-soap",
+              "image": "shopify:\/\/shop_images\/shaving-soap.jpg",
+              "title": "",
+              "text": "coconut oil, shea butter"
+            }
+          },
+          "8c060ffd-3998-46fb-9f3f-7fab6d0af1fc": {
+            "type": "text",
+            "settings": {
+              "product": "recovery-soak",
+              "image": "shopify:\/\/shop_images\/Screen_Shot_2022-03-30_at_3.14.33_PM.png",
+              "title": "Muscle Recovery Soak",
+              "text": "Himalayan pink salt, essential oils"
+            }
+          },
+          "37b0f772-092f-440e-9b7c-4b6ccc160d12": {
+            "type": "text",
+            "settings": {
+              "product": "lip-balm-peppermint",
+              "image": "shopify:\/\/shop_images\/Screen_Shot_2022-03-30_at_3.14.37_PM.png",
+              "title": "Lip Balm",
+              "text": "Peppermint, green tea extract"
+            }
+          },
+          "900bda1b-2c33-423f-a53e-928a95ea94ed": {
+            "type": "text",
+            "settings": {
+              "product": "dawn-patrol-essential-oul-blend",
+              "image": "shopify:\/\/shop_images\/Screen_Shot_2022-03-30_at_3.14.47_PM.png",
+              "title": "Dawn Patrol Essential Oils",
+              "text": "Orange, grapefruit, lemon"
+            }
+          },
+          "4acc01bf-0418-434e-b393-7099d2ca0db4": {
+            "type": "text",
+            "settings": {
+              "product": "elevate-essential-oil-blend",
+              "image": "shopify:\/\/shop_images\/Screen_Shot_2022-03-30_at_8.08.52_PM.png",
+              "title": "Elevate Essential Oils",
+              "text": "Patchouli, Clove, Balsam"
+            }
+          },
+          "a3d8f414-a92d-459b-b1a3-6dcfa6614c58": {
+            "type": "text",
+            "settings": {
+              "product": "alpine-start-essential-oil-blend",
+              "image": "shopify:\/\/shop_images\/Screen_Shot_2022-03-30_at_8.08.42_PM.png",
+              "title": "Alpine Start Essential Oils",
+              "text": "Spearmint, eucalyptus, cedarwood"
+            }
+          }
+        },
+        "block_order": [
+          "5c07d4e3-e83e-41a8-98e3-2bbf4cff2c6d",
+          "910bc279-ccb0-46e7-aa6e-c62a7552b1e7",
+          "3b611247-1228-4a10-bc98-c5d4b33e66c1",
+          "fdeac47f-c302-4264-b3e3-9537a79a7fe2",
+          "8c060ffd-3998-46fb-9f3f-7fab6d0af1fc",
+          "37b0f772-092f-440e-9b7c-4b6ccc160d12",
+          "900bda1b-2c33-423f-a53e-928a95ea94ed",
+          "4acc01bf-0418-434e-b393-7099d2ca0db4",
+          "a3d8f414-a92d-459b-b1a3-6dcfa6614c58"
+        ],
+        "settings": {
+          "enable_section": true,
+          "title": "Gear Up With These Add-Ons"
+        }
+      },
+      "subscription-confirm-box": {
+        "type": "subscription-confirm-box",
+        "settings": {
+          "enable_section": true,
+          "title": "Let The Adventure Begin!",
+          "text": "Once you hit submit, you’ll be taken to a page to confirm your order. After that, we’ll send an email confirming that you’ve joined the club. And, of course, we’ll give you a heads up when your sustainable soap has shipped.",
+          "label": "send it"
+        }
+      },
+      "010-icon-banner": {
+        "type": "010-icon-banner",
+        "settings": {
+          "title": "Interested In A Retail Partnership?",
+          "desc": "Help us spread the soap! We welcome the opportunity to partner with your business to bring Mountain Time Soap and our other natural products to your location and to your customers.",
+          "img1": "shopify:\/\/shop_images\/Mask_Group_81.png",
+          "btn_txt": "Get in contact",
+          "btn_url": "shopify:\/\/pages\/contact-2"
+        }
+      },
+      "list-collections-template": {
+        "type": "list-collections-template",
+        "settings": {
+          "display_type": "all",
+          "sort": "alphabetical",
+          "grid": "3"
+        }
+      },
+      "5517810c-1594-4ad7-a7cb-4a7d6ae79f86": {
+        "type": "featured-blog",
+        "settings": {
+          "title": "The Mountain Time Blog",
+          "blog": "news",
+          "post_limit": 3,
+          "blog_show_author": false,
+          "blog_show_date": false,
+          "show_view_all": true
+        }
+      },
+      "process-time-method": {
+        "type": "process-time-method",
+        "blocks": {
+          "48637a4d-9224-4a42-8aae-5950ad9a25b8": {
+            "type": "text",
+            "settings": {
+              "title": "Intention",
+              "text": "Dreaming up new additions to our product line is half the fun. When an idea sparks, we ask ourselves: Is it useful? Is it sustainable? How can we make it better? A lot of time is spent on the details and it shows in the end result."
+            }
+          },
+          "4555c539-e1c3-4e00-b529-8bab414336e3": {
+            "type": "text",
+            "settings": {
+              "title": "Sourcing",
+              "text": "We’re always looking for the highest quality, sustainably grown ingredients with the shortest supply chain. If it doesn’t come from nature, we don’t use it and If we can buy it local we do."
+            }
+          },
+          "3d5fc49a-263d-4580-9c33-45ae9b8ab7cd": {
+            "type": "text",
+            "settings": {
+              "title": "Blending",
+              "text": "This is where we bring all the love together in one big melting pot! Our soap is made using the cold process method. Skin-nourishing oils and botanicals are mixed together with a lye solution to start the saponification process. Colors, swirls, scents and exfoliants are added at this stage."
+            }
+          },
+          "aa13eb48-e3cd-4bde-a391-4f3a215c7e3e": {
+            "type": "text",
+            "settings": {
+              "title": "Pouring",
+              "text": "When the mixture reaches a texture that we call “trace”, it’s then hand-poured into each soap mold. We use custom made molds to get our unique brick-style soap dimensions that fit perfectly in the palm of your hand. Did we mention that we’ve thought of every detail?"
+            }
+          },
+          "a67624c3-ca93-4fe7-aecb-7042fd6c4edd": {
+            "type": "text",
+            "settings": {
+              "title": "Saponify",
+              "text": "Saponification is a process that involves the conversion of fat, oil, or lipid, into soap and alcohol by the action of aqueous alkali. Science is cool! Sodium hydroxide is used as a catalyst to create this reaction, but none is left in the final product. That is why you don’t see it listed in our ingredients. This age-old process of soap making has been around for nearly 5,000 years and has changed\/shaped the course of human history. Soap has been said the be the yardstick of civilization and this is the core reason why we really love what we do."
+            }
+          },
+          "3abc7667-aa53-4d75-bf9c-c3f384046b8a": {
+            "type": "text",
+            "settings": {
+              "title": "Cutting",
+              "text": "Once the soap is done doing it’s thing (becoming soap!), we then hand-cut the molds into bars and strategically place each bar on drying racks where they get airflow on all sides."
+            }
+          },
+          "2bd8c640-9413-4e3a-9d8c-bff56d982975": {
+            "type": "text",
+            "settings": {
+              "title": "Drying",
+              "text": "Our drying method is a slow-soap method. Once the soap is drying we wait at least six weeks for the bar to harden. This is essential to making a natural soap without hardening agents that will last once you put it to use. This is where our patience is tested, but it’s worth the wait. Because of this long aging process, we have soap batches in constant rotation."
+            }
+          },
+          "b18c57b2-8e26-4a1c-b5a6-c645f26f1c2e": {
+            "type": "text",
+            "settings": {
+              "title": "Packaging",
+              "text": "Once the bars harden, each bar of soap is hand-trimmed and packaged in our award wining, compostable soap box. We put as much thought into our packaging as we do in our soap. Each soap box is printed locally in Denver with plant-based inks on un-bleached compostable cardboard."
+            }
+          },
+          "dfe5303f-3a66-41c7-8671-5070a9e50adc": {
+            "type": "text",
+            "settings": {
+              "title": "To Market",
+              "text": "Whether it’s an in-person sale or online, we’re always grateful that you chose us. From ingredients to shipping materials, you can rest easy knowing we’re being thoughtful about our business practices and making choices to reduce our carbon footprint. We know that Mountain Time Soap wouldn’t exist without you, and we’ll continue to work hard to keep you a customer for life."
+            }
+          }
+        },
+        "block_order": [
+          "48637a4d-9224-4a42-8aae-5950ad9a25b8",
+          "4555c539-e1c3-4e00-b529-8bab414336e3",
+          "3d5fc49a-263d-4580-9c33-45ae9b8ab7cd",
+          "aa13eb48-e3cd-4bde-a391-4f3a215c7e3e",
+          "a67624c3-ca93-4fe7-aecb-7042fd6c4edd",
+          "3abc7667-aa53-4d75-bf9c-c3f384046b8a",
+          "2bd8c640-9413-4e3a-9d8c-bff56d982975",
+          "b18c57b2-8e26-4a1c-b5a6-c645f26f1c2e",
+          "dfe5303f-3a66-41c7-8671-5070a9e50adc"
+        ],
+        "settings": {
+          "enable_section": true,
+          "title": "The Mountain Time Method",
+          "image_sp": "shopify:\/\/shop_images\/time-method-space.png"
+        }
+      },
+      "process-global-health": {
+        "type": "process-global-health",
+        "blocks": {
+          "e4f68f32-a052-4805-b3f2-c543cca11609": {
+            "type": "text",
+            "settings": {
+              "title": "1.4 BILLION",
+              "sub_text": "PLASTIC BODY WASH BOTTLES ARE DISCARDED EVERY YEAR IN THE U.S. ALONE.",
+              "text": "Mountain Time has saved 104,920 plastic bottles from landfills (and counting!) by making bar soap."
+            }
+          },
+          "5d020841-d547-4454-b5d0-470815eb9e0e": {
+            "type": "text",
+            "settings": {
+              "title": "OVER 75%",
+              "sub_text": "OF ALL TOXIC CHEMICALS IN PERSONAL CARE PRODUCTS ARE FROM FRAGRANCES.",
+              "text": "Toxic chemicals in fragrances are not required on labeling and are protected as “trade secrets”."
+            }
+          },
+          "da3ab8ab-17f6-4182-bd7f-5106d489f413": {
+            "type": "text",
+            "settings": {
+              "title": "7.3 BILLION",
+              "sub_text": "POUNDS OF DETERGENTS GO DOWN OUR DRAINS ANNUALLY IN THE US.",
+              "text": "Detergents derived from petroleum are a major source of air and waste water pollution in the US."
+            }
+          }
+        },
+        "block_order": [
+          "e4f68f32-a052-4805-b3f2-c543cca11609",
+          "5d020841-d547-4454-b5d0-470815eb9e0e",
+          "da3ab8ab-17f6-4182-bd7f-5106d489f413"
+        ],
+        "settings": {
+          "enable_section": true,
+          "title": "Global Health Statistics",
+          "image": "shopify:\/\/shop_images\/Group_2823.png"
+        }
+      },
+      "subscription-cart-template": {
+        "type": "subscription-cart-template",
+        "settings": {
+          "cart_notes_enable": false,
+          "freeship": "100"
+        }
+      },
+      "b941506c-72c7-4e76-a5d4-92b75e0baf46": {
+        "type": "003-ev-embed",
+        "settings": {
+          "title": "Upcoming Events",
+          "cal_embed": "<script src=\"https:\/\/www.theshopcalendar.com\/widget.js\" class=\"calendar-widget\" data-calendar-uuid=\"68990885-6abc-4994-9272-c6ba9d2db164\"><\/script>\n<div id=\"theshopcalendar-widget-68990885-6abc-4994-9272-c6ba9d2db164\"><\/div>"
+        }
+      },
+      "collection-template-new": {
+        "type": "collection-template-new",
+        "blocks": {
+          "3c420770-c435-48af-b072-ecefcf51f681": {
+            "type": "collection",
+            "settings": {
+              "col_title": "Spicy",
+              "collection": "spicy"
+            }
+          },
+          "ae041c36-b33e-4c90-a751-e178868165a3": {
+            "type": "collection",
+            "settings": {
+              "col_title": "Bar Soaps",
+              "collection": "bar-soaps"
+            }
+          },
+          "1b25e910-e4cd-4813-a4cf-544b034c047e": {
+            "type": "collection",
+            "settings": {
+              "col_title": "Citrus",
+              "collection": "citrus"
+            }
+          }
+        },
+        "block_order": [
+          "3c420770-c435-48af-b072-ecefcf51f681",
+          "ae041c36-b33e-4c90-a751-e178868165a3",
+          "1b25e910-e4cd-4813-a4cf-544b034c047e"
+        ],
+        "settings": {
+          "layout": "grid",
+          "grid": "4",
+          "rows": "2",
+          "show_collection_image": true,
+          "show_vendor": false,
+          "sort_enable": true,
+          "tags_enable": true
+        }
+      },
+      "001-support": {
+        "type": "001-support",
+        "settings": {
+          "title": "We’re Here To Answer Your Questions",
+          "desc": "",
+          "img1": "shopify:\/\/shop_images\/customer-support.jpg",
+          "btn_txt": "",
+          "btn_url": ""
+        }
+      },
+      "article-template": {
+        "type": "article-template",
+        "settings": {
+          "blog_show_author": true,
+          "blog_show_date": true,
+          "show_share_buttons": false
+        }
+      },
+      "featured-blog": {
+        "type": "featured-blog",
+        "settings": {
+          "title": "Recommended For You",
+          "blog": "news",
+          "post_limit": 3,
+          "blog_show_author": false,
+          "blog_show_date": false,
+          "show_view_all": false
+        }
+      }
+    },
+    "content_for_index": [
+      "166299254546f26eb5",
+      "16629927295dc10992",
+      "16629928973ee9e074",
+      "166315015174777236",
+      "16629938242de770ea",
+      "166299330109f64c32",
+      "1662993967819647e4",
+      "166299609292ea1f1f",
+      "5517810c-1594-4ad7-a7cb-4a7d6ae79f86",
+      "b941506c-72c7-4e76-a5d4-92b75e0baf46",
+      "1662995957c1786097"
+    ]
+  },
+  "presets": {
+    "Default": {
+      "color_text": "#3d4246",
+      "color_body_text": "#788188",
+      "color_sale_text": "#7796A8",
+      "color_borders": "#e8e9eb",
+      "color_button": "#7796A8",
+      "color_button_text": "#fff",
+      "color_small_button": "#fff",
+      "color_small_button_text": "#3d4246",
+      "color_text_field": "#fff",
+      "color_text_field_text": "#000",
+      "color_image_overlay_text": "#fff",
+      "color_image_overlay": "#3d4246",
+      "image_overlay_opacity": 25,
+      "color_body_bg": "#fff",
+      "type_header_family": "Google_Work+Sans_600_sans",
+      "type_header_base_size": "26px",
+      "type_base_family": "Google_Work+Sans_400_sans",
+      "type_base_size": "16px",
+      "type_bold_product_titles": false,
+      "share_facebook": true,
+      "share_twitter": true,
+      "share_pinterest": true,
+      "sections": {
+        "header": {
+          "type": "header",
+          "settings": {
+          }
+        },
+        "hero": {
+          "type": "hero",
+          "settings": {
+            "text_size": "large"
+          }
+        },
+        "slideshow": {
+          "type": "slideshow",
+          "blocks": {
+            "slideshow-0": {
+              "type": "image",
+              "settings": {
+              }
+            },
+            "slideshow-1": {
+              "type": "image",
+              "settings": {
+              }
+            }
+          },
+          "block_order": [
+            "slideshow-0",
+            "slideshow-1"
+          ],
+          "settings": {
+          }
+        },
+        "featured-collections": {
+          "type": "collection",
+          "settings": {
+            "collection": "frontpage"
+          }
+        },
+        "feature-row": {
+          "type": "feature-row",
+          "settings": {
+          }
+        },
+        "footer": {
+          "type": "footer",
+          "settings": {
+            "footer_linklist_two": ""
+          }
+        }
+      },
+      "content_for_index": [
+        "hero",
+        "featured-collections",
+        "feature-row",
+        "slideshow"
+      ]
+    },
+    "Light": {
+      "color_text": "#162950",
+      "color_body_text": "#757575",
+      "color_sale_text": "#ff574f",
+      "color_borders": "#e4e4e4",
+      "color_button": "#ff574f",
+      "color_button_text": "#ffffff",
+      "color_small_button": "#eaeaea",
+      "color_small_button_text": "#162950",
+      "color_text_field": "#ffffff",
+      "color_text_field_text": "#162950",
+      "color_image_overlay_text": "#ffffff",
+      "color_image_overlay": "#3d3d3d",
+      "image_overlay_opacity": 30,
+      "color_body_bg": "#f8f8f8",
+      "type_header_family": "Google_Muli_600_sans",
+      "type_header_base_size": "26px",
+      "type_base_family": "Google_Muli_600_sans",
+      "type_base_size": "18px",
+      "type_bold_product_titles": true,
+      "share_facebook": true,
+      "share_twitter": true,
+      "share_pinterest": true,
+      "social_twitter_link": "",
+      "social_facebook_link": "",
+      "social_pinterest_link": "",
+      "social_instagram_link": "",
+      "social_tumblr_link": "",
+      "social_snapchat_link": "",
+      "social_youtube_link": "",
+      "social_vimeo_link": "",
+      "favicon": "",
+      "checkout_header_image": "",
+      "checkout_logo_image": "",
+      "checkout_logo_position": "left",
+      "checkout_logo_size": "small",
+      "checkout_body_background_image": "",
+      "checkout_body_background_color": "#ffffff",
+      "checkout_input_background_color_mode": "white",
+      "checkout_sidebar_background_image": "",
+      "checkout_sidebar_background_color": "#e8f3f6",
+      "checkout_heading_font": "Roboto",
+      "checkout_body_font": "Source Sans Pro",
+      "checkout_accent_color": "#1990c6",
+      "checkout_button_color": "#23314e",
+      "checkout_error_color": "#ff6d6d",
+      "sections": {
+        "header": {
+          "type": "header",
+          "settings": {
+            "align_logo": "left",
+            "logo": "",
+            "logo_max_width": "135",
+            "main_linklist": "main-menu",
+            "message": true,
+            "color_bg": "#162950",
+            "color_text": "#ffffff"
+          }
+        },
+        "hero": {
+          "type": "hero",
+          "settings": {
+            "alignment": "center",
+            "hero_size": "x-large",
+            "text_size": "large"
+          }
+        },
+        "slideshow": {
+          "type": "slideshow",
+          "blocks": {
+            "slideshow-0": {
+              "type": "image",
+              "settings": {
+                "image": "",
+                "alignment": "center"
+              }
+            },
+            "1492095993817": {
+              "type": "image",
+              "settings": {
+                "image": "",
+                "alignment": "center"
+              }
+            }
+          },
+          "block_order": [
+            "slideshow-0",
+            "1492095993817"
+          ],
+          "settings": {
+            "autoplay": true,
+            "autoplay_speed": "6000",
+            "slideshow_height": "medium",
+            "text_size": "medium"
+          }
+        },
+        "featured-collections": {
+          "type": "collection",
+          "settings": {
+            "grid": 3,
+            "rows": 1,
+            "show_vendor": true,
+            "show_view_all": true
+          }
+        },
+        "footer": {
+          "type": "footer",
+          "settings": {
+            "footer_linklist": "main-menu",
+            "footer_linklist_two": "footer",
+            "footer_newsletter_enable": true,
+            "show_payment_icons": true
+          }
+        },
+        "product-template": {
+          "type": "product-template",
+          "settings": {
+            "image_size": "medium",
+            "show_quantity_selector": false,
+            "show_variant_labels": true,
+            "show_vendor": false,
+            "enable_zoom": true,
+            "show_share_buttons": true
+          }
+        },
+        "collection-template": {
+          "type": "collection-template",
+          "settings": {
+            "layout": "grid",
+            "grid": "2",
+            "rows": "2",
+            "show_collection_image": true,
+            "show_vendor": false,
+            "sort_enable": true,
+            "tags_enable": true
+          }
+        },
+        "1492033809691": {
+          "type": "map",
+          "settings": {
+          }
+        },
+        "1492033877875": {
+          "type": "quotes",
+          "blocks": {
+            "1492033877875-0": {
+              "type": "quote",
+              "settings": {
+              }
+            }
+          },
+          "block_order": [
+            "1492033877875-0"
+          ],
+          "settings": {
+          }
+        },
+        "1492033924902": {
+          "type": "custom-content",
+          "blocks": {
+            "1492033924902-0": {
+              "type": "text",
+              "settings": {
+                "width": "100%",
+                "alignment": "center",
+                "align_text": "center"
+              }
+            }
+          },
+          "block_order": [
+            "1492033924902-0"
+          ],
+          "settings": {
+            "title": ""
+          }
+        },
+        "1492096252560": {
+          "type": "collection-list",
+          "blocks": {
+            "1492096252560-0": {
+              "type": "featured_collection",
+              "settings": {
+              }
+            },
+            "1492096252560-1": {
+              "type": "featured_collection",
+              "settings": {
+              }
+            },
+            "1492096252560-2": {
+              "type": "featured_collection",
+              "settings": {
+              }
+            }
+          },
+          "block_order": [
+            "1492096252560-0",
+            "1492096252560-1",
+            "1492096252560-2"
+          ],
+          "settings": {
+            "grid": 3
+          }
+        },
+        "blog-template": {
+          "type": "blog-template",
+          "settings": {
+            "layout": "grid",
+            "blog_show_author": true,
+            "blog_show_date": false
+          }
+        },
+        "article-template": {
+          "type": "article-template",
+          "settings": {
+            "blog_show_author": true,
+            "blog_show_date": true,
+            "show_share_buttons": true
+          }
+        },
+        "cart-template": {
+          "type": "cart-template",
+          "settings": {
+            "cart_notes_enable": false
+          }
+        }
+      },
+      "content_for_index": [
+        "hero",
+        "featured-collections",
+        "slideshow",
+        "1492033924902",
+        "1492096252560",
+        "1492033877875",
+        "1492033809691"
+      ]
+    }
+  }
+}

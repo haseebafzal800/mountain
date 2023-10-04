@@ -1,0 +1,133 @@
+{% if section.settings.enable_section == true %}
+<div class="membership-wrapper custom-space overflow-hidden soap-duration-selection advanced-subscription-fieldset">
+    <div class="vessel">
+        {% if section.settings.title != blank %}
+          <div class="queue">
+              <div class="column-12">
+                  <div class="content-container margin-bottom text-center">
+                      <h2 class="margin-bottom"><strong>{{ section.settings.title | escape }}</strong> </h2>
+                      {% if section.settings.text != blank %}
+                        <p class="text-yellow">{{ section.settings.text }}</p>
+                      {% endif %}
+                  </div>
+              </div>
+          </div>
+        {% endif %}
+        <div class="queue">
+            <div class="column-12">
+                <div class="member-container">
+                    {% for block in section.blocks %}
+                      {% if block.settings.title != blank %}
+                        <div class="em-member advanced-subscription-option{% if block.settings.sub_type == "Monthly" %} em-member-00{% else %} em-member-01 active{% endif %}" data-duration="{{ block.settings.sub_type }}"  data-field="shipping_interval_frequency" data-value="{% if block.settings.sub_type == "Monthly" %}1{% else %}3{% endif %}">
+                          <strong class="ethos-h">{{ block.settings.title | escape }}</strong>
+                          {% if block.settings.text != blank %}
+                            <p class="text-yellow margin-bottom position-relative">{{ block.settings.text }}</p>
+                          {% endif %}
+                          <a href="#" class="btn btn-primary">Select option</a>
+                          {% if block.settings.recomended == "yes" %}
+                            <div class="recommend-image">
+                              <div class="image-wrap"><img src="https://cdn.shopify.com/s/files/1/2458/1997/files/ship-star.png?v=1660154200" alt=""></div>
+                                <span>Recommended</span>
+                            </div>
+                          {% endif %}
+                        </div>
+                      {% endif %}
+                      
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+{% schema %}
+  {
+    "name": "Subscription Type",
+    "class": "subscription_type",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "enable_section",
+        "label": "Enable?",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "How often should we ship?*"
+      },
+      {
+        "type": "textarea",
+        "id": "text",
+        "label": "Sub Heading"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "text",
+        "name": "Add Subscription Type",
+        "settings": [
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Heading"
+          },
+          {
+            "type": "textarea",
+            "id": "text",
+            "label": "Sub Heading"
+          },
+          {
+            "type": "select",
+            "id": "sub_type",
+            "options": [
+              {
+                "value": "Monthly",
+                "label": "Monthly"
+              },
+              {
+                "value": "Quarterly",
+                "label": "Quarterly"
+              }
+            ],
+            "label": "Subscription Type?"
+          },
+          {
+            "type": "select",
+            "id": "recomended",
+            "options": [
+              {
+                "value": "yes",
+                "label": "Yes"
+              },
+              {
+                "value": "no",
+                "label": "No"
+              }
+            ],
+            "label": "Recommended"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Subscription Support",
+        "category": "Text",
+        "blocks": [
+          {
+            "type": "text"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

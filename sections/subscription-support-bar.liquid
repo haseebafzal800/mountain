@@ -1,0 +1,67 @@
+{% if section.settings.enable_section == true %}
+<div class="em-mind-wrapper em-support custom-space overflow-hidden">
+    <div class="vessel">
+        <div class="queue">
+            <div class="column-12">
+                <div class="content-container">
+                  {% for block in section.blocks %}
+                    {% if block.settings.text != blank %}
+                    <div class="em-wrap">
+                        <strong class="text-uppercase neufreit text-light">{{ block.settings.text }}</strong>
+                    </div>
+                    {% endif %}
+                    
+                  {% endfor %}
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+{% schema %}
+  {
+    "name": "Subscription Support",
+    "class": "subscription_support",
+    "max_blocks": 4,
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "enable_section",
+        "label": "Enable?",
+        "default": true
+      }
+    ],
+    "blocks": [
+      {
+        "type": "text",
+        "name": "Text Block",
+        "settings": [
+          {
+            "type": "textarea",
+            "id": "text",
+            "label": "Text"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Subscription Support",
+        "category": "Text",
+        "blocks": [
+          {
+            "type": "text"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

@@ -1,0 +1,113 @@
+{% if section.settings.enable_section == true %}
+<div class="adventure-club custom-space">
+    <div class="vessel">
+        <div class="adv-vessel">
+            {% if section.settings.title != blank %}
+              <h2 class="text-align-center">{{ section.settings.title }}</h2>
+            {% endif %}
+            {% if section.settings.text != blank %}
+              <p class="text-align-center">{{ section.settings.text }}</p>
+            {% endif %}
+            {% if section.settings.image != blank %}
+            <div class="queue">
+                <div class="column-12 column-md-5">
+                    <div class="img-wrap"><img src="{{ section.settings.image | img_url:'700x' }}" alt="images"></div>
+                </div>
+                <div class="column-12 column-md-7 ">
+                    <ul class="adv-list height-100 d-flex flex-columns">
+                        {% for block in section.blocks %}
+                          {% if block.settings.title != blank %}
+                          <li class="d-flex flex-columns f-grow-1 justify-content-center">
+                            <strong class="headline ethos-h d-block text-green text-capitalize margin-bottom position-relative">
+                              {{ block.settings.title }}
+                            </strong>
+                            {% if block.settings.text != blank %}
+                              <P>{{ block.settings.text }}</P>
+                            {% endif %}
+                          </li>
+                          {% endif %}
+                          
+                        {% endfor %}
+                    </ul>
+                </div>
+
+            </div>
+            {% endif %}
+            {% if section.settings.link != blank %}
+              <a href="{{ section.settings.link }}" class="btn btn-seceondry text-light neufreit">CHOOSE YOUR adventure</a>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endif %}
+
+{% schema %}
+  {
+    "name": "Adventure Club",
+    "class": "subscription_club",
+    "max_blocks": 3,
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "enable_section",
+        "label": "Enable?",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading"
+      },
+      {
+        "type": "textarea",
+        "id": "text",
+        "label": "Sub Heading"
+      },
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+      },
+      {
+        "type": "url",
+        "id": "link",
+        "label": "Button Link"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "text",
+        "name": "Text Block",
+        "settings": [
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Heading"
+          },
+          {
+            "type": "textarea",
+            "id": "text",
+            "label": "Text"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Adventure Club",
+        "category": "Text",
+        "blocks": [
+          {
+            "type": "text"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

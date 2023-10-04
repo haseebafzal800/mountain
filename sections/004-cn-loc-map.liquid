@@ -1,0 +1,45 @@
+<div class="mountain-time-wrapper overflow-hidden custom-space">
+    <div class="vessel">
+        <div class="queue">
+            <div class="column-12">
+                <div class="content-container text-center margin-bottom">
+                    <h2>{{ section.settings.title }}</h2>
+                </div>
+            </div>
+        </div>
+        <div class="queue">
+            <div class="column-12">
+               <div class="map-wrapper ">
+                  <div develic-map-container=""></div>
+              </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% schema %}
+{
+"name": "004-cn-loc-map",
+"settings": [
+{
+"type": "textarea",
+"id": "title",
+"label": "title",
+"default": "Find Mountain Time Retailers"
+},
+{
+"type": "textarea",
+"id": "cal_embed",
+"label": "map_embed_code",
+"default": "map embed code"
+}
+],
+"blocks": [
+],
+"presets": [
+{
+"name": "004-cn-loc-map",
+"category": "custom"
+}
+]
+}
+{% endschema %}

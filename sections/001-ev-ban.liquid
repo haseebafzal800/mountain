@@ -1,0 +1,59 @@
+<div class="main-banner black-layer position-relative"
+    style="background-image: url('{{ section.settings.img1 | img_url: 'master' }}');">
+    <div class="vessel">
+        <div class="content-banner text-align-center">
+            <h2 class="text-light">
+                {{ section.settings.title }}
+            </h2>
+            <p class="text-light" style="max-width:608px;margin:0 auto;">{{ section.settings.desc }}</p>
+            {% if section.settings.btn_txt != '' %}
+            <a href="{{ section.settings._btn_url }}" class="btn btn-primary neufreit">
+                {{ section.settings.btn_txt}}
+            </a>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% schema %}
+{
+"name": "001-ev-ban",
+"class": "ind-o2",
+"settings": [
+{
+"type": "textarea",
+"id": "title",
+"label": "title",
+"default": "Find Retailers & Upcoming Events"
+},
+{
+"type": "textarea",
+"id": "desc",
+"label": "description",
+"default": "Mountain Time Soap is expanding! You can find our products in over 150 retail locations across the country."
+},
+{
+"type": "image_picker",
+"id": "img1",
+"label": "IMAGE1"
+},
+{
+"type": "textarea",
+"id": "btn_txt",
+"label": "btn_txt"
+},
+{
+"type": "url",
+"id": "btn_url",
+"label": "btn_url"
+}
+],
+"blocks": [
+],
+"presets": [
+{
+"name": "001-ev-ban",
+"category": "custom"
+}
+]
+}
+{% endschema %}

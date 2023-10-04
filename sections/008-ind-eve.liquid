@@ -1,0 +1,38 @@
+<div class=" custom-space event-1">
+    <div class="vessel">
+        <h2 class="text-align-center ">{{ section.settings.title }}</h2>
+        <div class="queue justify-content-center">
+            <div class="column-12 column-sm-10 column-md-8 column-lg-7  text-align-center">
+                {{ section.settings.cal_embed }}
+            </div>
+        </div>
+    </div>
+</div>
+{% schema %}
+{
+"name": "008-ind-eve",
+"class": "ind-o2",
+"settings": [
+{
+"type": "textarea",
+"id": "tile",
+"label": "title",
+"default": "events"
+},
+{
+"type": "textarea",
+"id": "cal_embed",
+"label": "cal_embed_code",
+"default": "cal embed code"
+}
+],
+"blocks": [
+],
+"presets": [
+{
+"name": "008-ind-eve",
+"category": "custom"
+}
+]
+}
+{% endschema %}

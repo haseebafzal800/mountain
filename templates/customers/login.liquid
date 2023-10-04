@@ -1,0 +1,59 @@
+<div class="main-banner em-connected em-login-wrapper black-layer green-layer position-relative mountain-banner" style="background-image: url('https://cdn.shopify.com/s/files/1/2458/1997/files/Group_2822-min.png?v=1659722294');">
+            <div class="vessel">
+                <div class="queue">
+                    <div class="column-12">
+                       <div class="full-wrapper">
+                            <div class="left-wrapper margin-bottom em-ll">
+                                <div class="em-ll-00">
+                                    <div class="ee-container margin-bottom">
+                                        <h2>Already A Member?</h2>
+                                        <strong class="text-yellow text-uppercase neufreit">Sign in with your account login below.</strong>
+                                    </div>
+                                    {% form 'customer_login' %}
+                                        {{ form.errors | default_errors }}
+                                        <input type="text" placeholder="Username" name="customer[email]" id="CustomerEmail" class="{% if form.errors contains 'email' %} input--error{% endif %}" autocorrect="off" autocapitalize="off" autofocus>
+                                        <input type="password" placeholder="Password" value="" name="customer[password]" id="CustomerPassword" class="{% if form.errors contains 'password' %} input--error{% endif %}">
+                                        <button type="submit" class="btn btn-primary">login</button>
+                                     {% endform %}
+                                </div>    
+                            </div>
+                            <div class="right-wrapper em-ll">
+                                <div class="em-ll-00"> 
+                                    <div class="ee-container margin-bottom">
+                                        <h2>Looking To Join The Adventure Soap Club?</h2>
+                                        <strong class="text-yellow text-uppercase neufreit">Sign up with your personal details below to register for an account.</strong>
+                                    </div>
+                                    {% form 'create_customer' %}
+                                        {{ form.errors | default_errors }}
+                                        <div class="rp-container">
+                                            <input type="text" placeholder="First Name" name="customer[first_name]" id="FirstName" {% if form.first_name %}value="{{ form.first_name }}"{% endif %} autofocus >
+                                            <input type="text" placeholder="Last Name" name="customer[last_name]" id="LastName" {% if form.last_name %}value="{{ form.last_name }}"{% endif %}>
+                                            <input class="em-email" type="email" placeholder="Email Address" name="customer[email]" id="Email" class="{% if form.errors contains 'email' %} input--error{% endif %}" {% if form.email %} value="{{ form.email }}"{% endif %} autocorrect="off" autocapitalize="off">
+                                            <input type="text" placeholder="Address Line 1" name="customer[address_line_1]" id="AddressOne" {% if form.address1 %}value="{{ form.address1 }}"{% endif %}>
+                                            <input type="text" placeholder="Address Line 2" name="customer[address_line_2]" id="AddressTwo" {% if form.address2 %}value="{{ form.address2 }}"{% endif %}>
+                                            <input type="text" placeholder="City" name="customer[city]" id="City" {% if form.city %}value="{{ form.city }}"{% endif %}>
+                                            <input type="text" placeholder="State" name="customer[state]" id="State" {% if form.province %}value="{{ form.province }}"{% endif %}>
+                                            <input type="text" placeholder="Country" name="customer[country]" id="Country" {% if form.country %}value="{{ form.country }}"{% endif %}>
+                                            <input type="text" placeholder="Zip Code" name="customer[zip]" id="ZipCode" {% if form.zip %}value="{{ form.zip }}"{% endif %}>
+                                        </div> 
+                                        
+                                        <div class="rb-container">
+                                            <span class="em-username text-yellow neufreit text-uppercase margin-bottom">Please create a username and password.</span>
+                                            <input type="text" placeholder="Username" name="customer[email]" id="CustomerEmail" class="{% if form.errors contains 'email' %} input--error{% endif %}" autocorrect="off" autocapitalize="off" autofocus>
+                                            <input id="pass-em"  type="password" placeholder="Password" name="customer[password]" id="CreatePassword" class="{% if form.errors contains 'password' %} input--error{% endif %}">
+                                            <label class="text-yellow neufreit text-uppercase margin-bottom" for="pass-em">
+                                                * must include 1 uppercase letter <br>
+                                                * must include letters &amp; numbers <br>
+                                                * must be at least 8 characters in length
+                                            </label>
+                                            <button type="submit" class="btn btn-primary">register</button>
+                                        </div>
+                                    {% endform %}
+                                </div>    
+                            </div>
+                       </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% section '009-ind-newsletter' %}

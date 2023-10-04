@@ -1,0 +1,54 @@
+<div class="main-banner black-layer position-relative"
+    style="background-image: url('{{ section.settings.img1 | img_url: 'master' }}');">
+    <div class="vessel">
+        <div class="content-banner text-align-center">
+            <h2 class="text-light">
+                {{ section.settings.title }}
+            </h2>
+            <p class="text-light">{{ section.settings.desc }}</p>
+        </div>
+    </div>
+</div>
+{% schema %}
+{
+"name": "001-cn-ban",
+"class": "ind-o2",
+"settings": [
+{
+"type": "textarea",
+"id": "title",
+"label": "title",
+"default": "Let’s Connect"
+},
+{
+"type": "textarea",
+"id": "desc",
+"label": "description",
+"default": "Have a question you didn’t find an answered in our FAQ? "
+},
+{
+"type": "image_picker",
+"id": "img1",
+"label": "IMAGE1"
+},
+{
+"type": "textarea",
+"id": "btn_txt",
+"label": "btn_txt"
+},
+{
+"type": "url",
+"id": "btn_url",
+"label": "btn_url"
+}
+],
+"blocks": [
+],
+"presets": [
+{
+"name": "001-cn-ban",
+"category": "custom"
+}
+]
+}
+{% endschema %}

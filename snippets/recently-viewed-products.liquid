@@ -1,0 +1,84 @@
+<script>
+  
+  {% if template == "product" %}
+
+      var product_handle = '{{ product.handle }}';
+      var recently_viewed_items =  localStorage.getItem("recently_viewed_products");
+      if(!recently_viewed_items){
+         localStorage.setItem("recently_viewed_products",product_handle);
+      }
+      else{
+        recently_viewed_items = recently_viewed_items.split(",");
+        if(recently_viewed_items.includes(product_handle)){
+           recently_viewed_items = recently_viewed_items.filter(item  => item != product_handle);
+        }
+        if(recently_viewed_items.length == 4 ){
+           recently_viewed_items.pop();
+           recently_viewed_items = (recently_viewed_items.length) ? product_handle + "," + recently_viewed_items.join(",") : product_handle +  recently_viewed_items.join(",");
+           localStorage.setItem("recently_viewed_products",recently_viewed_items);
+        }
+        else{
+           recently_viewed_items = (recently_viewed_items.length) ? product_handle + "," + recently_viewed_items.join(",") : product_handle +  recently_viewed_items.join(",");
+           localStorage.setItem("recently_viewed_products",recently_viewed_items);
+        }
+      }
+      
+
+  {% endif %}
+
+
+  {% if template == 'collection' %}
+     
+         var recently_viewed_items =  localStorage.getItem("recently_viewed_products");
+         if(recently_viewed_items){
+            recently_viewed_items = recently_viewed_items.split(",");
+           
+            async function fetch_recently_viewed_items(items_handle){
+              var products =  Promise.all(items_handle.map(handle => 
+                  fetch(`https://www.mountaintimesoap.com/products/${handle}.json`).then(resp => resp.json())
+                  )).then((f_resp) =>{ 
+                      if(f_resp.length){
+                         var recently_view_html = `<div class="soap-shop custom-space soap-shop00">
+                                                        <div class="vessel">
+                                                        <h2 class="text-align-center " data-open-accessibility-text-original="52px" style="font-size: 52px;">Recently Viewed Products        </h2>
+                                                        <ul class="queue">`;
+                         f_resp.forEach(product => {
+                             recently_view_html += `<li class="column-12 column-sm-6 column-md-3 margin-bottom" data-open-accessibility-text-original="16px" style="font-size: 16px;">
+                                                        <div class="product-wrap0 d-flex flex-columns">
+                                                            <div class="img-wrap">
+                                                                <img src="${product.product.image.src}" alt="img">
+                                                            </div>
+                                                            <div class="product-details text-align-center d-flex flex-columns justify-content-between f-grow-1">
+                                                                <strong class="product-name text-green d-block ethos-h">
+                                                                    ${product.product.title}
+                                                                </strong>
+                                                                <span class="brand text-yellow text-uppercase d-block neufreit" data-open-accessibility-text-original="14px" style="font-size: 14px;"> ${product.product.product_type}</span>
+                                                                <span class="price d-block neufreit" data-open-accessibility-text-original="14px" style="font-size: 14px;">$${product.product.variants[0].price}</span>
+                                                                <form action="/cart/add" data-productid="${product.product.id}" method="post" enctype="multipart/form-data" > 
+                                                                <input type="hidden" name="id" value="${ product.product.variants[0].id }" />
+                                                                <input type="hidden" name="utf8" value="✓">
+                                                                <input type="hidden" name="form_type" value="product">
+                                                                <div> <button type="submit" class="btn btn-product w-100 text-light navigable">add to
+                                                                            cart</button></div>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                    </li>`;
+
+                         });
+
+
+                        recently_view_html += `</ul></div></div>`;
+                        $(recently_view_html).insertBefore( "#shopify-section-new-footer" );
+                      }
+                
+                  });
+                 
+            }
+          fetch_recently_viewed_items(recently_viewed_items);
+         }
+
+  {% endif %}
+  
+
+</script>

@@ -1,0 +1,56 @@
+<div class="em-mind-wrapper em-support custom-space overflow-hidden">
+    <div class="vessel">
+        <div class="queue">
+            <div class="column-12">
+                <div class="content-container">
+                    {% for block in section.blocks %}
+                    <div class="em-wrap">
+                        <div class="image-wrap"><img src="{{ block.settings.img1 | img_url: 'master' }}" alt=""></div>
+                        {% if block.settings.btn_txt %}
+                        <a href="{{ block.settings._btn_url }}" class="text-uppercase neufreit">
+                            {{ block.settings.btn_txt}}
+                        </a>
+                        {% endif %}
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% schema %}
+{
+"name": "002-sup-icons",
+"settings": [
+],
+"blocks": [
+{
+"type": "icon",
+"name":"icon",
+"settings": [
+{
+"type": "image_picker",
+"id": "img1",
+"label": "icon"
+},
+{
+"type": "textarea",
+"id": "btn_txt",
+"label": "btn_txt"
+},
+{
+"type": "url",
+"id": "btn_url",
+"label": "btn_url"
+}
+]
+}
+],
+"presets": [
+{
+"name": "002-sup-icons",
+"category": "custom"
+}
+]
+}
+{% endschema %}

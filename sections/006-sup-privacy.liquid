@@ -1,0 +1,42 @@
+<div id="em-policy" class="em-support-04 custom-space overflow-hidden">
+    <div class="vessel">
+        <div class="queue">
+            <div class="column-12">
+                <div class="content-container margin-bottom">
+                    <h2>{{ section.settings.title }}</h2>
+                </div>
+                <div class="cc-container">
+                    <p>
+                        {{ section.settings.desc }}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% schema %}
+{
+"name": "006-sup-privacy",
+"settings": [
+{
+"type": "textarea",
+"id": "title",
+"label": "title",
+"default": "Privacy"
+},
+{
+"type": "textarea",
+"id": "desc",
+"label": "description"
+}
+],
+"blocks": [
+],
+"presets": [
+{
+"name": "006-sup-privacy",
+"category": "custom"
+}
+]
+}
+{% endschema %}

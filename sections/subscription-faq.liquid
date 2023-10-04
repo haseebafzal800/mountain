@@ -1,0 +1,80 @@
+{% if section.settings.enable_section == true %}
+<div class="faqs-subscription custom-space">
+    <div class="vessel">
+      {% if section.settings.title != blank %}
+        <h2 class="text-light text-align-center">{{ section.settings.title }}</h2>
+      {% endif %}
+        <ul class="queue faqs-product">
+          {% for block in section.blocks %}
+            {% if block.settings.title != blank %}
+              <li class="column-12 column-md-6 postion-relative">
+                <div class="faq-content posiition-relative">
+                  <button><i class="fa-solid fa-plus"></i></button>
+                  <span class="neufreit text-uppercase text-green">{{ block.settings.title }}</span>
+                  <p>{{ block.settings.text }}</p>
+                </div>
+              </li>
+            {% endif %}
+            
+          {% endfor %}
+            
+        </ul>
+    </div>
+</div>
+{% endif %}
+
+{% schema %}
+  {
+    "name": "Subscription FAQs",
+    "class": "subscription_faq",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "enable_section",
+        "label": "Enable?",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "Frequently Asked Questions"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "text",
+        "name": "FAQ Block",
+        "settings": [
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Question?"
+          },
+          {
+            "type": "textarea",
+            "id": "text",
+            "label": "Answer"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Subscription Support",
+        "category": "Text",
+        "blocks": [
+          {
+            "type": "text"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

@@ -1,0 +1,98 @@
+<div class="main-banner black-layer green-layer position-relative mountain-banner"
+    style="background-image: url('{{ section.settings.img1 | img_url: 'master' }}');">
+    <div class="vessel position-relative" style="z-index: 1;">
+        <div class="queue queue-cus0">
+            <div class="column-12 column-xl-4">
+                <div class="content margin-bottom">
+                    <h2 class="text-light">{{ section.settings.title }}</h2>
+                    <p class="text-light">{{ section.settings.desc }}</p>
+                </div>
+            </div>
+            <div class="column-12 column-xl-8 d-flex">
+                <div class="queue queue-cus">
+                    {% for block in section.blocks %}
+                    <div class="column-12 column-md-4">
+                        <div class="content-event text-light">
+                            <div class="time-wrp">
+                                <strong class="event-name ethos-h">{{ block.settings.ename }}</strong>
+                                <time><span>{{ block.settings.etime }}</span></time>
+                            </div>
+                            <address><span class="l-name ">{{ block.settings.elname }}</span>
+                                <span class="address1">{{ block.settings.epin1 }}</span>
+                                <span class="address2">{{ block.settings.epin2 }}</span>
+                            </address>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% schema %}
+{
+"name": "002-ev-events",
+"settings": [
+{
+"type": "textarea",
+"id": "title",
+"label": "title",
+"default": "Upcoming Events"
+},
+{
+"type": "textarea",
+"id": "desc",
+"label": "description",
+"default": "We have the most amazing customers and we love to see you in real life. Track us down at our next event!"
+},
+{
+"type": "image_picker",
+"id": "img1",
+"label": "IMAGE1"
+}
+],
+"blocks": [
+{
+"type": "event",
+"name":"event",
+"settings": [
+{
+"type": "textarea",
+"id": "ename",
+"label": "ename",
+"default": "ename"
+},
+{
+"type": "textarea",
+"id": "etime",
+"label": "etime",
+"default": "12.00-2.00 PM MST"
+},
+{
+"type": "textarea",
+"id": "elname",
+"label": "e location name"
+},
+{
+"type": "textarea",
+"id": "epin1",
+"label": "address 1",
+"default": "address 1"
+},
+{
+"type": "textarea",
+"id": "epin2",
+"label": "address 2",
+"default": "address 2"
+}
+]
+}
+],
+"presets": [
+{
+"name": "002-ev-events",
+"category": "custom"
+}
+]
+}
+{% endschema %}

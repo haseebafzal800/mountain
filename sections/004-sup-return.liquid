@@ -1,0 +1,115 @@
+<div id="em-return" class="em-support-01 custom-space overflow-hidden">
+    <div class="vessel">
+        <div class="queue">
+            <div class="column-12">
+                <div class="content-container">
+                    <h2>{{ section.settings.title }}</h2>
+                    <p>{{ section.settings.desc }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="em-faq" class="em-support-02 custom-space overflow-hidden">
+    <div class="vessel">
+        <div class="queue">
+            <div class="column-12">
+                <div class="content-container margin-bottom">
+                    <h2>{{ section.settings.faq }}</h2>
+                </div>
+            </div>
+        </div>
+        <div class="queue">
+            <div class="column-12 column-md-6">
+                <ul class="support-accord s-accord">
+                    {% for block in section.blocks %}
+                    {% if forloop.index < 9 %} <li>
+                        <div class="accord-head">
+                            <strong>{{ block.settings.qtxt}}</strong>
+                            <div class="accord-icon">
+                                <i class="fa-solid fa-plus"></i>
+                                <i class="fa-solid fa-minus"></i>
+                            </div>
+                        </div>
+                        <div class="accord-content">
+                            <p>{{ block.settings.atxt}}</p>
+                        </div>
+                        </li>
+                        {% endif %}
+                        {% endfor %}
+                </ul>
+            </div>
+            <div class="column-12 column-md-6">
+                <ul class="supoort-accord">
+                    {% for block in section.blocks %}
+                    {% if forloop.index > 8 %}
+                    <li>
+                        <div class="accord-head">
+                            <strong>{{ block.settings.qtxt}}</strong>
+                            <div class="accord-icon">
+                                <i class="fa-solid fa-plus"></i>
+                                <i class="fa-solid fa-minus"></i>
+                            </div>
+                        </div>
+                        <div class="accord-content">
+                            <p>{{ block.settings.atxt}}</p>
+                        </div>
+                    </li>
+                    {% endif %}
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+{% schema %}
+{
+"name": "004-sup-return",
+"settings": [
+{
+"type": "textarea",
+"id": "title",
+"label": "title",
+"default": "Returns & Exchanges"
+},
+{
+"type": "textarea",
+"id": "desc",
+"label": "description",
+"default": "We stand behind our products and offer guaranteed satisfaction."
+},
+{
+"type": "textarea",
+"id": "faq",
+"label": "faq",
+"default": "FAQs"
+}
+],
+"blocks": [
+{
+"type": "faq",
+"name":"faq",
+"settings": [
+{
+"type": "text",
+"id": "qtxt",
+"label": "qtxt",
+"default": "q"
+},
+{
+"type": "textarea",
+"id": "atxt",
+"label": "atxt",
+"default": "atxt"
+}
+]
+}
+],
+"presets": [
+{
+"name": "004-sup-return",
+"category": "custom"
+}
+]
+}
+{% endschema %}

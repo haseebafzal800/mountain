@@ -1,0 +1,72 @@
+<div class="main-banner em-main-banner black-layer position-relative"
+    style="background-image: url('{{ section.settings.img1 | img_url: 'master' }}');">
+    <div class="vessel">
+        <div class="queue"> 
+            <div class="column-12">
+                <div class="content-container text-center">
+                    <div class="image-wrap">
+                        {% if section.settings.img %}
+                        <img src="{{ section.settings.img | img_url: 'master' }}" alt="">
+                        {% endif %}
+                    </div>
+                    <h2 class="text-light">
+                        {{ section.settings.title }}
+                    </h2>
+                    <p class="text-light">{{ section.settings.desc }}</p>
+                    {% if section.settings.btn_txt != '' %}
+                    <a href="{{ section.settings._btn_url }}" class="btn btn-primary">
+                        {{ section.settings.btn_txt}}
+                    </a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% schema %}
+{
+"name": "010-icon-banner",
+"settings": [
+{
+"type": "textarea",
+"id": "title",
+"label": "title"
+},
+{
+"type": "textarea",
+"id": "desc",
+"label": "description",
+"default": "Mountain Time Soap & Supply is a trailblazing personal care brand creating joy in the everyday, and leaving"
+},
+{
+"type": "image_picker",
+"id": "img1",
+"label": "IMAGE1"
+},
+{
+"type": "image_picker",
+"id": "img",
+"label": "icon"
+},
+{
+"type": "textarea",
+"id": "btn_txt",
+"label": "btn_txt",
+"default": "Shop All"
+},
+{
+"type": "url",
+"id": "btn_url",
+"label": "btn_url"
+}
+],
+"blocks": [
+],
+"presets": [
+{
+"name": "010-icon-banner",
+"category": "custom"
+}
+]
+}
+{% endschema %}

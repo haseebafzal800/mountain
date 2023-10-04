@@ -1,0 +1,251 @@
+<header class="header" id="header">
+  {% if section.settings.message == true %}
+    <div class="topbar" id="topbar">
+        <div class="vessel">
+            <p style="background-color: {{ section.settings.color_bg }}; color: {{ section.settings.color_text }};" class="text-align-center text-light fw-500 text-uppercase neufreit">{{ section.settings.message_text }}</p>
+        </div>
+    </div>
+  {% endif %}
+    <div class="main-header position-relative">
+        <div class="vessel .vessel-header">
+            <div class="header-wrap d-flex justify-content-between align-columns-center">
+                <div class="logo-h">
+                    <h1 class="margin-0">
+                     {% if section.settings.logo %} 
+                      {%- assign img_url = section.settings.logo | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+                        <a href="/" itemprop="url">
+                           {% capture logo_alt %}{{ section.settings.logo.alt | default: shop.name }}{% endcapture %}
+                             <img class="lazyload js"
+                               src="{{ section.settings.logo | img_url: '300x300' }}"
+                               data-src="{{ img_url }}"
+                               data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
+                               data-aspectratio="{{ section.settings.logo.aspect_ratio }}"
+                               data-sizes="auto"
+                               alt="{{ logo_alt | escape }}">
+                        </a>
+                         {% else %}
+                        <a class="site-header__logo-link" href="/" itemprop="url">{{ shop.name }}</a>
+                      {% endif %}
+                    </h1>
+                </div>
+
+
+<!--               desktop nav -->
+              {% assign mhb = false %}
+                <div class="nav-menu d-none d-lg-block large-mega">
+                      <ul class="d-lg-flex">
+                           {% for link in linklists[section.settings.main_linklist].links %}
+          <li><a href="{{ link.url }}"> {{ link.title }}</a>
+                               {%- if link.links != blank -%}
+                              <div class="column-12 mega-mobile seceond-l desktop-mega d-none d-lg-flex more-nav-l">
+                                <div class="queue  w-100 vessel vessel-header2 mx-auto">
+                                    <div class="column-8 column-xl-7">
+                                        <div class="queue flex-column">
+                                  
+<!--                                       order-{{ child_link.links.size }}  -->
+                                  {%- for child_link in link.links -%}  
+                                     <div class="column-3 w-auto ">
+                                                <ul class="megalist">
+                                                      <li><a href="{{ child_link.url }}"> {{ child_link.title }}</a></li>
+                                                   {%- if child_link.links != blank -%}
+                                                      {%- for grandchild_link in child_link.links -%}                                                      
+                                                        {% assign chint = chint | plus: 1 %}                                                       
+                                                          <li><a href="{{ grandchild_link.url }}"> {{ grandchild_link.title }}</a></li>
+                                                      {%- endfor -%}  
+                                                
+                                                   {%- endif  -%}   
+                                                </ul>
+                                     </div>
+
+                                  {%  endfor  %} 
+                                  </div>
+<!--                                        {% if hello == 3 %} 
+                                                            {% assign mhb = true %} 
+                                                      {% endif %}
+                                        {% assign hello = forloop.length %}    -->
+                                 </div>
+                                  <div class="column-4 column-xl-5">
+                                        <div class="queue">
+                                            <div class="column-12 column-sm-6">
+                                                 <a href="https://www.mountaintimesoap.com/collections/shop-by-scent"><div class="img-wrap">
+                                                    <img src="https://cdn.shopify.com/s/files/1/2458/1997/files/ElevateMt._Elbert.png?v=1659705697"
+                                                        alt="">
+                                                </div></a>
+                                                <a href="https://www.mountaintimesoap.com/collections/shop-by-scent">SHOP BY SCENT</a>
+                                            </div>
+                                            <div class="column-12 column-sm-6">
+                                   <a href="https://www.mountaintimesoap.com/collections/shop-by-texture">
+                                                <div class="img-wrap">
+                                                    <img src="https://cdn.shopify.com/s/files/1/2458/1997/files/Mask_Group_104.png?v=1659705697"
+                                                        alt="">
+                                                </div>
+                                   </a>
+                                                <a href="https://www.mountaintimesoap.com/collections/shop-by-texture">SHOP BY TEXTURE</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                              </div>
+                                {%- endif  -%}  
+                                 
+
+
+                           {%  endfor  %} 
+                          </li>
+                      </ul>
+                </div>
+<!-- end of desktop nav -->
+
+
+              
+                <div class="header-icons position-relative">
+                    <ul class="d-flex align-columns-center">
+ 
+                        <li>
+                          {% if shop.customer_accounts_enabled %}
+                            {% if customer %}
+                              <a href="/account">
+                                {% include 'icon-login' %}
+                                <span class="icon__fallback-text">{{ 'layout.customer.account' | t }}</span>
+                              </a>
+                            {% else %}
+                              <a href="/account/login">
+                                <i class="fa-solid fa-user"></i>
+                                <span class="icon__fallback-text">{{ 'layout.customer.log_in' | t }}</span>
+                              </a>
+                            {% endif %}
+                          {% endif %}
+                        </li>
+                        <li><button><i class="fa fa-search"></i></button></li>
+                        <li>
+                            <a href="/cart">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                            <span class="visually-hidden">{{ 'layout.cart.title' | t }}</span>
+                            <span class="icon__fallback-text">{{ 'layout.cart.title' | t }}</span>
+                            {% if cart.item_count > 0 %}
+                              <div id="CartCount" class="site-header__cart-count">
+                                <span>{{ cart.item_count }}</span>
+                                <span class="icon__fallback-text medium-up--hide">{{ 'layout.cart.items_count' | t: count: cart.item_count }}</span>
+                              </div>
+                            {% endif %}
+                          </a>
+                        </li>
+                        <li class="d-lg-none">
+                            <button class="btn-nav position-relative">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+
+<!--   mobile nav -->
+           <div class="mob-header d-lg-none">
+            <ul class="first-l"> 
+                   {% for link in linklists[section.settings.main_linklist].links %}
+                       <li><a href="{%- if link.links != blank -%} # {%- else  -%} {{ link.url }} {%- endif  -%}">{{ link.title }} {%- if link.links != blank -%} <i class="fa-solid fa-angle-down"></i>{%- endif  -%}</a>
+                           {%- if link.links != blank -%}
+                               <ul class="mega-mobile seceond-l">
+                                     {%- for child_link in link.links -%}
+                                        <li><a href="{%- if child_link.links != blank -%} # {%- else  -%} {{ child_link.url }} {%- endif  -%}">{{ child_link.title }} {%- if child_link.links != blank -%} <i class="fa-solid fa-angle-down"></i>{%- endif  -%}</a>
+                                         {%- if child_link.links != blank -%}
+                                            <ul class="third-l">
+                                                      {%- for grandchild_link in child_link.links -%}
+                                                          <li><a href="{%- if grandchild_link.links != blank -%} # {%- else  -%} {{ grandchild_link.url }} {%- endif  -%}">{{ grandchild_link.title }} {%- if grandchild_link.links != blank -%} <i class="fa-solid fa-angle-down"></i>{%- endif  -%}</a></li>
+                                                      
+                                                        {%- endfor -%} 
+                                            </ul>
+                                                   {%- endif  -%} 
+                                        </li>
+                                      {%- endfor -%} 
+                               </ul>
+                             
+                          {%- endif  -%}
+                         
+                       </li>
+              
+                   {% endfor  %} 
+                     
+            </ul> 
+        </div>
+<!--     end of mobile nav -->
+
+                
+        <div class="search-show" id="search-page">
+            <div class="vessel vessel-header position-relative height-100">
+                <div class="search-wrap">
+                    <div class="search-close">
+                        <i class="fa-solid fa-times"></i>
+                    </div>
+                    <div class="search-form">
+                        <form action="/search" method="get" role="search" class="position-relative">
+                            <input type="text" placeholder="Search" type="search" name="q" aria-label="{{ 'general.search.placeholder' | t }}">
+                            <button type="submit"><i class="fa-solid fa-search"></i></button>
+                        </form> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+{% schema %}
+  {
+    "name": "Header-New",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Announcement bar"
+      },
+      {
+        "type": "checkbox",
+        "id": "message",
+        "label": "Show announcement",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "message_text",
+        "label": "Announcement text",
+        "default": "Announce something here"
+      },
+      {
+        "type": "color",
+        "id": "color_bg",
+        "label": "Bar",
+        "default": "#3a592d"
+      },
+      {
+        "type": "color",
+        "id": "color_text",
+        "label": "Text",
+        "default": "#fff"
+      },
+      {
+        "type": "image_picker",
+        "id": "logo",
+        "label": "Logo image"
+      },
+      {
+        "type": "link_list",
+        "id": "main_linklist",
+        "label": "Menu",
+        "default": "main-menu"
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

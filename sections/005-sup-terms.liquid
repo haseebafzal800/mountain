@@ -1,0 +1,41 @@
+<div id="em-terms" class="em-support-03 custom-space overflow-hidden">
+    <div class="vessel">
+        <div class="queue">
+            <div class="column-12">
+                <div class="content-container margin-bottom">
+                    <h2>{{ section.settings.title }}</h2>
+                </div>
+                <div class="cc-container">
+                    <p>{{ section.settings.desc }}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% schema %}
+{
+"name": "005-sup-terms",
+"settings": [
+{
+"type": "textarea",
+"id": "title",
+"label": "title",
+"default": "Terms & Conditions"
+},
+{
+"type": "textarea",
+"id": "desc",
+"label": "description"
+}
+],
+"blocks": [
+],
+"presets": [
+{
+"name": "005-sup-terms",
+"category": "custom"
+}
+]
+}
+{% endschema %}

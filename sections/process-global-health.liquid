@@ -1,0 +1,97 @@
+{% if section.settings.enable_section == true %}
+<div class="global-health custom-space" style="background-image:url({{ section.settings.image | img_url:'2000x' }})">
+    <div class="vessel">
+        <div class="global-health-vessel">
+            {% if section.settings.title != blank %}
+              <h2 class="text-light text-align-center">{{ section.settings.title }}</h2>
+            {% endif %}
+            <ul class="queue">
+              {% for block in section.blocks %}
+                {% assign count = forloop.index %}
+                  <li class="column-12 column-sm-12 column-md-12 column-lg-4 margin-bottom">
+                    <div class="health-wrap0 d-flex flex-columns">
+                        <div class="health-details text-align-center d-flex flex-columns justify-content-between f-grow-1">
+                            {% if block.settings.title != blank %}
+                              <strong class="health-name text-light d-block ethos-h">{{ block.settings.title | escape }}</strong>
+                            {% endif %}
+                            {% if block.settings.sub_text != blank %}
+                              <span class="sub-text text-light text-uppercase d-block neufreit">{{ block.settings.sub_text | escape }}</span>
+                            {% endif %}
+                            {% if block.settings.text != blank %}
+                              <span class="text_box text-light d-block neufreit">{{ block.settings.text | escape }}</span>
+                            {% endif %}
+                        </div>
+                    </div>
+                  </li>
+              {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+{% schema %}
+  {
+    "name": "Global Health",
+    "class": "global_health",
+    "max_blocks": 3,
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "enable_section",
+        "label": "Enable?",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading"
+      },
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "text",
+        "name": "Text Block",
+        "settings": [
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Heading"
+          },
+          {
+            "type": "text",
+            "id": "sub_text",
+            "label": "Sub Heading"
+          },
+          {
+            "type": "textarea",
+            "id": "text",
+            "label": "Text"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Global Health",
+        "category": "Text",
+        "blocks": [
+          {
+            "type": "text"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

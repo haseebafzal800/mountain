@@ -1,0 +1,105 @@
+
+{% assign article = articles[section.settings.article.handle] %}
+
+{% if article %}
+
+<div class="main-banner em-story-01 black-layer position-relative" style="background-image: url('{{ article.image.src | img_url: 'master'}}');">
+            <div class="vessel">
+                <div class="content-banner text-align-center">
+                    <strong class="neufreit text-light">{{ article.published_at | time_tag: format: 'month_day_year' }}</strong>
+                    <h2 class="text-light" style="font-size: 52px;">
+                       {{ article.title }}
+                    </h2>
+                    <p class="text-light" style="font-size: 20px;">{{ article.excerpt }}</p>
+                    <a href="{{ article.url }}" class="btn btn-primary neufreit" style="font-size: 18px;">Read the blog post</a>
+                </div>
+            </div>
+        </div>
+
+{% endif %}
+
+{% paginate blog.articles by 3 %}
+<div class="soap-shop story-soap-shop custom-space without-bg-soap">
+            <div class="vessel">
+                <h2 class="text-align-center ">The Mountain Time Blog</h2>
+                <ul class="queue">
+                
+                    {% for article in blog.articles %}
+                    <li class="column-12 column-sm-6 column-md-4 margin-bottom {{ forloop.index | divided_by: 3 }}">
+                        <div class="product-wrap0 d-flex flex-columns">
+                            <div class="img-wrap">
+                                <img src="{{ article.image.src | img_url: 'master'}}" alt="img">
+                            </div>
+                            <div class="product-details text-align-center d-flex flex-columns justify-content-between f-grow-1">
+                                <div class="pd-em">
+                                    <strong class="product-name text-green d-block ethos-h">
+                                       {{ article.title }}
+                                    </strong>
+                                    <p>{{ article.excerpt }}</p> 
+                                </div>
+                                <a href="{{ article.url }}" class="btn btn-product w-100 text-light">Read the blog post</a>
+                            </div>
+                        </div>
+                    </li>
+                  {% endfor %}
+                   
+                </ul> 
+                       
+               
+            </div>
+        </div>
+
+
+  {% if paginate.pages > 1 %}
+    <div class="pagination-container">
+          {% comment %}{% include 'pagination' %}{% endcomment %}
+          <div id="pagination">
+            {{ paginate | default_pagination: next: '<i class="fa-solid fa-angle-right"></i>', previous: '<i class="fa-solid fa-angle-left"></i>' }}
+          </div>
+        
+        </div>
+  {% endif %}
+
+
+{% endpaginate %}
+
+{% schema %}
+  {
+    "name": "Blog pages",
+    "settings": [
+      {
+        "type": "select",
+        "id": "layout",
+        "label": "Layout",
+        "default": "list",
+        "options": [
+          {
+            "value": "grid",
+            "label": "Grid"
+          },
+          {
+            "value": "list",
+            "label": "List"
+          }
+        ]
+      },
+     {
+      "type": "article",
+      "id": "article",
+      "label": "Featured Blog Article"
+    },
+      {
+        "type": "checkbox",
+        "id": "blog_show_author",
+        "label": "Show author",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "blog_show_date",
+        "label": "Show date",
+        "default": true
+      }
+    ]
+  }
+{% endschema %}

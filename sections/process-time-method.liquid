@@ -1,0 +1,120 @@
+{% if section.settings.enable_section == true %}
+<div class="time-method-head custom-space" style="background-color:#D9F3FF">
+  <div class="vessel">
+      <div class="time-vessel">
+          {% if section.settings.title != blank %}
+            <h2 class="text-align-center">{{ section.settings.title }}</h2>
+          {% endif %}
+      </div>
+  </div>
+</div>
+<div class="time-method custom-space">
+    {% if section.settings.image_sp != blank %}
+      <div class="time-method time-method_wrap">
+        <div class="image_spacer"><img src="{{ section.settings.image_sp | img_url: '2000x' }}"></div>
+        <div class="time-vessel">
+            <div class="queue">
+                <div class="column-12 column-md-12 ">
+                    <ul class="time-list d-flex">
+                        {% for block in section.blocks %}
+                          {% assign indx = forloop.index %}
+                          {% if block.settings.title != blank %}
+                          <li data-id="#method_{{ indx }}">
+                            <span class="number_count">#{{ indx }}</span>
+                            <strong>{{ block.settings.title }}</strong>
+                          </li>
+                          {% endif %}
+                          
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+      </div>
+    {% endif %}
+    <div class="vessel">
+        <div class="time-vessel">
+            <div class="queue">
+                <div class="column-12 column-md-12 ">
+                    <ul class="time-detail height-100 d-flex flex-columns">
+                        {% for block in section.blocks %}
+                          {% assign indx = forloop.index %}
+                          {% if block.settings.title != blank %}
+                          <li id="method_{{ indx }}">
+                            <strong>STEP 0{{ indx }}: {{ block.settings.title }}</strong>
+                            {% if block.settings.text != blank %}
+                              <P>{{ block.settings.text }}</P>
+                            {% endif %}
+                          </li>
+                          {% endif %}
+                          
+                        {% endfor %}
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+{% schema %}
+  {
+    "name": "Time Method",
+    "class": "time_method",
+    "max_blocks": 9,
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "enable_section",
+        "label": "Enable?",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading"
+      },
+      {
+        "type": "image_picker",
+        "id": "image_sp",
+        "label": "Image"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "text",
+        "name": "Text Block",
+        "settings": [
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Heading"
+          },
+          {
+            "type": "textarea",
+            "id": "text",
+            "label": "Text"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Time Method",
+        "category": "Text",
+        "blocks": [
+          {
+            "type": "text"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}
